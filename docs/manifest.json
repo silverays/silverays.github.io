@@ -1,0 +1,25 @@
+{
+  "name": "Zetmel AI Knowledge Pack",
+  "subject": "Safraz Razik and Zetmel",
+  "generated_date": "2026-07-11",
+  "primary_context_file": "00-MASTER-CONTEXT.md",
+  "agent_instruction_file": "01-AI-SITE-INSTRUCTIONS.md",
+  "verification_file": "90-VERIFY-BEFORE-PUBLISHING.md",
+  "files": [
+    "README.md",
+    "00-MASTER-CONTEXT.md",
+    "01-AI-SITE-INSTRUCTIONS.md",
+    "02-SAFRAZ-PROFILE.md",
+    "03-ZETMEL-BRAND.md",
+    "04-CAREER-TIMELINE.md",
+    "05-PROJECTS-AND-PROOF.md",
+    "06-SKILLS-AND-CAPABILITIES.md",
+    "07-AI-JOURNEY.md",
+    "08-WEBSITE-COPY-BANK.md",
+    "09-SITE-ARCHITECTURE.md",
+    "10-BRAND-VOICE-AND-SEO.md",
+    "11-IMAGE-DIRECTION.md",
+    "90-VERIFY-BEFORE-PUBLISHING.md",
+    "99-SOURCES.md"
+  ]
+}
