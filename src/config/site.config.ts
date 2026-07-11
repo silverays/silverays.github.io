@@ -240,33 +240,30 @@ export interface SiteConfig {
 }
 
 const siteConfig: SiteConfig = {
-  name: 'Astro Rocket',
+  name: 'Safraz Razik',
   description:
-    'Astro Rocket — A free, open-source Astro 7 theme: a complete component library for building beautiful websites, with 12 colour themes, 57+ components, built-in i18n, and dark mode.',
-  url: SITE_URL || 'https://astrorocket.dev',
+    'AI-accelerated software engineering by Safraz Razik. 15+ years of full-stack development, project leadership, and startup co-founding.',
+  url: SITE_URL || 'https://zetmel.com',
   ogImage: '/og-default.svg',
-  author: 'Hans Martens',
-  email: 'hello@hansmartens.dev',
+  author: 'Safraz Razik',
+  email: 'safrazik@zetmel.com',
   address: {
     street: '',
-    city: 'Amsterdam',
+    city: 'Colombo',
     state: '',
     zip: '',
-    country: 'the Netherlands',
+    country: 'Sri Lanka',
   },
   socialLinks: [
-    'https://github.com/hansmartensdev',
-    'https://x.com/hansmartens_dev',
-    'https://www.linkedin.com',
-    'https://bsky.app/profile/hansmartensdev.bsky.social',
+    'https://github.com/safrazik',
+    'https://linkedin.com/in/safrazik',
   ],
   header: {
-    // Flip to `true` to show the social icons (incl. GitHub) in the header.
     showSocialLinks: false,
   },
   twitter: {
-    site: 'https://x.com/hansmartens_dev',
-    creator: '@hansmartens_dev',
+    site: 'https://zetmel.com',
+    creator: '@safrazik',
   },
   verification: {
     google: GOOGLE_SITE_VERIFICATION,
@@ -287,46 +284,6 @@ const siteConfig: SiteConfig = {
     },
     comments: {
       enabled: false,
-      provider: 'giscus',
-      giscus: {
-        repo: 'owner/repo',
-        repoId: '',
-        category: 'General',
-        categoryId: '',
-        mapping: 'pathname',
-        strict: false,
-        reactionsEnabled: true,
-        emitMetadata: false,
-        inputPosition: 'bottom',
-        // Empty → follow the site's light/dark mode and current locale.
-        theme: '',
-        lang: '',
-      },
-      // Used when provider is 'cusdis'. Get your App ID from the Cusdis
-      // dashboard (Embed Code); `host` defaults to the hosted service.
-      cusdis: {
-        appId: '',
-        host: 'https://cusdis.com',
-        // Empty → follow the site's light/dark mode and current locale.
-        theme: '',
-        lang: '',
-      },
-      // Used when provider is 'artalk'. Point `server` at your own Artalk
-      // service — use an https:// address in production (a plain http:// URL
-      // is blocked as mixed content on an https site and is open to
-      // tampering). Comments render only once both `server` and `site` are set.
-      artalk: {
-        server: '',
-        // The Artalk "site" name you configured in the Artalk dashboard
-        // (used for multi-site isolation).
-        site: '',
-        // Optional: override the client asset URLs when needed.
-        // jsUrl: 'https://cdn.example.com/artalk/Artalk.js',
-        // cssUrl: 'https://cdn.example.com/artalk/Artalk.css',
-        // Leave undefined → follow the site's light/dark mode and locale.
-        // darkMode: 'auto',
-        // locale: 'en',
-      },
     },
   },
   blog: {
@@ -340,15 +297,14 @@ const siteConfig: SiteConfig = {
   i18n: i18nConfig,
   branding: {
     logo: {
-      alt: 'Astro Rocket',
-      // image: '/logo.svg', // Optional: set to a file in public/ to use a custom logo image instead of the letter monogram.
+      alt: 'Safraz Razik',
       imageUrl: '/favicon.svg',
     },
     favicon: {
       svg: '/favicon.svg',
     },
     colors: {
-      themeColor: '#6b65ff',
+      themeColor: '#2e73bb',
       backgroundColor: '#ffffff',
     },
   },

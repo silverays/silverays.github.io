@@ -1,0 +1,28 @@
+---
+title: "POS System"
+description: A point-of-sale system deployed across 20+ businesses in Sri Lanka, handling inventory, billing, and credit payments.
+locale: en
+tags: ["PHP", "Laravel", "MySQL", "JavaScript"]
+featured: false
+order: 4
+year: 2017
+role: "Co-founder & CTO"
+services: ["Product Development", "Enterprise"]
+meta: ["20+ businesses", "Offline-first"]
+---
+
+A POS system built for small and medium businesses in Sri Lanka, designed to work reliably even with unreliable internet connectivity.
+
+## Architecture
+
+The system used a local-first architecture: each installation ran a local server with a web-based POS interface. Transactions were stored locally and synced to a central server when connectivity was available.
+
+Key technical decisions:
+
+- **Offline-first** — all critical operations worked without internet
+- **Queue-based sync** — transactions queued locally
+- **Credit management** — built-in support for credit customers
+
+## Challenges
+
+The offline sync mechanism was the hardest technical problem. We implemented a last-write-wins strategy with manual reconciliation for edge cases.

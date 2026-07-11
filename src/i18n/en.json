@@ -15,15 +15,15 @@
     "items": {
       "home": "Home",
       "services": "Services",
-      "projects": "Projects",
-      "blog": "Blog",
+      "projects": "Work",
+      "blog": "Writing",
       "about": "About",
       "contact": "Contact"
     }
   },
   "common": {
     "readMore": "Read more",
-    "loading": "Loading…",
+    "loading": "Loading\u2026",
     "backToTop": "Back to top",
     "search": "Search",
     "submit": "Submit",
@@ -33,8 +33,8 @@
     "home": "Home"
   },
   "blog": {
-    "title": "Blog",
-    "description": "Latest articles and updates",
+    "title": "Writing",
+    "description": "Latest articles",
     "readingTime": "{minutes} min read",
     "publishedOn": "Published on {date}",
     "updatedOn": "Updated on {date}",
@@ -49,28 +49,28 @@
     "share": "Share:",
     "shareOn": "Share on {platform}",
     "copyLink": "Copy link",
-    "metaTitle": "Blog",
-    "metaDescription": "Articles on web design, development, and the web by Astro Rocket.",
-    "heroBadge": "All posts",
-    "heroDescription": "Articles on Astro, web performance, design systems, and building with Astro Rocket.",
-    "allPosts": "All posts",
-    "noPosts": "No posts found",
-    "pageMetaTitle": "Blog — Page {page}",
-    "pageMetaDescription": "Page {page} of {total} — articles on Astro, web performance, design, and the web.",
+    "metaTitle": "Writing \u2014 Safraz Razik",
+    "metaDescription": "Articles on AI-accelerated engineering, full-stack development, and open-source by Safraz Razik.",
+    "heroBadge": "All articles",
+    "heroDescription": "Thoughts on AI-accelerated engineering, model evaluation, and development workflows.",
+    "allPosts": "All articles",
+    "noPosts": "No articles found",
+    "pageMetaTitle": "Writing \u2014 Page {page}",
+    "pageMetaDescription": "Page {page} of {total} \u2014 articles by Safraz Razik.",
     "pageBadge": "Page {page} of {total}",
-    "newestPosts": "Newest posts",
-    "tagMetaTitle": "#{tag} — Blog",
-    "tagMetaDescription": "Posts tagged \"{tag}\".",
+    "newestPosts": "Newest articles",
+    "tagMetaTitle": "#{tag} \u2014 Writing",
+    "tagMetaDescription": "Articles tagged \"{tag}\".",
     "tagBadge": "Tag",
-    "tagCountOne": "{count} post tagged \"{tag}\".",
-    "tagCountOther": "{count} posts tagged \"{tag}\".",
-    "tagEmpty": "No posts found for this tag.",
-    "tagBackToAll": "Back to all posts",
+    "tagCountOne": "{count} article tagged \"{tag}\".",
+    "tagCountOther": "{count} articles tagged \"{tag}\".",
+    "tagEmpty": "No articles found for this tag.",
+    "tagBackToAll": "Back to all articles",
     "onThisPage": "On this page",
-    "backToBlog": "Back to Blog",
+    "backToBlog": "Back to Writing",
     "updated": "Updated",
     "followAlong": "Follow along",
-    "followAlongLead": "Stay in the loop — new articles, thoughts, and updates.",
+    "followAlongLead": "Stay in the loop \u2014 new articles, thoughts, and updates.",
     "rssFeed": "RSS Feed",
     "emailLabel": "Email"
   },
@@ -80,27 +80,27 @@
     "requiresJs": "Comments require JavaScript to load."
   },
   "projects": {
-    "title": "Projects",
-    "description": "Things I've built",
-    "viewProject": "View project",
+    "title": "Work",
+    "description": "Selected case studies",
+    "viewProject": "View case study",
     "viewSource": "View source",
     "noProjectsFound": "No projects found.",
-    "metaTitle": "Projects",
-    "metaDescription": "Selected work — websites, tools, and open-source projects built by Astro Rocket.",
+    "metaTitle": "Work \u2014 Safraz Razik",
+    "metaDescription": "Selected case studies spanning enterprise platforms, open-source tools, and startup products by Safraz Razik.",
     "heroBadge": "Selected work",
-    "heroDescription": "Work I'm most proud of.",
+    "heroDescription": "Case studies spanning enterprise platforms, open-source tools, and startup products.",
     "allProjects": "All projects",
-    "pageMetaTitle": "Projects — Page {page}",
-    "pageMetaDescription": "Page {page} of {total} — selected work, tools, and open-source projects by Astro Rocket.",
+    "pageMetaTitle": "Work \u2014 Page {page}",
+    "pageMetaDescription": "Page {page} of {total} \u2014 selected work by Safraz Razik.",
     "pageBadge": "Page {page} of {total}",
-    "tagMetaTitle": "#{tag} — Projects",
+    "tagMetaTitle": "#{tag} \u2014 Work",
     "tagMetaDescription": "Projects tagged \"{tag}\".",
     "tagBadge": "Tag",
     "tagCountOne": "{count} project tagged \"{tag}\".",
     "tagCountOther": "{count} projects tagged \"{tag}\".",
     "tagEmpty": "No projects found for this tag.",
     "tagBackToAll": "Back to all projects",
-    "backToProjects": "Back to Projects",
+    "backToProjects": "Back to Work",
     "moreProjects": "More projects",
     "ctaBadge": "Let's talk",
     "ctaHeading": "Want something like this?",
@@ -108,7 +108,7 @@
     "ctaPrimary": "Start a project",
     "ctaSecondary": "More about me",
     "closingHeading": "Have a project in mind?",
-    "closingLead": "Whether it's a new build or something that needs a fresh perspective — I'd love to hear about it."
+    "closingLead": "Whether it's a new build or something that needs a fresh perspective \u2014 I'd love to hear about it."
   },
   "pagination": {
     "page": "Page {current} of {total}",
@@ -121,16 +121,16 @@
     "pageNotFoundMessage": "The page you're looking for doesn't exist or has moved.",
     "goHome": "Go to homepage",
     "metaTitle": "Page not found",
-    "metaDescription": "This page has moved, been removed, or never existed in the first place.",
-    "badge": "404 — page not found",
+    "metaDescription": "This page has moved, been removed, or never existed.",
+    "badge": "404 \u2014 page not found",
     "titleLead": "Page not",
     "titleHighlight": "found.",
-    "description": "This page has moved, been removed, or never existed in the first place. Let's get you back on track.",
+    "description": "This page has moved, been removed, or never existed. Let's get you back on track.",
     "backHome": "Back to home",
     "browseBlog": "Browse the blog",
     "tryInstead": "Try one of these instead",
     "projectsDesc": "Selected work and case studies.",
-    "blogDesc": "Notes on design, code, and the craft.",
+    "blogDesc": "Notes on AI, code, and the craft.",
     "contactTitle": "Contact",
     "contactDesc": "Start a conversation about your project."
   },
@@ -139,7 +139,7 @@
     "description": "Get the latest posts in your inbox.",
     "emailPlaceholder": "Enter your email",
     "subscribe": "Subscribe",
-    "subscribing": "Subscribing…",
+    "subscribing": "Subscribing\u2026",
     "success": "Thanks for subscribing!",
     "genericError": "Something went wrong",
     "error": "Subscription failed. Please try again."
@@ -151,7 +151,7 @@
     "subject": "Subject",
     "message": "Message",
     "send": "Send message",
-    "sending": "Sending…",
+    "sending": "Sending\u2026",
     "success": "Message sent successfully!",
     "genericError": "Something went wrong",
     "error": "Failed to send message. Please try again."
@@ -169,185 +169,178 @@
     "swatchLabel": "{name} theme"
   },
   "search": {
-    "placeholder": "Search posts, projects, and pages…",
+    "placeholder": "Search posts, projects, and pages\u2026",
     "inputLabel": "Search query",
     "resultsLabel": "Search results",
     "hint": "Start typing to search the site.",
-    "noResults": "No results for “{query}”",
-    "unavailable": "The search index is generated at build time and isn’t available in <code class=\"rounded bg-secondary px-1.5 py-0.5 text-xs\">astro dev</code>.<br />Run <code class=\"rounded bg-secondary px-1.5 py-0.5 text-xs\">pnpm build &amp;&amp; pnpm preview</code> to try it locally."
+    "noResults": "No results for \u201c{query}\u201d",
+    "unavailable": "The search index is generated at build time and isn't available in development mode."
   },
   "video": {
     "playLabel": "Play video: {title}",
     "watchOn": "Watch on YouTube"
   },
   "footer": {
-    "copyright": "© {year} {siteName}. All rights reserved.",
+    "copyright": "\u00a9 {year} {siteName}. All rights reserved.",
     "builtWith": "Built with Astro Rocket",
-    "followOn": "Follow us on {platform}"
+    "followOn": "Follow on {platform}"
   },
   "pages": {
     "about": {
       "meta": {
-        "title": "About — Free Open-Source Astro 7 Theme",
-        "description": "Astro Rocket is a free, open-source Astro 7 theme built around a complete component library: 57 designed components, 12 colour themes, built-in i18n, and dark mode."
+        "title": "About \u2014 Safraz Razik",
+        "description": "AI-accelerated software engineering by Safraz Razik. 15+ years of full-stack development and startup co-founding."
       },
       "hero": {
         "badge": "About",
-        "titleLead": "Astro Rocket —",
-        "typingWords": ["Astro 7 Theme", "Component Library", "12 Themes", "57+ Components", "Dark Mode", "Built-in i18n", "Zero Config SEO"],
-        "description": "A free, open-source Astro 7 theme — a complete component library for building beautiful websites, without starting from zero."
+        "titleLead": "Safraz Razik \u2014",
+        "typingWords": ["AI-Accelerated Engineering", "15+ Years Experience", "Full-Stack Developer", "Open Source Creator", "Startup Founder"],
+        "description": "Founder of Zetmel, an AI-accelerated software engineering studio. 15+ years of full-stack development, project leadership, and startup co-founding."
       },
       "intro": {
-        "badge": "Free & Open Source",
-        "heading": "A solid foundation for any project",
+        "badge": "Background",
+        "heading": "Engineering with AI acceleration",
         "paragraphs": [
-          "Astro Rocket is a free, open-source theme built on Astro 7, designed around a complete component library: 57 designed components, 12 hand-crafted colour themes, dark mode, built-in i18n, and a blog — so you can build a beautiful website instead of boilerplate.",
-          "It's free, MIT licensed, and listed on the official Astro themes directory. Clone it, customise it, and ship something you're proud of."
+          "I'm Safraz Razik \u2014 founder of Zetmel, an AI-accelerated software engineering studio. I'm a software professional with 15+ years in full-stack development, project leadership, and startup co-founding.",
+          "My expertise spans modern JavaScript frameworks (React, Vue, TypeScript, Next.js), backend systems (Node.js, PHP, Python), and enterprise platforms like Oracle Commerce Cloud and Oracle Storefront Framework.",
+          "What sets my work apart today is the integration of AI into the engineering process. I run local LLM environments (Ollama, OpenCode, Claude Code), evaluate coding models (Qwen, Llama, DeepSeek) for code quality and task fit, and use structured prompting and context-management workflows."
         ],
         "facts": [
-          { "icon": "rocket", "title": "Astro 7", "description": "Built on the latest Astro release." },
-          { "icon": "layout", "title": "12 themes", "description": "Switch themes with one line." },
-          { "icon": "code-2", "title": "57+ components", "description": "Composable, production-ready." },
-          { "icon": "sparkles", "title": "Dark mode", "description": "Built in, no extra setup needed." },
-          { "icon": "award", "title": "Built-in i18n", "description": "Multi-language support out of the box." },
-          { "icon": "zap", "title": "Zero config SEO", "description": "Structured data & meta tags included." }
+          { "icon": "clock", "title": "15+ years", "description": "Of engineering experience." },
+          { "icon": "briefcase", "title": "Fortune 500", "description": "Delivered at Motorola Solutions." },
+          { "icon": "code-2", "title": "Open Source", "description": "Vue File Agent, Rockplate, and more." },
+          { "icon": "rocket", "title": "AI Workflows", "description": "Local LLMs and structured prompting." },
+          { "icon": "users", "title": "Founder", "description": "Co-founded Zetmel, Adsfly.lk, Adrotec." },
+          { "icon": "globe", "title": "Sri Lanka", "description": "Based in Colombo, working worldwide." }
         ]
       },
       "principles": {
-        "badge": "Design Principles",
-        "heading": "Built with intention",
-        "lead": "Every decision in Astro Rocket — from component structure to default config — is driven by the same three principles.",
+        "badge": "Approach",
+        "heading": "How I work",
+        "lead": "Three principles guide every project I take on.",
         "items": [
-          { "icon": "zap", "title": "Performance First", "description": "Zero JavaScript by default. Every component is optimised for speed, Core Web Vitals, and lean output." },
-          { "icon": "award", "title": "Developer Experience", "description": "TypeScript throughout, sensible defaults, and a component library you can drop straight into any page." },
-          { "icon": "rocket", "title": "Modern from the Ground Up", "description": "Astro 7, Tailwind CSS 4, and a clean architecture that's easy to extend and maintain." }
+          { "icon": "zap", "title": "Deep Experience", "description": "15+ years shipping production software across the stack \u2014 web, mobile, desktop, and enterprise. Seasoned engineering judgment to guide every project." },
+          { "icon": "sparkles", "title": "AI-Accelerated", "description": "Local LLM environments (Ollama, OpenCode, Claude Code) with structured prompting and context-management workflows. Model evaluation for code quality and task fit." },
+          { "icon": "award", "title": "Production-Ready", "description": "Technical audits, structured milestones, and recovery sprints ensure every deliverable meets production standards. No shortcuts on quality." }
         ]
       },
       "stack": {
         "badge": "Tools & Tech",
-        "title": "The Stack",
-        "description": "The technologies powering Astro Rocket — chosen for performance, great developer experience, and long-term reliability."
+        "title": "Technology Stack",
+        "description": "Technologies I work with regularly."
       },
       "faq": {
         "badge": "Good to know",
         "heading": "Frequently asked questions",
-        "lead": "Everything you need to know before getting started.",
+        "lead": "Common questions about working with me.",
         "cards": [
           {
             "icon": "rocket",
-            "title": "About Astro",
+            "title": "Working together",
             "items": [
-              { "question": "What is Astro?", "answer": "Astro is a modern web framework built for content-driven sites. It ships zero JavaScript by default — only sending what the page actually needs. The result is fast load times, excellent Core Web Vitals scores, and lean, maintainable code." },
-              { "question": "Why build with Astro?", "answer": "Astro is the right tool for content-heavy sites: minimal JavaScript, clean HTML, great SEO out of the box, and a developer experience that stays out of your way. It's lean, purposeful, and built to last." },
-              { "question": "What can I build with Astro Rocket?", "answer": "Portfolios, business sites, marketing pages, blogs, documentation sites — any content-driven project. Astro Rocket gives you the structure, components, and defaults to hit the ground running." },
-              { "question": "Is Astro Rocket listed on the official Astro themes directory?", "answer": "Yes. <a href=\"https://astro.build/themes/details/astro-rocket/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">Astro Rocket</a> is listed on the official Astro themes directory as a free, production-ready theme." },
-              { "question": "Will Astro Rocket keep up with new Astro releases?", "answer": "Yes. Astro Rocket is actively maintained and updated to track new Astro releases. Follow along on the blog or watch the GitHub repository for updates." }
+              { "question": "What types of projects do you take on?", "answer": "I build web applications, mobile apps, developer tools, and enterprise solutions. Recent work includes B2B commerce platforms, open-source libraries, and AI-accelerated development workflows." },
+              { "question": "How does AI fit into your workflow?", "answer": "I use local LLM environments (Ollama, OpenCode) for research, architecture, implementation, debugging, code review, and technical auditing. Every AI-generated change goes through a structured review before reaching production." },
+              { "question": "What's your experience with enterprise platforms?", "answer": "I spent 4+ years at Motorola Solutions as a Senior Frontend Engineer, leading the transition from legacy Oracle Commerce Cloud to a React-based Oracle Storefront Framework." }
             ]
           },
           {
             "icon": "code-2",
-            "title": "Using the theme",
+            "title": "Open source",
             "items": [
-              { "question": "Is it free to use?", "answer": "Yes, completely free. Astro Rocket is MIT licensed — use it for personal and commercial projects, no attribution required." },
-              { "question": "How do I switch themes?", "answer": "Change a single line in your config. Astro Rocket ships with 12 hand-crafted colour themes — swap between them instantly without touching a line of CSS." },
-              { "question": "Does it support TypeScript?", "answer": "Yes, TypeScript is used throughout. All components, configs, and utilities are fully typed." },
-              { "question": "How do I add my own language for i18n?", "answer": "Astro Rocket's i18n is config-driven. Add your locale to the i18n config file, create a matching translation file, and the routing and UI adapt automatically." },
-              { "question": "Where do I report bugs or suggest features?", "answer": "Open an issue or start a discussion on the <a href=\"https://github.com/hansmartensdev/astro-rocket\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">GitHub repository</a>. Contributions and feedback are always welcome." }
+              { "question": "What open-source tools have you built?", "answer": "I created Vue File Agent (a Vue.js file upload component) and Rockplate (a JavaScript template engine). Both are available on GitHub." },
+              { "question": "Do you contribute to open source?", "answer": "Yes. Beyond my own projects, I contribute to libraries and tools I use in production. Open source is a core part of how I learn and give back to the community." }
             ]
           }
         ]
       },
       "openSource": {
         "badge": "Open Source",
-        "heading": "Built in the open",
-        "description": "Astro Rocket is free, open source, and MIT licensed. Browse the source, open issues, submit PRs, or just clone it and build something great.",
+        "heading": "Tools I've built",
+        "description": "Libraries and components released to the developer community.",
         "button": "View on GitHub",
         "cards": [
-          { "title": "Made by Hans Martens", "text": "Astro Rocket was designed and built by <a href=\"https://hansmartens.dev\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">Hans Martens</a> — a web designer and developer who uses it as the foundation for client projects." },
-          { "title": "MIT License", "text": "Free to use in personal and commercial projects. No attribution required, though a star on GitHub is always appreciated." },
-          { "title": "Actively maintained", "text": "The theme is kept up to date with new Astro releases and regularly improved based on community feedback." }
+          { "title": "Vue File Agent", "text": "A feature-rich Vue.js file upload component with drag-and-drop, multi-file support, and image previews. <a href=\"https://github.com/safrazik/vue-file-agent\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">View on GitHub</a>" },
+          { "title": "Rockplate", "text": "A lightweight JavaScript template engine for Node.js and the browser, focused on simplicity and performance. <a href=\"https://github.com/rockplate/rockplate\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">View on GitHub</a>" },
+          { "title": "More on GitHub", "text": "Browse my GitHub profile for additional projects, contributions, and experiments. <a href=\"https://github.com/safrazik\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">github.com/safrazik</a>" }
         ]
       },
       "cta": {
-        "badge": "Get started",
-        "heading": "Ready to build?",
-        "description": "Clone Astro Rocket, pick a theme, and launch your next project in minutes.",
-        "button": "Get Started"
+        "badge": "Get in touch",
+        "heading": "Have a project in mind?",
+        "description": "Whether it's a new build or something that needs a fresh perspective \u2014 I'd love to hear about it.",
+        "button": "Get in touch"
       }
     },
     "services": {
       "meta": {
-        "title": "Services — Web Design, Development & Performance",
-        "description": "Three core services for modern websites: thoughtful design, clean Astro development, and measurable performance & SEO."
+        "title": "Services \u2014 AI-Accelerated Software Engineering",
+        "description": "AI-accelerated engineering, full-stack development, and open-source tool building by Safraz Razik."
       },
-      "includedLabel": "What's included",
+      "includedLabel": "What I offer",
       "hero": {
         "badge": "Services",
-        "titleLead": "What I offer —",
-        "titleHighlight": "designed, built, and tuned.",
-        "description": "Three core services, one consistent standard. From the first wireframe to the final Lighthouse score, every project gets the same attention to detail.",
-        "jumpLabels": ["Web Design", "Development", "Performance"]
+        "titleLead": "What I do \u2014",
+        "titleHighlight": "engineered, accelerated, delivered.",
+        "description": "15+ years of engineering experience combined with AI-powered workflows. From enterprise platforms to open-source tools.",
+        "jumpLabels": ["AI Engineering", "Full-Stack Development", "Open Source"]
       },
       "design": {
-        "badge": "Web Design",
-        "heading": "Design with intention",
+        "badge": "AI-Accelerated Engineering",
+        "heading": "Senior judgment meets AI speed",
         "paragraphs": [
-          "Great design starts with the people who'll use it. I design layouts shaped around your content and your audience, not around trends that age badly. Typography, spacing, and colour are chosen for clarity — not novelty.",
-          "Every screen is considered: desktop, tablet, and the phone someone holds at the bus stop. The brand stays consistent across the whole experience, and the small details are treated as part of the design, not the polish."
+          "I combine 15+ years of engineering experience with local LLM workflows for research, architecture, implementation, debugging, code review, and technical auditing. Every AI-generated change goes through a structured review before reaching production.",
+          "I run local LLM environments (Ollama, OpenCode, Claude Code), evaluate coding models (Qwen, Llama, DeepSeek) for code quality and task fit, and use structured prompting and context-management workflows for multi-stage development."
         ],
         "included": [
-          { "lead": "Bespoke layouts", "text": "built for your content, not from a template. Every section earns its place by serving the page's goal." },
-          { "lead": "Responsive across breakpoints", "text": "phone, tablet, desktop, ultrawide. Layouts reflow with intent, not just shrink to fit." },
-          { "lead": "Typography systems", "text": "readable, scaleable, on-brand. A clear hierarchy from page title down to caption, tuned for long-form reading." },
-          { "lead": "Light & dark themes", "text": "one design, two moods, user's choice. Both modes are checked at every step, not retrofitted at the end." },
-          { "lead": "Considered motion", "text": "interactions that guide, never distract. Reduced-motion preferences are respected without exception." },
-          { "lead": "Accessibility baked in", "text": "contrast, focus, semantic structure. Keyboard paths and screen-reader output are verified before launch." }
+          { "lead": "AI-assisted architecture", "text": "LLM-powered research and design exploration, validated by senior engineering judgment before implementation begins." },
+          { "lead": "Structured prompting", "text": "Multi-stage Plan \u2192 Scaffold \u2192 Implement \u2192 Audit workflow reduces errors and produces production-quality code." },
+          { "lead": "Technical audits", "text": "Every line of AI-generated code passes a structured review: correctness, security, dependencies, and maintainability." },
+          { "lead": "Recovery sprints", "text": "When audits find systemic issues, I run focused recovery sprints to fix patterns at scale and prevent recurrence." },
+          { "lead": "Model evaluation", "text": "Open-weight models (DeepSeek, Qwen, Llama) evaluated for code quality, instruction-following, and hardware efficiency." },
+          { "lead": "Local-first AI", "text": "No cloud subscriptions, no API costs, no data leaving your machine. All workflows run on consumer hardware." }
         ],
-        "ctaLabel": "Discuss a design project"
+        "ctaLabel": "Discuss an AI engineering project"
       },
       "development": {
-        "badge": "Web Development",
-        "heading": "Code that earns its place",
+        "badge": "Full-Stack Development",
+        "heading": "Code that ships",
         "paragraphs": [
-          "I build with Astro because it ships what's needed and nothing else. The result is sites that score well in audits, feel fast in the hand, and don't grow brittle over time.",
-          "Architecture matters as much as output: typed content, predictable component boundaries, and a build pipeline a future developer (or future you) can pick up without a guided tour."
+          "I build production applications across the full stack: React, Vue, TypeScript, Next.js on the frontend; Node.js, PHP, Laravel on the backend; and enterprise platforms like Oracle Commerce Cloud.",
+          "My work spans web, mobile (React Native), and desktop (Electron) \u2014 with experience delivering at Fortune 500 scale and lean startup environments alike."
         ],
         "included": [
-          { "lead": "Astro + Tailwind", "text": "modern stack, minimal JavaScript, clean HTML. The browser renders the page almost instantly, with no hydration tax." },
-          { "lead": "Typed content collections", "text": "structured blog, projects, and data. Schema validation runs at build time, so broken content never ships." },
-          { "lead": "Forms & integrations", "text": "protected, GDPR-aware, hooked into your tools. Submissions reach your inbox or CRM without leaking client-side." },
-          { "lead": "Hosting & deploy", "text": "Netlify, Vercel, Cloudflare, or your own infra. Preview deploys for every branch, so changes can be reviewed before they go live." },
-          { "lead": "Version control & CI", "text": "git-based workflow, repeatable deploys. Automated checks gate every pull request before merge." },
-          { "lead": "Handover documentation", "text": "code, keys, and a README you can actually read. Written so a future developer (or future you) can pick the project up without a tour." }
+          { "lead": "React + TypeScript", "text": "Modern component architecture with strict typing, tested patterns, and predictable state management." },
+          { "lead": "Vue.js + Next.js", "text": "Progressive frameworks for projects that need flexibility, performance, and great developer experience." },
+          { "lead": "Node.js + PHP", "text": "Backend systems built with Express, Laravel, and Symfony \u2014 designed for maintainability and scale." },
+          { "lead": "Enterprise platforms", "text": "Oracle Commerce Cloud and Oracle Storefront Framework experience from 4+ years at Motorola Solutions." },
+          { "lead": "Mobile & Desktop", "text": "React Native for cross-platform mobile; Electron for desktop applications with web technologies." },
+          { "lead": "Database & API design", "text": "MySQL, PostgreSQL, MongoDB, SQLite \u2014 schema design, query optimisation, and REST API architecture." }
         ],
         "ctaLabel": "See recent projects"
       },
       "performance": {
-        "badge": "Performance",
-        "heading": "Fast pages, found pages",
+        "badge": "Open Source",
+        "heading": "Built in public",
         "paragraphs": [
-          "Speed and search visibility aren't features to add at the end — they're constraints to honour from the first commit. Every second a page loads costs attention, ranking, and trust.",
-          "I work to measurable targets, not vibes. Core Web Vitals, technical SEO, and accessibility are tracked, tuned, and verified before launch — and the dashboards stay yours after handover."
+          "I build and release developer tools as open source. Vue File Agent (Vue.js file upload component) and Rockplate (JavaScript template engine) are the most notable, with many smaller contributions along the way.",
+          "Open source is a core part of how I learn and give back. Every tool started from a real problem I needed to solve."
         ],
         "included": [
-          { "lead": "Core Web Vitals", "text": "LCP, INP, and CLS held to Google's thresholds. Measured on real devices, not just synthetic tests." },
-          { "lead": "Image pipeline", "text": "modern formats, responsive sizes, lazy loading. Hero images art-directed so they look right on every screen." },
-          { "lead": "Technical SEO", "text": "metadata, sitemaps, structured data, OG images. All wired up and validated before the first crawl." },
-          { "lead": "Accessibility", "text": "WCAG-aware markup and verified focus order. Tested with a screen reader and the keyboard alone, not just a contrast checker." },
-          { "lead": "Lighthouse audits", "text": "measurable scores delivered with the site. Repeatable in CI so they don't quietly drift after launch." },
-          { "lead": "Privacy-friendly analytics", "text": "useful data, no cookie banner. Self-hosted or vendor-anonymised, never sold on." }
+          { "lead": "Vue File Agent", "text": "Feature-rich Vue.js file upload component with drag-and-drop, multi-file support, and image previews. Available on GitHub." },
+          { "lead": "Rockplate", "text": "Lightweight JavaScript template engine for Node.js and the browser \u2014 zero dependencies, under 5KB." },
+          { "lead": "Community contributions", "text": "Contributions to libraries and tools I use in production. Open source is part of my daily workflow." }
         ],
-        "ctaLabel": "Start a project"
+        "ctaLabel": "View on GitHub"
       },
       "process": {
-        "badge": "How it works",
-        "heading": "A clear, honest process",
-        "lead": "Four stages, one point of contact, no surprises.",
+        "badge": "How I work",
+        "heading": "A structured approach",
+        "lead": "Four stages, clear milestones, no surprises.",
         "steps": [
-          { "title": "Discovery", "description": "A conversation about your goals, your audience, and what success looks like. No obligation." },
-          { "title": "Proposal", "description": "A clear scope, timeline, and cost. One page, plain language, fixed price." },
-          { "title": "Design & Build", "description": "Short cycles with regular check-ins. You see the site evolve as it's built." },
-          { "title": "Launch & Support", "description": "Deploy, hand over, stay available. Iteration after launch is straightforward." }
+          { "title": "Discovery", "description": "Understand the problem, constraints, and goals. AI-assisted research to explore options quickly." },
+          { "title": "Architecture", "description": "Design the solution with senior engineering judgment. LLM-assisted for rapid prototyping and exploration." },
+          { "title": "Build & Audit", "description": "Iterative development with structured prompting and technical audits at every milestone." },
+          { "title": "Deliver & Iterate", "description": "Production deployment, documentation handover, and ongoing support as needed." }
         ]
       },
       "cta": {
@@ -360,87 +353,88 @@
     },
     "contact": {
       "meta": {
-        "title": "Contact",
-        "description": "Starting something new? I design and build new websites from scratch — tell me about your project and I'll get back to you within 1 business day."
+        "title": "Contact \u2014 Safraz Razik",
+        "description": "Get in touch with Safraz Razik for AI-accelerated software engineering projects."
       },
       "hero": {
-        "badge": "Start a project",
-        "titleLead": "Tell me about your",
-        "titleHighlight": "new project",
-        "description": "I design and build new websites from scratch — every project, start to finish, by me. Share a few details below and I'll get back to you within 1 business day."
+        "badge": "Get in touch",
+        "titleLead": "Have a project",
+        "titleHighlight": "in mind?",
+        "description": "Have a project in mind or want to discuss AI-accelerated engineering? Let's talk."
       },
-      "formTitle": "Project details",
+      "formTitle": "Send a message",
       "channelsTitle": "Other channels",
       "channelsSubtitle": "Prefer a direct channel? Pick whichever works best.",
       "emailLabel": "Email",
-      "emailNote": "Drop us a line",
-      "socialNote": "Follow along",
+      "emailNote": "safrazik@zetmel.com",
+      "socialNote": "Connect on",
       "basedIn": "Based in {country}"
     },
     "home": {
       "meta": {
-        "title": "Free open-source Astro 7 theme",
-        "description": "A free, open-source Astro 7 theme: a complete component library for building beautiful websites — 12 colour themes, 57+ components, built-in i18n, and dark mode."
+        "title": "Safraz Razik \u2014 AI-Accelerated Software Engineering",
+        "description": "AI-accelerated software engineering studio by Safraz Razik. 15+ years of full-stack development, project leadership, and startup co-founding."
       },
       "hero": {
-        "badge": "Available for new projects",
-        "titleLine1": "Astro Rocket —",
-        "titleLine2": "Web Designer",
-        "titleLine3": "& Developer",
-        "description": "A free Astro 7 theme: 57+ designed components, 12 beautiful colour themes, dark mode — a complete component library to build anything on.",
-        "github": "Get it on GitHub",
-        "getStarted": "Get started"
+        "badge": "Zetmel Studio",
+        "titleLine1": "AI-Accelerated",
+        "titleLine2": "Software",
+        "titleLine3": "Engineering",
+        "description": "15+ years of engineering depth combined with LLM-powered workflows. From custom compilers to global platforms \u2014 delivered faster, without compromise.",
+        "github": "View my work",
+        "getStarted": "Get in touch"
       },
       "services": {
-        "badge": "Services",
-        "heading": "What I do",
-        "lead": "From concept to launch.",
+        "badge": "How I Work",
+        "heading": "Methodology",
+        "lead": "Senior engineering judgment meets AI acceleration.",
         "learnMore": "Learn more",
         "cards": [
-          { "icon": "layout", "title": "Web Design", "description": "Thoughtful layouts that put your content first. Designed for clarity, balance, and the way people actually read on the web." },
-          { "icon": "code", "title": "Web Development", "description": "Modern sites built with Astro and Tailwind. Lean, accessible, and ready to scale with your business — no template lock-in." },
-          { "icon": "zap", "title": "SEO & Performance", "description": "Pages that load instantly and rank well from launch. Core Web Vitals, metadata, and structured data, done properly." }
+          { "icon": "clock", "title": "Deep Experience", "description": "15+ years shipping production software across the stack \u2014 web, mobile, desktop, and enterprise. Seasoned engineering judgment to guide every project." },
+          { "icon": "sparkles", "title": "AI-Accelerated", "description": "Local LLM environments (Ollama, OpenCode, Claude Code) with structured prompting and context-management workflows. Model evaluation for code quality and task fit." },
+          { "icon": "award", "title": "Production-Ready", "description": "Technical audits, structured milestones, and recovery sprints ensure every deliverable meets production standards. No shortcuts on quality." }
         ]
       },
       "portfolio": {
         "badge": "Selected work",
         "heading": "Projects I've built",
-        "lead": "A selection of recent work.",
+        "lead": "A selection of projects spanning enterprise platforms, open-source tools, and startup products.",
         "viewAll": "View all projects"
       },
       "testimonials": {
         "badge": "Testimonials",
         "heading": "What clients say",
-        "lead": "Replace these with your own client quotes.",
+        "lead": "",
         "items": [
-          { "quote": "The new site launched on time and hit every goal we set. Performance improved dramatically — load times dropped and the feedback from our customers has been overwhelmingly positive.", "name": "Alex Morgan", "role": "Founder, Bright Studio" },
-          { "quote": "Straightforward from first conversation to final handover. The right questions were asked, we were kept in the loop throughout, and the end result exceeded what we imagined. Would recommend without hesitation.", "name": "Sarah Chen", "role": "CEO, Luma Agency" }
+          { "quote": "Absolutely perfect! Where others were intimidated, this guy tackled my task, saw through the noise and came up with a very elegant solution. Highest recommendation as a technologist and as a cooperative partner.", "name": "Ken", "role": "Client" },
+          { "quote": "It was a complete joy working with him, and I recommend him wholeheartedly. The best part is his attitude \u2014 'Consider it done'. His work exceeded my expectations.", "name": "Mike", "role": "Client" },
+          { "quote": "He is fast and his code quality is stellar.", "name": "Zaid", "role": "Client" }
         ]
       },
       "aboutTeaser": {
         "badge": "About me",
-        "headingLine1": "Designer, developer,",
-        "headingLine2": "and blogger.",
-        "para1WithLocation": "Sixteen years of hands-on experience, based in {location} and available for clients worldwide. I build with Astro because it aligns with how I think about the web: lean, purposeful, and built to last.",
-        "para1NoLocation": "Sixteen years of hands-on experience and available for clients worldwide. I build with Astro because it aligns with how I think about the web: lean, purposeful, and built to last.",
-        "para2": "On the blog, I share the ideas and decisions that shape my work.",
+        "headingLine1": "15+ years,",
+        "headingLine2": "full-stack, AI-accelerated.",
+        "para1WithLocation": "Founder of Zetmel. Based in {location} and available for clients worldwide. I combine senior engineering experience with LLM-powered workflows for research, architecture, implementation, and code review.",
+        "para1NoLocation": "Founder of Zetmel. Available for clients worldwide. I combine senior engineering experience with LLM-powered workflows for research, architecture, implementation, and code review.",
+        "para2": "On the blog, I share insights on AI-accelerated engineering and software development.",
         "moreAboutMe": "More about me",
         "statsIntro": "A few things about me.",
-        "stat1": "16 Years Experience",
-        "stat2": "Building with Astro",
-        "stat3": "Working worldwide",
+        "stat1": "15+ Years Experience",
+        "stat2": "Fortune 500 Delivery",
+        "stat3": "Open Source Creator",
         "basedIn": "Based in"
       },
       "blog": {
         "badge": "From the blog",
-        "heading": "Featured",
-        "viewAll": "View all posts"
+        "heading": "Latest articles",
+        "viewAll": "View all articles"
       },
       "cta": {
         "badge": "Let's talk",
-        "heading": "Starting something new?",
-        "description": "I design and build new websites from scratch — every project, start to finish, by me. Tell me what you have in mind.",
-        "primary": "Start a project",
+        "heading": "Work With Me",
+        "description": "Have a project in mind or want to discuss AI-accelerated engineering? Let's talk.",
+        "primary": "Get in touch",
         "secondary": "More about me"
       }
     }

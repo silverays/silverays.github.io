@@ -1,0 +1,47 @@
+---
+title: Setting Up a Local AI Coding Environment
+description: Running capable coding assistants entirely on consumer hardware — no cloud subscription, no API costs, no data leaving your machine.
+publishedAt: 2026-01-15
+author: Safraz Razik
+tags: ["AI", "Ollama", "OpenCode", "Claude Code", "Local LLM"]
+locale: en
+draft: false
+featured: true
+---
+
+The landscape of software engineering is shifting. With open-weight LLMs maturing rapidly, it's now feasible to run capable coding assistants entirely on consumer hardware — no cloud subscription, no API costs, no data leaving your machine.
+
+I've spent the last several months experimenting with local AI setups. Here's what I've learned.
+
+## The Stack
+
+My current local AI environment uses three main tools:
+
+- **Ollama** — for running models locally with minimal friction
+- **OpenCode** and **Claude Code** — terminal-based coding assistants that interface with local models
+
+## Model Selection
+
+Not all models are created equal for coding tasks. I've evaluated several families:
+
+| Model | Code Quality | Instruction Following | Hardware Requirements |
+|---|---|---|---|
+| DeepSeek Coder | Excellent | Very good | 8-16GB VRAM |
+| Qwen2.5-Coder | Very good | Good | 8-12GB VRAM |
+| Llama 3.x | Good | Excellent | 12-24GB VRAM |
+
+The key insight: smaller, specialized models often outperform larger general-purpose ones for specific coding tasks.
+
+## Workflow
+
+The most important lesson wasn't about which model to use — it was about **how** to use it:
+
+1. **Structured prompting** — breaking complex tasks into clear, sequential steps
+2. **Context management** — providing relevant code context without overwhelming the model's context window
+3. **Multi-stage coordination** — using the AI for planning, then implementation, then review as separate phases
+
+This structured approach consistently produces better results than treating the AI as a single-shot code generator.
+
+## Results
+
+The workflow produces production-quality code, but it requires human oversight. Every AI-generated change goes through a technical audit before merging. This isn't a weakness — it's the right way to use these tools.

@@ -1,0 +1,48 @@
+---
+title: Evaluating Coding Models on Consumer Hardware
+description: DeepSeek, Qwen, and Llama — a practical comparison of open-weight coding models running on consumer hardware.
+publishedAt: 2026-01-22
+author: Safraz Razik
+tags: ["AI", "DeepSeek", "Qwen", "Llama", "Model Evaluation", "Local LLM"]
+locale: en
+draft: false
+featured: true
+---
+
+In my last post I covered setting up a local AI coding environment. The natural follow-up question: *which model should you actually run?*
+
+I've spent time with the major open-weight families — DeepSeek, Qwen, and Llama — running them on a consumer-grade workstation. Here's the practical breakdown.
+
+## What I'm Measuring
+
+Code quality is subjective, so I use a consistent benchmark: I give each model the same 5 real-world tasks (implement a REST endpoint, refactor a React component, write a migration script, debug a race condition, generate a test suite) and grade on:
+
+- **Correctness** — does the output work?
+- **Instruction fidelity** — did it follow constraints (framework, style, edge cases)?
+- **Efficiency** — tokens generated vs. tokens wasted on hallucinated imports
+
+## The Contenders
+
+### DeepSeek Coder (6.7B and 33B)
+
+The 6.7B variant is remarkable for its size. On correctness it punches well above its weight class, especially for Python and TypeScript. The 33B is better for complex multi-file refactors. Both struggle with very long context — they lose focus past ~8K tokens.
+
+Best for: focused code generation, translation between languages, test writing.
+
+### Qwen2.5-Coder (7B and 14B)
+
+Qwen's instruction following is the best in class at these sizes. When I say "use Vue 3 Composition API, no Options API, and handle the loading state" — it actually does it. The 7B fits comfortably on 8GB VRAM.
+
+Best for: constrained generation where you need strict adherence to conventions.
+
+### Llama 3.x (8B and 70B)
+
+The 8B is a generalist — good at everything, excellent at nothing in coding specifically. But its instruction following is the best of the three. If your task description is vague, Llama asks clarifying questions instead of guessing wrong.
+
+Best for: exploratory work, reasoning tasks, natural language to plan.
+
+## What I Actually Use
+
+For day-to-day coding, I run DeepSeek Coder 6.7B as my primary and Qwen2.5-Coder 7B as a secondary for convention-sensitive work. Llama 8B is my planning/critique model — I feed it DeepSeek's output and ask it to find bugs.
+
+No single model wins. The real leverage is orchestrating between them.

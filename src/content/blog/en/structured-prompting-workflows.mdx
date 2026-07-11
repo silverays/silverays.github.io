@@ -1,0 +1,52 @@
+---
+title: Structured Prompting for Multi-Stage Development
+description: Breaking AI-assisted coding into Plan, Scaffold, Implement, and Audit stages — and why this approach produces better results than single-shot generation.
+publishedAt: 2026-02-05
+author: Safraz Razik
+tags: ["AI", "Prompting", "Workflow", "Methodology"]
+locale: en
+draft: false
+featured: true
+---
+
+Treating an LLM as a single-shot code generator is the fastest way to get broken code. The real skill is learning to break a task into stages that match what these models do well.
+
+Here's the workflow I've settled on after months of iteration.
+
+## Stage 1: Plan
+
+Never ask a model to write code from a vague description. First, generate a plan:
+
+```
+You are a senior engineer. Given this requirement, produce a detailed
+implementation plan covering: file structure, data flow, error handling,
+and edge cases. Do NOT write code.
+```
+
+The plan becomes the specification for subsequent stages. If the plan is wrong, catch it here before any code is written.
+
+## Stage 2: Scaffold
+
+With the plan approved, generate the structure — interfaces, type definitions, function signatures with docstrings. No implementation yet.
+
+This is the cheapest stage to review. I can scan 100+ lines of type definitions in under a minute.
+
+## Stage 3: Implement
+
+Now generate the actual logic, one module at a time. Each module gets its own prompt with:
+
+- The relevant section of the plan
+- The interfaces/scaffold from stage 2
+- A clear definition of "done" for this module
+
+## Stage 4: Audit
+
+Feed the generated code back to a *different* model (I use Llama for this) with instructions to find bugs, security issues, and deviations from the plan.
+
+The audit stage catches more issues than any amount of prompt engineering. A second model looking at the output of the first is remarkably effective.
+
+## Why This Works
+
+Each stage has a clear scope. The model doesn't have to hold the entire project in context. Each stage's output is independently reviewable. And if a stage fails, you restart only that stage, not the whole task.
+
+This is structurally identical to how I've always worked with junior engineers: plan first, then scaffold, then implement, then review. The LLM is just a very fast junior who needs clear boundaries.

@@ -1,0 +1,30 @@
+---
+title: "Vue File Agent"
+description: An open-source Vue.js file upload component with drag-and-drop, multi-file support, and image previews.
+locale: en
+tags: ["Vue.js", "JavaScript", "Open Source"]
+featured: true
+order: 1
+year: 2019
+role: "Creator"
+url: "https://github.com/safrazik/vue-file-agent"
+repo: "https://github.com/safrazik/vue-file-agent"
+services: ["Open Source", "Component Development"]
+meta: ["Community adopted", "MIT licensed"]
+---
+
+A feature-rich Vue.js file upload component that supports drag-and-drop, multi-file uploads, image previews, and customizable theming. Released as open-source to the Vue community.
+
+## Architecture
+
+The component was designed around a plugin-based architecture. The core handled file selection, validation, and state management while renderers handled the UI presentation. This separation meant users could customise the visual output without touching the file handling logic.
+
+Key technical decisions:
+
+- **Event-driven state machine** — file lifecycle modelled as explicit states
+- **Slot-based theming** — Vue's slot system exposed every visual section
+- **Progressive enhancement** — graceful fallback for older browsers
+
+## What I Learned
+
+Building an open-source component taught me more about API design than any client project. Every prop, event, and slot had to be justified because someone else would depend on it.
