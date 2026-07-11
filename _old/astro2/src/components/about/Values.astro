@@ -1,0 +1,40 @@
+---
+import TrophyIcon from '@assets/icons/trophy-line.svg';
+
+const values = [
+  [
+    { ref: '01', name: 'Deep Experience', description: '15+ years shipping production software across the stack. Seasoned engineering judgment to guide every project.' },
+    { ref: '02', name: 'AI-Accelerated', description: 'Local LLM environments with structured prompting and context-management workflows for multi-stage development.' },
+  ],
+  [
+    { ref: '03', name: 'Production-Ready', description: 'Technical audits, structured milestones, and recovery sprints ensure production standards. No shortcuts on quality.' },
+    { ref: '04', name: 'Open Source', description: 'Builder of developer tools released to the community. Vue File Agent, Rockplate, and more.' },
+  ],
+];
+---
+
+<section class="py-16 sm:py-20">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="flex flex-col gap-8 lg:gap-12">
+      <div class="flex gap-4">
+        <TrophyIcon class="fill-primary-500 h-8 w-8 shrink-0 sm:h-10 sm:w-10" aria-hidden="true" />
+        <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Values</h2>
+      </div>
+      <div class="grid gap-8 lg:grid-cols-2">
+        {values.map((column, index) => (
+          <div class:list={['space-y-8', index === 1 && 'lg:mt-16']}>
+            {column.map((value) => (
+              <div class="bg-surface flex flex-col gap-12 rounded-3xl px-6 py-8">
+                <p class="text-sm">{value.ref}</p>
+                <div class="flex flex-col gap-4">
+                  <h3 class="text-xl font-medium">{value.name}</h3>
+                  <p class="text-muted text-base sm:text-lg">{value.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

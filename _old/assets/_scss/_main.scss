@@ -1,0 +1,109 @@
+.main-header {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	// border-bottom: 1px solid red;
+	margin-bottom: 1rem;
+
+	padding-top: 1.5rem;
+	margin-bottom: 3rem;
+
+	.tagline {
+		color: #AAA;
+		font-style: italic;
+		// font-size: 0.75rem;
+	}
+
+
+  // height: 100px;
+  position: fixed;
+  background: #FFF;
+  background: rgba(255, 255, 255, 0.975);
+  top: 0;
+  left: 0;
+  right: 0;
+
+  padding-top: 0;
+  padding-bottom: 0;
+
+  z-index: 1;
+
+  .container {
+		padding-top: 1.5rem;
+		padding-bottom: 1.5rem;
+		box-shadow: 0px 15px 10px -20px rgba(0, 0, 0, 0.5);
+    transition: all 600ms;
+  }
+
+
+}
+
+.on-top .main-header .container {
+	box-shadow: none;
+}
+
+body {
+	padding-top: 150px;
+}
+
+.main-content {
+	// max-width: 38rem;
+	// margin-left:  auto;
+	// margin-right: auto;
+}
+
+.post {
+	margin-bottom: 2rem;
+	.post-header {
+		margin-bottom: 1rem;
+		.post-date {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.posts .post {
+	margin-bottom: 3.5rem;
+}
+
+.related {
+	padding-top: 1rem;
+	margin-top: 2rem;
+	display: none;
+}
+
+#disqus_thread {
+	margin-bottom: 2rem;
+}
+
+/* hide the nprogress spinner (in case the javascript setting doesn't work) */
+#nprogress .spinner {
+	display: none !important;
+}
+
+html {
+  font-family: "PT Serif", Georgia, "Times New Roman", serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  color: #313131;
+  letter-spacing: -.025rem;
+}
+
+.highlight {
+  margin-bottom: 1rem;
+  padding: 0;
+}
+
+.highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+  background-color: #f6f8fa;
+  border-radius: 3px;
+  overflow: auto;
+  padding: 1rem;
+}
+
+.disqus-comment-count {
+}

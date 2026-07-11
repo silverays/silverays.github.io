@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zetmel</title>
+    <description>AI-accelerated software engineering studio by Safraz Razik. 15+ years of full-stack development, project leadership, and startup co-founding.</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Sat, 11 Jul 2026 06:10:56 +0000</pubDate>
+    <lastBuildDate>Sat, 11 Jul 2026 06:10:56 +0000</lastBuildDate>
+    <generator>Jekyll v4.4.1</generator>
+    
+      <item>
+        <title>Technical Audits for AI-Generated Code</title>
+        <description>&lt;p&gt;The biggest risk with AI-generated code isn’t that it’s wrong — it’s that it’s &lt;em&gt;almost right&lt;/em&gt;. A human reviewing it sees something that looks correct, skims it, and merges. The subtle bug lives on.&lt;/p&gt;
+
+&lt;p&gt;This is why I run a structured technical audit on every piece of AI-generated code before it enters production.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-audit-checklist&quot;&gt;The Audit Checklist&lt;/h2&gt;
+
+&lt;h3 id=&quot;1-correctness-vs-plausibility&quot;&gt;1. Correctness vs. Plausibility&lt;/h3&gt;
+
+&lt;p&gt;AI models are optimized to produce plausible text. For code, this means they generate something that &lt;em&gt;looks&lt;/em&gt; like it should work, but often doesn’t handle edge cases.&lt;/p&gt;
+
+&lt;p&gt;I check: null inputs, empty arrays, concurrent access, error paths. These are where AI generation consistently fails.&lt;/p&gt;
+
+&lt;h3 id=&quot;2-hidden-dependencies&quot;&gt;2. Hidden Dependencies&lt;/h3&gt;
+
+&lt;p&gt;AI models sometimes invent APIs that don’t exist or import modules that aren’t in the project. More subtly, they might use a function from a library version that differs from what’s actually installed.&lt;/p&gt;
+
+&lt;p&gt;I run the generated code through a type checker and a build before any logic review.&lt;/p&gt;
+
+&lt;h3 id=&quot;3-security-surface&quot;&gt;3. Security Surface&lt;/h3&gt;
+
+&lt;p&gt;AI models trained on public code have seen plenty of insecure patterns. SQL injection, XSS, mass assignment — these show up regularly in generated code, especially if the prompt didn’t explicitly mention security.&lt;/p&gt;
+
+&lt;p&gt;Every AI-generated change gets a security review pass, no exceptions.&lt;/p&gt;
+
+&lt;h3 id=&quot;4-maintainability&quot;&gt;4. Maintainability&lt;/h3&gt;
+
+&lt;p&gt;Generated code tends to be flat — long functions, repetitive logic, no abstraction. It works, but it’s harder to maintain than a human would write.&lt;/p&gt;
+
+&lt;p&gt;I flag: functions over 50 lines, duplicated logic blocks, missing error context in exceptions. These get refactored before merge.&lt;/p&gt;
+
+&lt;h2 id=&quot;recovery-sprints&quot;&gt;Recovery Sprints&lt;/h2&gt;
+
+&lt;p&gt;When an audit finds systemic issues (e.g., the model consistently mishandles a particular pattern), I run a “recovery sprint”: a focused session where I fix all instances of the issue across the generated codebase, then update the prompt template to prevent recurrence.&lt;/p&gt;
+
+&lt;p&gt;This is where the human engineer provides the most value — not in writing the code, but in identifying the patterns that the AI gets wrong and correcting them systematically.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-bottom-line&quot;&gt;The Bottom Line&lt;/h2&gt;
+
+&lt;p&gt;AI-generated code can be production-ready, but only with the same rigor you’d apply to any code contribution. The difference is that AI generates faster, so your review process needs to be more structured, not less.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 10 Mar 2026 10:00:00 +0000</pubDate>
+        <link>http://localhost:4000/2026/03/10/technical-audits-for-ai-generated-code/</link>
+        <guid isPermaLink="true">http://localhost:4000/2026/03/10/technical-audits-for-ai-generated-code/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>What I Learned Building Open-Source Developer Tools</title>
+        <description>&lt;p&gt;Before the current AI focus, I spent years building developer tools and releasing them as open source. &lt;a href=&quot;https://github.com/safrazik/vue-file-agent&quot;&gt;Vue File Agent&lt;/a&gt; and &lt;a href=&quot;https://github.com/rockplate/rockplate&quot;&gt;Rockplate&lt;/a&gt; were the most notable, but there were many smaller ones along the way.&lt;/p&gt;
+
+&lt;p&gt;Here’s what the experience taught me — lessons that apply just as much today with AI-generated code.&lt;/p&gt;
+
+&lt;h2 id=&quot;solve-your-own-problem-first&quot;&gt;Solve Your Own Problem First&lt;/h2&gt;
+
+&lt;p&gt;Vue File Agent started because I needed a file upload component that handled large files gracefully in a Vue app. Every existing library fell short in some way. So I built exactly what I needed.&lt;/p&gt;
+
+&lt;p&gt;This is the only reliable path to a useful open-source project. Building for an imaginary audience leads to generic, abandoned repos. Building for yourself means you’ll keep maintaining it because &lt;em&gt;you&lt;/em&gt; need it.&lt;/p&gt;
+
+&lt;h2 id=&quot;documentation-is-the-product&quot;&gt;Documentation Is the Product&lt;/h2&gt;
+
+&lt;p&gt;Rockplate is a template engine. It’s simple — the README and a few examples are enough to understand it. But I spent as much time on the documentation as on the code. Clear examples, progressive disclosure, edge cases documented.&lt;/p&gt;
+
+&lt;p&gt;The response from users was overwhelmingly about the docs. “I understood it in five minutes.” That’s the goal. If your tool requires a deep dive to understand, most people won’t bother.&lt;/p&gt;
+
+&lt;h2 id=&quot;maintenance-compounds&quot;&gt;Maintenance Compounds&lt;/h2&gt;
+
+&lt;p&gt;The first year of Vue File Agent was exciting — issues, PRs, feature requests. The second year was maintenance — triaging, saying no, keeping the build pipeline alive. The third year was the real test: would I still care when it wasn’t novel?&lt;/p&gt;
+
+&lt;p&gt;Open source is a long-term commitment that most people underestimate. I’ve learned to be honest about my capacity before starting a project, and to archive repos clearly when I can’t maintain them anymore.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-this-applies-to-ai&quot;&gt;How This Applies to AI&lt;/h2&gt;
+
+&lt;p&gt;The same principles hold with AI-generated code. The tool generates the implementation fast, but the hard work is still:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Defining the problem clearly&lt;/li&gt;
+  &lt;li&gt;Documenting the solution&lt;/li&gt;
+  &lt;li&gt;Maintaining it over time&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;AI accelerates the coding. It doesn’t change the fundamentals.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 20 Feb 2026 10:00:00 +0000</pubDate>
+        <link>http://localhost:4000/2026/02/20/what-i-learned-building-open-source-tools/</link>
+        <guid isPermaLink="true">http://localhost:4000/2026/02/20/what-i-learned-building-open-source-tools/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Structured Prompting for Multi-Stage Development</title>
+        <description>&lt;p&gt;Treating an LLM as a single-shot code generator is the fastest way to get broken code. The real skill is learning to break a task into stages that match what these models do well.&lt;/p&gt;
+
+&lt;p&gt;Here’s the workflow I’ve settled on after months of iteration.&lt;/p&gt;
+
+&lt;h2 id=&quot;stage-1-plan&quot;&gt;Stage 1: Plan&lt;/h2&gt;
+
+&lt;p&gt;Never ask a model to write code from a vague description. First, generate a plan:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;You are a senior engineer. Given this requirement, produce a detailed
+implementation plan covering: file structure, data flow, error handling,
+and edge cases. Do NOT write code.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The plan becomes the specification for subsequent stages. If the plan is wrong, catch it here before any code is written.&lt;/p&gt;
+
+&lt;h2 id=&quot;stage-2-scaffold&quot;&gt;Stage 2: Scaffold&lt;/h2&gt;
+
+&lt;p&gt;With the plan approved, generate the structure — interfaces, type definitions, function signatures with docstrings. No implementation yet.&lt;/p&gt;
+
+&lt;p&gt;This is the cheapest stage to review. I can scan 100+ lines of type definitions in under a minute.&lt;/p&gt;
+
+&lt;h2 id=&quot;stage-3-implement&quot;&gt;Stage 3: Implement&lt;/h2&gt;
+
+&lt;p&gt;Now generate the actual logic, one module at a time. Each module gets its own prompt with:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The relevant section of the plan&lt;/li&gt;
+  &lt;li&gt;The interfaces/scaffold from stage 2&lt;/li&gt;
+  &lt;li&gt;A clear definition of “done” for this module&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;stage-4-audit&quot;&gt;Stage 4: Audit&lt;/h2&gt;
+
+&lt;p&gt;Feed the generated code back to a &lt;em&gt;different&lt;/em&gt; model (I use Llama for this) with instructions to find bugs, security issues, and deviations from the plan.&lt;/p&gt;
+
+&lt;p&gt;The audit stage catches more issues than any amount of prompt engineering. A second model looking at the output of the first is remarkably effective.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-this-works&quot;&gt;Why This Works&lt;/h2&gt;
+
+&lt;p&gt;Each stage has a clear scope. The model doesn’t have to hold the entire project in context. Each stage’s output is independently reviewable. And if a stage fails, you restart only that stage, not the whole task.&lt;/p&gt;
+
+&lt;p&gt;This is structurally identical to how I’ve always worked with junior engineers: plan first, then scaffold, then implement, then review. The LLM is just a very fast junior who needs clear boundaries.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 05 Feb 2026 10:00:00 +0000</pubDate>
+        <link>http://localhost:4000/2026/02/05/structured-prompting-workflows/</link>
+        <guid isPermaLink="true">http://localhost:4000/2026/02/05/structured-prompting-workflows/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Evaluating Coding Models on Consumer Hardware</title>
+        <description>&lt;p&gt;In my last post I covered setting up a local AI coding environment. The natural follow-up question: &lt;em&gt;which model should you actually run?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;I’ve spent time with the major open-weight families — DeepSeek, Qwen, and Llama — running them on a consumer-grade workstation. Here’s the practical breakdown.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-im-measuring&quot;&gt;What I’m Measuring&lt;/h2&gt;
+
+&lt;p&gt;Code quality is subjective, so I use a consistent benchmark: I give each model the same 5 real-world tasks (implement a REST endpoint, refactor a React component, write a migration script, debug a race condition, generate a test suite) and grade on:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Correctness&lt;/strong&gt; — does the output work?&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Instruction fidelity&lt;/strong&gt; — did it follow constraints (framework, style, edge cases)?&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Efficiency&lt;/strong&gt; — tokens generated vs. tokens wasted on hallucinated imports&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;the-contenders&quot;&gt;The Contenders&lt;/h2&gt;
+
+&lt;h3 id=&quot;deepseek-coder-67b-and-33b&quot;&gt;DeepSeek Coder (6.7B and 33B)&lt;/h3&gt;
+
+&lt;p&gt;The 6.7B variant is remarkable for its size. On correctness it punches well above its weight class, especially for Python and TypeScript. The 33B is better for complex multi-file refactors. Both struggle with very long context — they lose focus past ~8K tokens.&lt;/p&gt;
+
+&lt;p&gt;Best for: focused code generation, translation between languages, test writing.&lt;/p&gt;
+
+&lt;h3 id=&quot;qwen25-coder-7b-and-14b&quot;&gt;Qwen2.5-Coder (7B and 14B)&lt;/h3&gt;
+
+&lt;p&gt;Qwen’s instruction following is the best in class at these sizes. When I say “use Vue 3 Composition API, no Options API, and handle the loading state” — it actually does it. The 7B fits comfortably on 8GB VRAM.&lt;/p&gt;
+
+&lt;p&gt;Best for: constrained generation where you need strict adherence to conventions.&lt;/p&gt;
+
+&lt;h3 id=&quot;llama-3x-8b-and-70b&quot;&gt;Llama 3.x (8B and 70B)&lt;/h3&gt;
+
+&lt;p&gt;The 8B is a generalist — good at everything, excellent at nothing in coding specifically. But its instruction following is the best of the three. If your task description is vague, Llama asks clarifying questions instead of guessing wrong.&lt;/p&gt;
+
+&lt;p&gt;Best for: exploratory work, reasoning tasks, natural language to plan.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-i-actually-use&quot;&gt;What I Actually Use&lt;/h2&gt;
+
+&lt;p&gt;For day-to-day coding, I run DeepSeek Coder 6.7B as my primary and Qwen2.5-Coder 7B as a secondary for convention-sensitive work. Llama 8B is my planning/critique model — I feed it DeepSeek’s output and ask it to find bugs.&lt;/p&gt;
+
+&lt;p&gt;No single model wins. The real leverage is orchestrating between them.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 22 Jan 2026 10:00:00 +0000</pubDate>
+        <link>http://localhost:4000/2026/01/22/evaluating-coding-models-locally/</link>
+        <guid isPermaLink="true">http://localhost:4000/2026/01/22/evaluating-coding-models-locally/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Setting Up a Local AI Coding Environment</title>
+        <description>&lt;p&gt;The landscape of software engineering is shifting. With open-weight LLMs maturing rapidly, it’s now feasible to run capable coding assistants entirely on consumer hardware — no cloud subscription, no API costs, no data leaving your machine.&lt;/p&gt;
+
+&lt;p&gt;I’ve spent the last several months experimenting with local AI setups. Here’s what I’ve learned.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-stack&quot;&gt;The Stack&lt;/h2&gt;
+
+&lt;p&gt;My current local AI environment uses three main tools:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Ollama&lt;/strong&gt; — for running models locally with minimal friction&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;OpenCode&lt;/strong&gt; and &lt;strong&gt;Claude Code&lt;/strong&gt; — terminal-based coding assistants that interface with local models&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;model-selection&quot;&gt;Model Selection&lt;/h2&gt;
+
+&lt;p&gt;Not all models are created equal for coding tasks. I’ve evaluated several families:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Model&lt;/th&gt;
+      &lt;th&gt;Code Quality&lt;/th&gt;
+      &lt;th&gt;Instruction Following&lt;/th&gt;
+      &lt;th&gt;Hardware Requirements&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;DeepSeek Coder&lt;/td&gt;
+      &lt;td&gt;Excellent&lt;/td&gt;
+      &lt;td&gt;Very good&lt;/td&gt;
+      &lt;td&gt;8-16GB VRAM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Qwen2.5-Coder&lt;/td&gt;
+      &lt;td&gt;Very good&lt;/td&gt;
+      &lt;td&gt;Good&lt;/td&gt;
+      &lt;td&gt;8-12GB VRAM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Llama 3.x&lt;/td&gt;
+      &lt;td&gt;Good&lt;/td&gt;
+      &lt;td&gt;Excellent&lt;/td&gt;
+      &lt;td&gt;12-24GB VRAM&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;The key insight: smaller, specialized models often outperform larger general-purpose ones for specific coding tasks.&lt;/p&gt;
+
+&lt;h2 id=&quot;workflow&quot;&gt;Workflow&lt;/h2&gt;
+
+&lt;p&gt;The most important lesson wasn’t about which model to use — it was about &lt;strong&gt;how&lt;/strong&gt; to use it:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Structured prompting&lt;/strong&gt; — breaking complex tasks into clear, sequential steps&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Context management&lt;/strong&gt; — providing relevant code context without overwhelming the model’s context window&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Multi-stage coordination&lt;/strong&gt; — using the AI for planning, then implementation, then review as separate phases&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;This structured approach consistently produces better results than treating the AI as a single-shot code generator.&lt;/p&gt;
+
+&lt;h2 id=&quot;results&quot;&gt;Results&lt;/h2&gt;
+
+&lt;p&gt;The workflow produces production-quality code, but it requires human oversight. Every AI-generated change goes through a technical audit before merging. This isn’t a weakness — it’s the right way to use these tools.&lt;/p&gt;
+
+&lt;p&gt;In my next post, I’ll go deeper into how I evaluate models for specific tasks.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 15 Jan 2026 10:00:00 +0000</pubDate>
+        <link>http://localhost:4000/2026/01/15/setting-up-local-ai-coding-environment/</link>
+        <guid isPermaLink="true">http://localhost:4000/2026/01/15/setting-up-local-ai-coding-environment/</guid>
+        
+        
+      </item>
+    
+  </channel>
+</rss>

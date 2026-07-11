@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const { title, summary, role, year, duration, technologies, link, aiRole, context, problem, constraints, outcome } = project.data;
+---
+
+<BaseLayout title={`${title} — Safraz Razik`} description={summary}>
+  <article class="container-main section-padding">
+    <a href="/work/" class="mb-8 inline-flex items-center gap-1 text-sm text-gray-500 no-underline hover:text-primary">
+      <i class="ri-arrow-left-line"></i> Back to work
+    </a>
+
+    <div class="mx-auto max-w-3xl">
+      <div class="flex flex-wrap items-center gap-3 text-xs text-gray-400">
+        <span class="rounded-md bg-primary-light px-2 py-1 font-medium text-primary">{role}</span>
+        <span>{year}</span>
+        {duration && <><span aria-hidden="true">&middot;</span><span>{duration}</span></>}
+        {link && <a href={link} class="ml-auto text-primary" target="_blank" rel="noopener">Live project <i class="ri-external-link-line"></i></a>}
+      </div>
+
+      <h1 class="mt-4 text-3xl font-bold text-gray-900 sm:text-4xl">{title}</h1>
+      <p class="mt-4 text-lg leading-relaxed text-gray-500">{summary}</p>
+
+      <div class="mt-6 flex flex-wrap gap-2">
+        {technologies.map((tech) => (
+          <span class="rounded-md border border-gray-200 px-2.5 py-1 text-xs text-gray-500">{tech}</span>
+        ))}
+      </div>
+
+      <hr class="my-10 border-gray-200" />
+
+      <div class="prose prose-gray max-w-none">
+        {context && (
+          <section>
+            <h2>Context</h2>
+            <p>{context}</p>
+          </section>
+        )}
+        {problem && (
+          <section>
+            <h2>Problem</h2>
+            <p>{problem}</p>
+          </section>
+        )}
+        {constraints && (
+          <section>
+            <h2>Constraints</h2>
+            <p>{constraints}</p>
+          </section>
+        )}
+        {aiRole && (
+          <section>
+            <h2>Role of AI</h2>
+            <p>{aiRole}</p>
+          </section>
+        )}
+
+        <Content />
+
+        {outcome && (
+          <section>
+            <h2>Outcome</h2>
+            <p>{outcome}</p>
+          </section>
+        )}
+      </div>
+    </div>
+  </article>
+</BaseLayout>

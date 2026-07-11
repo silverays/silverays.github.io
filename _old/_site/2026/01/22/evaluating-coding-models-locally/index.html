@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>
+		
+		  Evaluating Coding Models on Consumer Hardware
+		
+	</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="AI-accelerated software engineering studio by Safraz Razik. 15+ years of full-stack development, project leadership, and startup co-founding.">
+    <link rel="canonical" href="http://localhost:4000/2026/01/22/evaluating-coding-models-locally/">
+
+    <meta name="twitter:image:src" content="https://zetmel.com/assets/cover.jpg?v=1.0.1" />
+    <meta name="twitter:site" content="@zetmelcom" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Zetmel, Innovation, Limitless" />
+    <meta name="twitter:description" content="AI-accelerated software engineering studio by Safraz Razik" />
+
+    <meta property="fb:app_id" content="1268078626717710" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Zetmel" />
+    <meta property="og:title" content="Zetmel, Innovation, Limitless"/>
+    <meta property="og:description" content="AI-accelerated software engineering studio by Safraz Razik"/>
+    <meta property="og:url" content="https://zetmel.com"/>
+    <meta property="og:image" content="https://zetmel.com/assets/cover.jpg?v=1.0.1"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="628"/>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/style.css">
+
+	<script type="text/javascript">
+		var disqus_enabled = false;
+	    var disqus_shortname = 'zetmel';
+	</script>
+
+	<script src='/assets/js/nprogress.js'></script>
+	<script src='/assets/js/turbolinks.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src='/assets/js/script.js'></script>
+
+</head>
+
+
+<body class="brand-expanded on-top">
+
+<header class="main-header">
+	<div class="container">
+    <a class="brand-link" href="/">
+      <span class="safrazik">
+  <span class="saf">saf</span><span class="last raz">raz</span><span class="first raz">raz</span><span class="ik">ik</span><span class="" style="visibility: hidden;">ik</span>
+</span>
+    </a>
+    <div class="tagline" style="display: inline-block;">
+      AI-Accelerated Software Engineering
+      <a href="/about/" class="tagline-link">
+        about
+      </a>
+    </div>
+</div>
+</header>
+ 
+<div class="main-content">
+  <div class="container">
+    <div class="post">
+    
+    <div class="post-header">
+      <h1 class="post-title">
+	<a href="/2026/01/22/evaluating-coding-models-locally/" class="post-link">
+	  Evaluating Coding Models on Consumer Hardware
+	</a>
+</h1>
+<span class="post-date">
+	22 Jan 2026
+	<a class="disqus-comment-count" data-disqus-identifier="/2026/01/22/evaluating-coding-models-locally" href="/2026/01/22/evaluating-coding-models-locally/#disqus_thread">...</a>
+</span>
+    </div>
+
+    <div class="post-content">
+      <p>In my last post I covered setting up a local AI coding environment. The natural follow-up question: <em>which model should you actually run?</em></p>
+
+<p>I’ve spent time with the major open-weight families — DeepSeek, Qwen, and Llama — running them on a consumer-grade workstation. Here’s the practical breakdown.</p>
+
+<h2 id="what-im-measuring">What I’m Measuring</h2>
+
+<p>Code quality is subjective, so I use a consistent benchmark: I give each model the same 5 real-world tasks (implement a REST endpoint, refactor a React component, write a migration script, debug a race condition, generate a test suite) and grade on:</p>
+
+<ul>
+  <li><strong>Correctness</strong> — does the output work?</li>
+  <li><strong>Instruction fidelity</strong> — did it follow constraints (framework, style, edge cases)?</li>
+  <li><strong>Efficiency</strong> — tokens generated vs. tokens wasted on hallucinated imports</li>
+</ul>
+
+<h2 id="the-contenders">The Contenders</h2>
+
+<h3 id="deepseek-coder-67b-and-33b">DeepSeek Coder (6.7B and 33B)</h3>
+
+<p>The 6.7B variant is remarkable for its size. On correctness it punches well above its weight class, especially for Python and TypeScript. The 33B is better for complex multi-file refactors. Both struggle with very long context — they lose focus past ~8K tokens.</p>
+
+<p>Best for: focused code generation, translation between languages, test writing.</p>
+
+<h3 id="qwen25-coder-7b-and-14b">Qwen2.5-Coder (7B and 14B)</h3>
+
+<p>Qwen’s instruction following is the best in class at these sizes. When I say “use Vue 3 Composition API, no Options API, and handle the loading state” — it actually does it. The 7B fits comfortably on 8GB VRAM.</p>
+
+<p>Best for: constrained generation where you need strict adherence to conventions.</p>
+
+<h3 id="llama-3x-8b-and-70b">Llama 3.x (8B and 70B)</h3>
+
+<p>The 8B is a generalist — good at everything, excellent at nothing in coding specifically. But its instruction following is the best of the three. If your task description is vague, Llama asks clarifying questions instead of guessing wrong.</p>
+
+<p>Best for: exploratory work, reasoning tasks, natural language to plan.</p>
+
+<h2 id="what-i-actually-use">What I Actually Use</h2>
+
+<p>For day-to-day coding, I run DeepSeek Coder 6.7B as my primary and Qwen2.5-Coder 7B as a secondary for convention-sensitive work. Llama 8B is my planning/critique model — I feed it DeepSeek’s output and ask it to find bugs.</p>
+
+<p>No single model wins. The real leverage is orchestrating between them.</p>
+
+    </div>
+</div>
+
+<div id="disqus_thread">
+  Loading Comments...
+</div>
+<script type="text/javascript">
+  updateDisqus('/2026/01/22/evaluating-coding-models-locally', "http://localhost:4000/2026/01/22/evaluating-coding-models-locally/", 'Evaluating Coding Models on Consumer Hardware', 'en');
+</script>
+<noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2026/03/10/technical-audits-for-ai-generated-code/">
+            Technical Audits for AI-Generated Code
+            <small>10 Mar 2026</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2026/02/20/what-i-learned-building-open-source-tools/">
+            What I Learned Building Open-Source Developer Tools
+            <small>20 Feb 2026</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2026/02/05/structured-prompting-workflows/">
+            Structured Prompting for Multi-Stage Development
+            <small>05 Feb 2026</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+  </div>
+</div>
+
+</body>
+</html>

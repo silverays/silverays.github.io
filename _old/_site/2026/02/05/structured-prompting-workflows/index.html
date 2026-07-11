@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>
+		
+		  Structured Prompting for Multi-Stage Development
+		
+	</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="AI-accelerated software engineering studio by Safraz Razik. 15+ years of full-stack development, project leadership, and startup co-founding.">
+    <link rel="canonical" href="http://localhost:4000/2026/02/05/structured-prompting-workflows/">
+
+    <meta name="twitter:image:src" content="https://zetmel.com/assets/cover.jpg?v=1.0.1" />
+    <meta name="twitter:site" content="@zetmelcom" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Zetmel, Innovation, Limitless" />
+    <meta name="twitter:description" content="AI-accelerated software engineering studio by Safraz Razik" />
+
+    <meta property="fb:app_id" content="1268078626717710" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Zetmel" />
+    <meta property="og:title" content="Zetmel, Innovation, Limitless"/>
+    <meta property="og:description" content="AI-accelerated software engineering studio by Safraz Razik"/>
+    <meta property="og:url" content="https://zetmel.com"/>
+    <meta property="og:image" content="https://zetmel.com/assets/cover.jpg?v=1.0.1"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="628"/>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/style.css">
+
+	<script type="text/javascript">
+		var disqus_enabled = false;
+	    var disqus_shortname = 'zetmel';
+	</script>
+
+	<script src='/assets/js/nprogress.js'></script>
+	<script src='/assets/js/turbolinks.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src='/assets/js/script.js'></script>
+
+</head>
+
+
+<body class="brand-expanded on-top">
+
+<header class="main-header">
+	<div class="container">
+    <a class="brand-link" href="/">
+      <span class="safrazik">
+  <span class="saf">saf</span><span class="last raz">raz</span><span class="first raz">raz</span><span class="ik">ik</span><span class="" style="visibility: hidden;">ik</span>
+</span>
+    </a>
+    <div class="tagline" style="display: inline-block;">
+      AI-Accelerated Software Engineering
+      <a href="/about/" class="tagline-link">
+        about
+      </a>
+    </div>
+</div>
+</header>
+ 
+<div class="main-content">
+  <div class="container">
+    <div class="post">
+    
+    <div class="post-header">
+      <h1 class="post-title">
+	<a href="/2026/02/05/structured-prompting-workflows/" class="post-link">
+	  Structured Prompting for Multi-Stage Development
+	</a>
+</h1>
+<span class="post-date">
+	05 Feb 2026
+	<a class="disqus-comment-count" data-disqus-identifier="/2026/02/05/structured-prompting-workflows" href="/2026/02/05/structured-prompting-workflows/#disqus_thread">...</a>
+</span>
+    </div>
+
+    <div class="post-content">
+      <p>Treating an LLM as a single-shot code generator is the fastest way to get broken code. The real skill is learning to break a task into stages that match what these models do well.</p>
+
+<p>Here’s the workflow I’ve settled on after months of iteration.</p>
+
+<h2 id="stage-1-plan">Stage 1: Plan</h2>
+
+<p>Never ask a model to write code from a vague description. First, generate a plan:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>You are a senior engineer. Given this requirement, produce a detailed
+implementation plan covering: file structure, data flow, error handling,
+and edge cases. Do NOT write code.
+</code></pre></div></div>
+
+<p>The plan becomes the specification for subsequent stages. If the plan is wrong, catch it here before any code is written.</p>
+
+<h2 id="stage-2-scaffold">Stage 2: Scaffold</h2>
+
+<p>With the plan approved, generate the structure — interfaces, type definitions, function signatures with docstrings. No implementation yet.</p>
+
+<p>This is the cheapest stage to review. I can scan 100+ lines of type definitions in under a minute.</p>
+
+<h2 id="stage-3-implement">Stage 3: Implement</h2>
+
+<p>Now generate the actual logic, one module at a time. Each module gets its own prompt with:</p>
+
+<ul>
+  <li>The relevant section of the plan</li>
+  <li>The interfaces/scaffold from stage 2</li>
+  <li>A clear definition of “done” for this module</li>
+</ul>
+
+<h2 id="stage-4-audit">Stage 4: Audit</h2>
+
+<p>Feed the generated code back to a <em>different</em> model (I use Llama for this) with instructions to find bugs, security issues, and deviations from the plan.</p>
+
+<p>The audit stage catches more issues than any amount of prompt engineering. A second model looking at the output of the first is remarkably effective.</p>
+
+<h2 id="why-this-works">Why This Works</h2>
+
+<p>Each stage has a clear scope. The model doesn’t have to hold the entire project in context. Each stage’s output is independently reviewable. And if a stage fails, you restart only that stage, not the whole task.</p>
+
+<p>This is structurally identical to how I’ve always worked with junior engineers: plan first, then scaffold, then implement, then review. The LLM is just a very fast junior who needs clear boundaries.</p>
+
+    </div>
+</div>
+
+<div id="disqus_thread">
+  Loading Comments...
+</div>
+<script type="text/javascript">
+  updateDisqus('/2026/02/05/structured-prompting-workflows', "http://localhost:4000/2026/02/05/structured-prompting-workflows/", 'Structured Prompting for Multi-Stage Development', 'en');
+</script>
+<noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2026/03/10/technical-audits-for-ai-generated-code/">
+            Technical Audits for AI-Generated Code
+            <small>10 Mar 2026</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2026/02/20/what-i-learned-building-open-source-tools/">
+            What I Learned Building Open-Source Developer Tools
+            <small>20 Feb 2026</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2026/01/22/evaluating-coding-models-locally/">
+            Evaluating Coding Models on Consumer Hardware
+            <small>22 Jan 2026</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+  </div>
+</div>
+
+</body>
+</html>

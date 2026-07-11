@@ -1,0 +1,35 @@
+---
+title: Zetmel
+tagline: AI-Accelerated Software Engineering
+description: AI-accelerated software engineering studio by Safraz Razik. 15+ years of full-stack development, project leadership, and startup co-founding.
+timezone: UTC
+collections:
+  posts:
+    title: Posts
+    output: true
+  reviews:
+    title: Reviews
+    output: false
+  projects:
+    title: Projects
+    output: true
+    permalink: /projects/:path/
+reviews_order:
+  - Ken
+  - Mike2
+  - Zaid
+  - Mike1
+baseurl: 
+url: https://zetmel.com
+disqus_enabled: false
+disqus_shortname: zetmel
+markdown: kramdown
+permalink: pretty
+sass:
+  sass_dir: assets/_scss
+defaults:
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: page

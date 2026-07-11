@@ -1,0 +1,45 @@
+---
+import Layout from '@layouts/Layout.astro';
+
+const experience = [
+  { role: 'Founder & AI-Accelerated Software Engineer', company: 'Zetmel', period: 'Jan 2026 – Present', highlights: ['Re-established Zetmel as an AI-accelerated software engineering studio.', 'Established local AI coding environments using Ollama, OpenCode and Claude Code.', 'Evaluated coding models including Qwen, Llama and DeepSeek for code quality and hardware suitability.', 'Developed structured prompting and context-management workflows for multi-stage development.'] },
+  { role: 'Senior Frontend Engineer (Remote)', company: 'Motorola Solutions', period: 'Jun 2021 – Dec 2025', highlights: ['Led technical transition from legacy OCC to React-based Oracle Storefront Framework.', 'Led the Bundle SKU feature launch, improving B2B purchasing by 75% — earned Sprint Champion award.', 'Conducted code reviews and resolved high-priority technical issues.'] },
+  { role: 'Founder & Freelance Product Engineer', company: 'Zetmel', period: 'Jul 2018 – May 2021', highlights: ['Delivered projects using React Native, Vue, TypeScript, Electron, and PHP.', 'Built social media platforms, call center mobile apps, and e-commerce marketplaces.', 'Released open-source tools including Vue File Agent and Rockplate.'] },
+  { role: 'Co-founder', company: 'Adsfly.lk', period: 'Feb 2016 – Jul 2018', highlights: ['Launched classified ads marketplace, freelance marketplace app, credit payment app.', 'Built a POS system used by 20+ businesses in Sri Lanka.'] },
+  { role: 'Co-founder and CTO', company: 'Adrotec', period: 'Mar 2013 – May 2015', highlights: ['Recruited and mentored engineers and designers.', 'Led development of a college ERP and restaurant POS system.', 'Built developer tools and open-source libraries.'] },
+  { role: 'Lead Developer', company: 'Incitomedia', period: 'Jun 2012 – Jan 2013', highlights: ['Introduced Bootstrap and Yii Framework.', 'Delivered two major platforms including a quoting tool and job portal serving 1,000+ daily users.'] },
+  { role: 'Software Developer', company: 'Imarasoft', period: 'Mar 2011 – Apr 2012', highlights: ['Progressed from trainee to high-performing developer.', 'Built tools including a PDF catalog generator, static site generator, and web scraping utility.'] },
+];
+---
+
+<Layout title="Resume — Safraz Razik" description="Full resume for Safraz Razik — AI-accelerated software engineer.">
+  <section class="py-16 sm:py-20">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div class="flex flex-col gap-4 pb-12 text-center">
+        <p class="text-muted text-sm font-semibold uppercase tracking-[0.15em]">Career</p>
+        <h1 class="text-4xl font-medium tracking-tight sm:text-5xl">Resume</h1>
+        <p class="text-muted text-sm">Safraz Razik &middot; safrazik@zetmel.com &middot; Sri Lanka</p>
+      </div>
+
+      <div class="space-y-10">
+        {experience.map((job) => (
+          <div class="border-l-2 border-primary-500 pl-6">
+            <div class="flex flex-col gap-0 sm:flex-row sm:items-baseline sm:justify-between">
+              <h2 class="text-lg font-medium text-primary">{job.role}</h2>
+              <span class="text-sm text-muted">{job.company}</span>
+            </div>
+            <p class="mt-0.5 text-xs text-muted">{job.period}</p>
+            <ul class="mt-3 space-y-1.5 pl-0 text-sm" style="list-style: none;">
+              {job.highlights.map((h) => (
+                <li class="flex items-start gap-2">
+                  <span class="bg-primary-500 mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full"></span>
+                  <span class="text-muted">{h}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

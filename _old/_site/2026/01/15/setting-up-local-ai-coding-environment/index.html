@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>
+		
+		  Setting Up a Local AI Coding Environment
+		
+	</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="AI-accelerated software engineering studio by Safraz Razik. 15+ years of full-stack development, project leadership, and startup co-founding.">
+    <link rel="canonical" href="http://localhost:4000/2026/01/15/setting-up-local-ai-coding-environment/">
+
+    <meta name="twitter:image:src" content="https://zetmel.com/assets/cover.jpg?v=1.0.1" />
+    <meta name="twitter:site" content="@zetmelcom" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Zetmel, Innovation, Limitless" />
+    <meta name="twitter:description" content="AI-accelerated software engineering studio by Safraz Razik" />
+
+    <meta property="fb:app_id" content="1268078626717710" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Zetmel" />
+    <meta property="og:title" content="Zetmel, Innovation, Limitless"/>
+    <meta property="og:description" content="AI-accelerated software engineering studio by Safraz Razik"/>
+    <meta property="og:url" content="https://zetmel.com"/>
+    <meta property="og:image" content="https://zetmel.com/assets/cover.jpg?v=1.0.1"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="628"/>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/style.css">
+
+	<script type="text/javascript">
+		var disqus_enabled = false;
+	    var disqus_shortname = 'zetmel';
+	</script>
+
+	<script src='/assets/js/nprogress.js'></script>
+	<script src='/assets/js/turbolinks.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src='/assets/js/script.js'></script>
+
+</head>
+
+
+<body class="brand-expanded on-top">
+
+<header class="main-header">
+	<div class="container">
+    <a class="brand-link" href="/">
+      <span class="safrazik">
+  <span class="saf">saf</span><span class="last raz">raz</span><span class="first raz">raz</span><span class="ik">ik</span><span class="" style="visibility: hidden;">ik</span>
+</span>
+    </a>
+    <div class="tagline" style="display: inline-block;">
+      AI-Accelerated Software Engineering
+      <a href="/about/" class="tagline-link">
+        about
+      </a>
+    </div>
+</div>
+</header>
+ 
+<div class="main-content">
+  <div class="container">
+    <div class="post">
+    
+    <div class="post-header">
+      <h1 class="post-title">
+	<a href="/2026/01/15/setting-up-local-ai-coding-environment/" class="post-link">
+	  Setting Up a Local AI Coding Environment
+	</a>
+</h1>
+<span class="post-date">
+	15 Jan 2026
+	<a class="disqus-comment-count" data-disqus-identifier="/2026/01/15/setting-up-local-ai-coding-environment" href="/2026/01/15/setting-up-local-ai-coding-environment/#disqus_thread">...</a>
+</span>
+    </div>
+
+    <div class="post-content">
+      <p>The landscape of software engineering is shifting. With open-weight LLMs maturing rapidly, it’s now feasible to run capable coding assistants entirely on consumer hardware — no cloud subscription, no API costs, no data leaving your machine.</p>
+
+<p>I’ve spent the last several months experimenting with local AI setups. Here’s what I’ve learned.</p>
+
+<h2 id="the-stack">The Stack</h2>
+
+<p>My current local AI environment uses three main tools:</p>
+
+<ul>
+  <li><strong>Ollama</strong> — for running models locally with minimal friction</li>
+  <li><strong>OpenCode</strong> and <strong>Claude Code</strong> — terminal-based coding assistants that interface with local models</li>
+</ul>
+
+<h2 id="model-selection">Model Selection</h2>
+
+<p>Not all models are created equal for coding tasks. I’ve evaluated several families:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Code Quality</th>
+      <th>Instruction Following</th>
+      <th>Hardware Requirements</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DeepSeek Coder</td>
+      <td>Excellent</td>
+      <td>Very good</td>
+      <td>8-16GB VRAM</td>
+    </tr>
+    <tr>
+      <td>Qwen2.5-Coder</td>
+      <td>Very good</td>
+      <td>Good</td>
+      <td>8-12GB VRAM</td>
+    </tr>
+    <tr>
+      <td>Llama 3.x</td>
+      <td>Good</td>
+      <td>Excellent</td>
+      <td>12-24GB VRAM</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The key insight: smaller, specialized models often outperform larger general-purpose ones for specific coding tasks.</p>
+
+<h2 id="workflow">Workflow</h2>
+
+<p>The most important lesson wasn’t about which model to use — it was about <strong>how</strong> to use it:</p>
+
+<ol>
+  <li><strong>Structured prompting</strong> — breaking complex tasks into clear, sequential steps</li>
+  <li><strong>Context management</strong> — providing relevant code context without overwhelming the model’s context window</li>
+  <li><strong>Multi-stage coordination</strong> — using the AI for planning, then implementation, then review as separate phases</li>
+</ol>
+
+<p>This structured approach consistently produces better results than treating the AI as a single-shot code generator.</p>
+
+<h2 id="results">Results</h2>
+
+<p>The workflow produces production-quality code, but it requires human oversight. Every AI-generated change goes through a technical audit before merging. This isn’t a weakness — it’s the right way to use these tools.</p>
+
+<p>In my next post, I’ll go deeper into how I evaluate models for specific tasks.</p>
+
+    </div>
+</div>
+
+<div id="disqus_thread">
+  Loading Comments...
+</div>
+<script type="text/javascript">
+  updateDisqus('/2026/01/15/setting-up-local-ai-coding-environment', "http://localhost:4000/2026/01/15/setting-up-local-ai-coding-environment/", 'Setting Up a Local AI Coding Environment', 'en');
+</script>
+<noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2026/03/10/technical-audits-for-ai-generated-code/">
+            Technical Audits for AI-Generated Code
+            <small>10 Mar 2026</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2026/02/20/what-i-learned-building-open-source-tools/">
+            What I Learned Building Open-Source Developer Tools
+            <small>20 Feb 2026</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2026/02/05/structured-prompting-workflows/">
+            Structured Prompting for Multi-Stage Development
+            <small>05 Feb 2026</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+  </div>
+</div>
+
+</body>
+</html>

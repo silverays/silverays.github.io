@@ -1,0 +1,44 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>
+		{% if page.title %}
+		  {{ page.title }}
+		{% else %}
+		  {{ site.title }}
+		{% endif %}
+	</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{{ site.description }}">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+
+    <meta name="twitter:image:src" content="https://zetmel.com/assets/cover.jpg?v=1.0.1" />
+    <meta name="twitter:site" content="@zetmelcom" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Zetmel, Innovation, Limitless" />
+    <meta name="twitter:description" content="AI-accelerated software engineering studio by Safraz Razik" />
+
+    <meta property="fb:app_id" content="1268078626717710" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Zetmel" />
+    <meta property="og:title" content="Zetmel, Innovation, Limitless"/>
+    <meta property="og:description" content="AI-accelerated software engineering studio by Safraz Razik"/>
+    <meta property="og:url" content="https://zetmel.com"/>
+    <meta property="og:image" content="https://zetmel.com/assets/cover.jpg?v=1.0.1"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="628"/>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ "/assets/style.css" | prepend: site.baseurl }}">
+
+	<script type="text/javascript">
+		var disqus_enabled = {% if site.disqus_enabled %}true{% else %}false{% endif %};
+	    var disqus_shortname = '{{ site.disqus_shortname }}';
+	</script>
+
+	<script src='{{ "/assets/js/nprogress.js" | prepend: site.baseurl }}'></script>
+	<script src='{{ "/assets/js/turbolinks.js" | prepend: site.baseurl }}'></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src='{{ "/assets/js/script.js" | prepend: site.baseurl }}'></script>
+
+</head>
