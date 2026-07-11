@@ -242,7 +242,7 @@ export interface SiteConfig {
 const siteConfig: SiteConfig = {
   name: 'Safraz Razik',
   description:
-    'AI-accelerated software engineering by Safraz Razik. 15+ years of full-stack development, project leadership, and startup co-founding.',
+    'Safraz Razik is a founder and senior software engineer with 15+ years of experience. Zetmel provides AI-accelerated product development, modernization, technical review and product recovery.',
   url: SITE_URL || 'https://zetmel.com',
   ogImage: '/og-default.svg',
   author: 'Safraz Razik',

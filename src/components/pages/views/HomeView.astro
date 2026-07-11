@@ -91,6 +91,7 @@ const hero = tData<{
   github: string;
   getStarted: string;
 }>('pages.home.hero', locale)!;
+const proofStrip = tData<{ text: string }[]>('pages.home.proofStrip', locale) ?? [];
 const servicesSection = tData<{ badge: string; heading: string; lead: string; learnMore: string; cards: IconCard[] }>(
   'pages.home.services',
   locale
@@ -195,6 +196,22 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
       </div>
     </div>
   </Hero>
+
+  <!-- Proof Strip -->
+  {proofStrip.length > 0 && (
+    <section class="relative z-10 py-6 bg-background border-t border-border">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
+          {proofStrip.map((item) => (
+            <div class="flex items-center gap-2">
+              <span class="h-1.5 w-1.5 rounded-full bg-brand-500 shrink-0"></span>
+              <span class="text-sm font-medium text-foreground-muted">{item.text}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- Services Section -->
   <section class="relative z-10 py-[var(--space-section-md)] bg-background-secondary border-t border-border">

@@ -16,6 +16,7 @@
       "home": "Home",
       "services": "Services",
       "projects": "Work",
+      "openSource": "Open Source",
       "blog": "Writing",
       "about": "About",
       "contact": "Contact"
@@ -273,137 +274,170 @@
     },
     "services": {
       "meta": {
-        "title": "Services \u2014 AI-Accelerated Software Engineering",
-        "description": "AI-accelerated engineering, full-stack development, and open-source tool building by Safraz Razik."
+        "title": "Services \u2014 AI-Accelerated Software Engineering | Zetmel",
+        "description": "AI-accelerated product development, product recovery, modernization, technical review, developer tools and technical leadership by Safraz Razik."
       },
       "includedLabel": "What I offer",
       "hero": {
         "badge": "Services",
-        "titleLead": "What I do \u2014",
-        "titleHighlight": "engineered, accelerated, delivered.",
-        "description": "15+ years of engineering experience combined with AI-powered workflows. From enterprise platforms to open-source tools.",
-        "jumpLabels": ["AI Engineering", "Full-Stack Development", "Open Source"]
+        "titleLead": "Where Zetmel",
+        "titleHighlight": "can help.",
+        "description": "Work directly with a senior engineer on product development, recovery, modernization or technical review. Engagements are shaped around the actual product problem rather than a fixed agency package.",
+        "jumpLabels": ["Product Development", "Product Recovery", "Modernization"]
       },
       "design": {
-        "badge": "AI-Accelerated Engineering",
-        "heading": "Senior judgment meets AI speed",
+        "badge": "01 \u2014 Product Development",
+        "heading": "Build with senior engineering ownership",
         "paragraphs": [
-          "I combine 15+ years of engineering experience with local LLM workflows for research, architecture, implementation, debugging, code review, and technical auditing. Every AI-generated change goes through a structured review before reaching production.",
-          "I run local LLM environments (Ollama, OpenCode, Claude Code), evaluate coding models (Qwen, Llama, DeepSeek) for code quality and task fit, and use structured prompting and context-management workflows for multi-stage development."
+          "Turn a product concept into a working application with clear architecture, milestones and production-minded implementation. I use AI-assisted workflows to accelerate research, planning, implementation and review while retaining direct responsibility for every engineering decision.",
+          "This is not a code-generation service. It's a structured, human-led engineering engagement that uses AI as a force multiplier."
         ],
         "included": [
-          { "lead": "AI-assisted architecture", "text": "LLM-powered research and design exploration, validated by senior engineering judgment before implementation begins." },
-          { "lead": "Structured prompting", "text": "Multi-stage Plan \u2192 Scaffold \u2192 Implement \u2192 Audit workflow reduces errors and produces production-quality code." },
-          { "lead": "Technical audits", "text": "Every line of AI-generated code passes a structured review: correctness, security, dependencies, and maintainability." },
-          { "lead": "Recovery sprints", "text": "When audits find systemic issues, I run focused recovery sprints to fix patterns at scale and prevent recurrence." },
-          { "lead": "Model evaluation", "text": "Open-weight models (DeepSeek, Qwen, Llama) evaluated for code quality, instruction-following, and hardware efficiency." },
-          { "lead": "Local-first AI", "text": "No cloud subscriptions, no API costs, no data leaving your machine. All workflows run on consumer hardware." }
+          { "lead": "Product discovery & scoping", "text": "Understand users, business rules, risks and success criteria before writing code." },
+          { "lead": "Architecture & data modelling", "text": "Define a clear technical foundation with typed schemas, predictable data flow and maintainable structure." },
+          { "lead": "Milestone-based delivery", "text": "Break work into reviewable stages with acceptance criteria at every step." },
+          { "lead": "AI-assisted implementation", "text": "Generation, review, refinement and testing in a structured, human-led loop." },
+          { "lead": "Production packaging", "text": "Deployment, documentation and handover for a working, usable release." }
         ],
-        "ctaLabel": "Discuss an AI engineering project"
+        "ctaLabel": "Discuss a product"
       },
       "development": {
-        "badge": "Full-Stack Development",
-        "heading": "Code that ships",
+        "badge": "02 \u2014 Product Recovery",
+        "heading": "Audit, prioritize and recover",
         "paragraphs": [
-          "I build production applications across the full stack: React, Vue, TypeScript, Next.js on the frontend; Node.js, PHP, Laravel on the backend; and enterprise platforms like Oracle Commerce Cloud.",
-          "My work spans web, mobile (React Native), and desktop (Electron) \u2014 with experience delivering at Fortune 500 scale and lean startup environments alike."
+          "An unfinished MVP, an AI-generated application that feels incomplete, a project that lost momentum \u2014 I audit the product, identify architectural and experience gaps, prioritize the work and execute focused recovery sprints.",
+          "AI can produce a surprising amount of software quickly. It can also produce inconsistent architecture, missing workflows, raw interfaces and hidden technical debt."
         ],
         "included": [
-          { "lead": "React + TypeScript", "text": "Modern component architecture with strict typing, tested patterns, and predictable state management." },
-          { "lead": "Vue.js + Next.js", "text": "Progressive frameworks for projects that need flexibility, performance, and great developer experience." },
-          { "lead": "Node.js + PHP", "text": "Backend systems built with Express, Laravel, and Symfony \u2014 designed for maintainability and scale." },
-          { "lead": "Enterprise platforms", "text": "Oracle Commerce Cloud and Oracle Storefront Framework experience from 4+ years at Motorola Solutions." },
-          { "lead": "Mobile & Desktop", "text": "React Native for cross-platform mobile; Electron for desktop applications with web technologies." },
-          { "lead": "Database & API design", "text": "MySQL, PostgreSQL, MongoDB, SQLite \u2014 schema design, query optimisation, and REST API architecture." }
+          { "lead": "Technical & UX audit", "text": "Assess architecture, code quality, missing workflows, UI gaps and technical risk." },
+          { "lead": "Recovery planning", "text": "Prioritize gaps into structured sprints with clear completion criteria." },
+          { "lead": "Implementation sprints", "text": "Fix the highest-impact issues in focused, measurable iterations." },
+          { "lead": "UI and workflow refinement", "text": "Polish interfaces, complete user flows and improve the feeling of a finished product." },
+          { "lead": "Stabilization & handover", "text": "Deliver a coherent, maintainable codebase with documentation for the next phase." }
         ],
-        "ctaLabel": "See recent projects"
+        "ctaLabel": "Request a product audit"
       },
       "performance": {
-        "badge": "Open Source",
-        "heading": "Built in public",
+        "badge": "03 \u2014 Modernization",
+        "heading": "Move forward without starting over",
         "paragraphs": [
-          "I build and release developer tools as open source. Vue File Agent (Vue.js file upload component) and Rockplate (JavaScript template engine) are the most notable, with many smaller contributions along the way.",
-          "Open source is a core part of how I learn and give back. Every tool started from a real problem I needed to solve."
+          "Established systems carry real business logic, user data and operational history. I help teams incrementally migrate or refactor legacy interfaces and architectures while protecting business continuity.",
+          "Modernization is a technical problem with human constraints. I focus on pragmatic, testable steps that deliver value at each stage."
         ],
         "included": [
-          { "lead": "Vue File Agent", "text": "Feature-rich Vue.js file upload component with drag-and-drop, multi-file support, and image previews. Available on GitHub." },
-          { "lead": "Rockplate", "text": "Lightweight JavaScript template engine for Node.js and the browser \u2014 zero dependencies, under 5KB." },
-          { "lead": "Community contributions", "text": "Contributions to libraries and tools I use in production. Open source is part of my daily workflow." }
+          { "lead": "Legacy frontend migration", "text": "Move older JavaScript, Angular, Knockout, jQuery or PHP templates toward a modern component architecture." },
+          { "lead": "Commerce platform evolution", "text": "Transition from legacy OCC or similar platforms to React-based frameworks." },
+          { "lead": "Incremental refactoring", "text": "Improve codebase structure one module at a time without freezing the product." },
+          { "lead": "Performance improvement", "text": "Identify and resolve load-time, rendering and data-fetching bottlenecks." },
+          { "lead": "Maintainability upgrades", "text": "Add types, testing, documentation and consistent patterns to improve long-term health." }
         ],
-        "ctaLabel": "View on GitHub"
+        "ctaLabel": "Discuss modernization"
       },
       "process": {
-        "badge": "How I work",
-        "heading": "A structured approach",
-        "lead": "Four stages, clear milestones, no surprises.",
+        "badge": "How it works",
+        "heading": "A clear, honest process",
+        "lead": "Understand the problem. Build a solution. Review and improve. Ship and iterate.",
         "steps": [
-          { "title": "Discovery", "description": "Understand the problem, constraints, and goals. AI-assisted research to explore options quickly." },
-          { "title": "Architecture", "description": "Design the solution with senior engineering judgment. LLM-assisted for rapid prototyping and exploration." },
-          { "title": "Build & Audit", "description": "Iterative development with structured prompting and technical audits at every milestone." },
-          { "title": "Deliver & Iterate", "description": "Production deployment, documentation handover, and ongoing support as needed." }
+          { "title": "Discovery", "description": "A conversation about your goals, your product and what success looks like. No obligation." },
+          { "title": "Proposal", "description": "A clear scope, timeline and cost. One page, plain language, fixed price." },
+          { "title": "Build & Review", "description": "Short cycles with regular check-ins. You see the product evolve as it's built." },
+          { "title": "Launch & Support", "description": "Deploy, hand over, stay available. Iteration after launch is straightforward." }
         ]
       },
       "cta": {
         "badge": "Let's talk",
         "heading": "Have a project in mind?",
-        "description": "Send a short note about what you're building and what you need. I read every message and reply within a working day.",
-        "primary": "Start a project",
-        "secondary": "More about me"
+        "description": "Send a short note about what you're building or improving. I read every message and reply within a working day.",
+        "primary": "Start a conversation",
+        "secondary": "View selected work"
       }
     },
     "contact": {
       "meta": {
-        "title": "Contact \u2014 Safraz Razik",
-        "description": "Get in touch with Safraz Razik for AI-accelerated software engineering projects."
+        "title": "Contact \u2014 Safraz Razik | Zetmel",
+        "description": "Start a conversation about your project, product recovery, modernization or technical review with Safraz Razik."
       },
       "hero": {
-        "badge": "Get in touch",
-        "titleLead": "Have a project",
-        "titleHighlight": "in mind?",
-        "description": "Have a project in mind or want to discuss AI-accelerated engineering? Let's talk."
+        "badge": "Start a conversation",
+        "titleLead": "Bring the idea,",
+        "titleHighlight": "the codebase or the unfinished product.",
+        "description": "Share what you are trying to build or improve. I'll help identify the clearest engineering path forward."
       },
-      "formTitle": "Send a message",
+      "formTitle": "Project details",
       "channelsTitle": "Other channels",
       "channelsSubtitle": "Prefer a direct channel? Pick whichever works best.",
       "emailLabel": "Email",
       "emailNote": "safrazik@zetmel.com",
       "socialNote": "Connect on",
-      "basedIn": "Based in {country}"
+      "basedIn": "Based in {country}",
+      "formFields": {
+        "name": "Name",
+        "email": "Email",
+        "company": "Company",
+        "projectDescription": "What are you building or improving?",
+        "currentStage": "Current stage",
+        "stageOptions": ["Idea / Concept", "In development", "Unfinished MVP", "Live product"],
+        "engagementType": "Preferred engagement",
+        "engagementOptions": ["Product development", "Product audit & recovery", "Technical review", "Consulting / advising", "Full-time role"],
+        "budget": "Budget range (optional)",
+        "budgetOptions": ["Under $5K", "$5K\u2013$15K", "$15K\u2013$50K", "$50K+", "Not sure yet"],
+        "timeline": "Timeline (optional)",
+        "timelineOptions": ["ASAP", "1\u20133 months", "3\u20136 months", "Flexible"],
+        "send": "Send message",
+        "sending": "Sending\u2026",
+        "success": "Message sent successfully!",
+        "error": "Failed to send message. Please try again."
+      }
     },
     "home": {
       "meta": {
-        "title": "Safraz Razik \u2014 AI-Accelerated Software Engineering",
-        "description": "AI-accelerated software engineering studio by Safraz Razik. 15+ years of full-stack development, project leadership, and startup co-founding."
+        "title": "Safraz Razik \u2014 Founder & Senior Software Engineer | Zetmel",
+        "description": "Safraz Razik is a founder and senior software engineer with 15+ years of experience. Zetmel provides AI-accelerated product development, modernization, technical review and product recovery."
       },
       "hero": {
-        "badge": "Zetmel Studio",
-        "titleLine1": "AI-Accelerated",
-        "titleLine2": "Software",
-        "titleLine3": "Engineering",
-        "description": "15+ years of engineering depth combined with LLM-powered workflows. From custom compilers to global platforms \u2014 delivered faster, without compromise.",
-        "github": "View my work",
-        "getStarted": "Get in touch"
+        "badge": "Founder & Senior Software Engineer",
+        "titleLine1": "Senior engineering,",
+        "titleLine2": "accelerated",
+        "titleLine3": "by AI.",
+        "description": "I'm Safraz Razik \u2014 a senior software engineer with 15+ years across startups, independent products and Motorola Solutions. Through Zetmel, I design, build, review and recover software using structured AI-assisted workflows and hands-on engineering ownership.",
+        "github": "Explore my work",
+        "getStarted": "Discuss a product"
       },
+      "proofStrip": [
+        { "text": "15+ years in software engineering" },
+        { "text": "Motorola Solutions experience" },
+        { "text": "Founder & CTO background" },
+        { "text": "Open-source creator" },
+        { "text": "Products used by real businesses" }
+      ],
       "services": {
-        "badge": "How I Work",
-        "heading": "Methodology",
-        "lead": "Senior engineering judgment meets AI acceleration.",
+        "badge": "Capabilities",
+        "heading": "Where Zetmel can help",
+        "lead": "Work directly with a senior engineer on product development, recovery, modernization or technical review.",
         "learnMore": "Learn more",
         "cards": [
-          { "icon": "clock", "title": "Deep Experience", "description": "15+ years shipping production software across the stack \u2014 web, mobile, desktop, and enterprise. Seasoned engineering judgment to guide every project." },
-          { "icon": "sparkles", "title": "AI-Accelerated", "description": "Local LLM environments (Ollama, OpenCode, Claude Code) with structured prompting and context-management workflows. Model evaluation for code quality and task fit." },
-          { "icon": "award", "title": "Production-Ready", "description": "Technical audits, structured milestones, and recovery sprints ensure every deliverable meets production standards. No shortcuts on quality." }
+          { "icon": "rocket", "title": "Product Development", "description": "Design and build web applications through a structured, human-led process that uses AI for faster research, planning, implementation and review." },
+          { "icon": "refresh-cw", "title": "Product Recovery", "description": "Audit an incomplete or unstable product, identify the gaps and execute focused recovery sprints to move it toward a credible release." },
+          { "icon": "layers", "title": "Modernization", "description": "Move legacy interfaces and systems toward maintainable modern architecture without ignoring business continuity." },
+          { "icon": "search", "title": "Technical Review", "description": "Get an experienced assessment of architecture, code quality, technical risk and the path to completion." },
+          { "icon": "code-2", "title": "Developer Tools", "description": "Create internal tools, libraries and specialist software when standard products don't fit the workflow." },
+          { "icon": "users", "title": "Technical Leadership", "description": "Architecture decisions, code review, mentoring and engineering standards for teams that need senior direction." }
         ]
+      },
+      "productRecovery": {
+        "badge": "AI-Assisted Development",
+        "heading": "Generated code is a starting point\u2014not a finished product.",
+        "description": "AI can produce a surprising amount of software quickly. It can also produce inconsistent architecture, missing workflows, raw interfaces and hidden technical debt. My recovery process combines product review, technical auditing and prioritized implementation to move the application toward a credible release."
       },
       "portfolio": {
         "badge": "Selected work",
         "heading": "Projects I've built",
-        "lead": "A selection of projects spanning enterprise platforms, open-source tools, and startup products.",
+        "lead": "From enterprise commerce modernization to open-source tools and startup products.",
         "viewAll": "View all projects"
       },
       "testimonials": {
         "badge": "Testimonials",
-        "heading": "What clients say",
+        "heading": "Trusted for difficult work and clear ownership.",
         "lead": "",
         "items": [
           { "quote": "Absolutely perfect! Where others were intimidated, this guy tackled my task, saw through the noise and came up with a very elegant solution. Highest recommendation as a technologist and as a cooperative partner.", "name": "Ken", "role": "Client" },
@@ -413,17 +447,28 @@
       },
       "aboutTeaser": {
         "badge": "About me",
-        "headingLine1": "15+ years,",
-        "headingLine2": "full-stack, AI-accelerated.",
-        "para1WithLocation": "Founder of Zetmel. Based in {location} and available for clients worldwide. I combine senior engineering experience with LLM-powered workflows for research, architecture, implementation, and code review.",
-        "para1NoLocation": "Founder of Zetmel. Available for clients worldwide. I combine senior engineering experience with LLM-powered workflows for research, architecture, implementation, and code review.",
-        "para2": "On the blog, I share insights on AI-accelerated engineering and software development.",
+        "headingLine1": "From local products",
+        "headingLine2": "to enterprise platforms.",
+        "para1WithLocation": "My career spans startup product suites, international client work, technical consulting, team leadership and a large-scale commerce modernization at Motorola Solutions. Based in {location}.",
+        "para1NoLocation": "My career spans startup product suites, international client work, technical consulting, team leadership and a large-scale commerce modernization at Motorola Solutions.",
+        "para2": "Today I'm rebuilding Zetmel around AI-accelerated product engineering. The tools are new, but the responsibility is the same.",
         "moreAboutMe": "More about me",
         "statsIntro": "A few things about me.",
         "stat1": "15+ Years Experience",
         "stat2": "Fortune 500 Delivery",
         "stat3": "Open Source Creator",
         "basedIn": "Based in"
+      },
+      "experience": {
+        "badge": "Experience",
+        "heading": "From local products to enterprise platforms.",
+        "milestones": [
+          { "period": "2026\u2013Present", "title": "Founder & Senior Software Engineer", "company": "Zetmel" },
+          { "period": "2021\u20132025", "title": "Senior Frontend Engineer", "company": "Motorola Solutions" },
+          { "period": "2018\u20132021", "title": "Founder & Product Engineer", "company": "Zetmel" },
+          { "period": "2016\u20132018", "title": "Co-founder", "company": "Adsfly.lk" },
+          { "period": "2013\u20132015", "title": "Co-founder & CTO", "company": "Adrotec" }
+        ]
       },
       "blog": {
         "badge": "From the blog",
@@ -432,10 +477,10 @@
       },
       "cta": {
         "badge": "Let's talk",
-        "heading": "Work With Me",
-        "description": "Have a project in mind or want to discuss AI-accelerated engineering? Let's talk.",
-        "primary": "Get in touch",
-        "secondary": "More about me"
+        "heading": "Bring the idea, the codebase or the unfinished product.",
+        "description": "Share what you are trying to build or improve. I'll help identify the clearest engineering path forward.",
+        "primary": "Talk to Safraz",
+        "secondary": "View resume"
       }
     }
   }
