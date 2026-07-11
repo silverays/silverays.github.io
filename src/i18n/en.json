@@ -396,9 +396,8 @@
       },
       "hero": {
         "badge": "Founder & Senior Software Engineer",
-        "titleLine1": "Senior engineering,",
-        "titleLine2": "accelerated",
-        "titleLine3": "by AI.",
+        "titleLead": "Senior engineering,",
+        "typingWords": ["accelerated by AI.", "built with experience.", "reviewed with care.", "shipped with ownership."],
         "description": "I'm Safraz Razik \u2014 a senior software engineer with 15+ years across startups, independent products and Motorola Solutions. Through Zetmel, I design, build, review and recover software using structured AI-assisted workflows and hands-on engineering ownership.",
         "github": "Explore my work",
         "getStarted": "Discuss a product"
