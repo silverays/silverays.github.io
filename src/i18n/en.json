@@ -194,9 +194,9 @@
       },
       "hero": {
         "badge": "About",
-        "titleLead": "Safraz Razik \u2014",
-        "typingWords": ["AI-Accelerated Engineering", "15+ Years Experience", "Full-Stack Developer", "Open Source Creator", "Startup Founder"],
-        "description": "Founder of Zetmel, an AI-accelerated software engineering studio. 15+ years of full-stack development, project leadership, and startup co-founding."
+        "titleLead": "Senior engineering,",
+        "typingWords": ["accelerated by AI.", "built with experience.", "reviewed with care.", "shipped with ownership."],
+        "description": "I'm Safraz Razik \u2014 a senior software engineer with 15+ years across startups, independent products and Motorola Solutions. Through Zetmel, I design, build, review and recover software using structured AI-assisted workflows and hands-on engineering ownership."
       },
       "intro": {
         "badge": "Background",
@@ -395,10 +395,10 @@
         "description": "Safraz Razik is a founder and senior software engineer with 15+ years of experience. Zetmel provides AI-accelerated product development, modernization, technical review and product recovery."
       },
       "hero": {
-        "badge": "Founder & Senior Software Engineer",
-        "titleLead": "Senior engineering,",
-        "typingWords": ["accelerated by AI.", "built with experience.", "reviewed with care.", "shipped with ownership."],
-        "description": "I'm Safraz Razik \u2014 a senior software engineer with 15+ years across startups, independent products and Motorola Solutions. Through Zetmel, I design, build, review and recover software using structured AI-assisted workflows and hands-on engineering ownership.",
+        "badge": "Available for new projects",
+        "titleLead": "Safraz Razik \u2014",
+        "typingWords": ["AI-Accelerated Engineering", "15+ Years Experience", "Full-Stack Developer", "Open Source Creator", "Startup Founder"],
+        "description": "Founder of Zetmel, an AI-accelerated software engineering studio. 15+ years of full-stack development, project leadership, and startup co-founding.",
         "github": "Explore my work",
         "getStarted": "Discuss a product"
       },
