@@ -58,6 +58,10 @@ const PARTICLE_COUNT = 16;
 
 <script is:inline>
   (function () {
+    const DO_NOT_USE_CURSOR_TRAIL = true;
+    if(DO_NOT_USE_CURSOR_TRAIL) {
+      return;
+    }
     if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 

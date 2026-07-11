@@ -51,14 +51,20 @@ const LetterGlitch = ({
   const charHeight = 20;
 
   const lettersAndSymbols = [
-    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-    'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
-    '!', '@', '#', '$', '&', '*', '(', ')', '-', '_', '+', '=', '/',
-    '[', ']', '{', '}', ';', ':', '<', '>', ',',
-    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+    // 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+    // 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+    ...'SAFRAZ RAZIK '.split(''),
+    // ...'ZETMEL '.split(''),
+    // '!', '@', '#', '$', '&', '*', '(', ')', '-', '_', '+', '=', '/',
+    // '[', ']', '{', '}', ';', ':', '<', '>', ',',
+    // '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
   ];
 
-  const getRandomChar = () => {
+  const getRandomChar = (index?: any) => {
+    if(index) {
+      const rem = index%(lettersAndSymbols.length);
+      return lettersAndSymbols[rem];
+    }
     return lettersAndSymbols[Math.floor(Math.random() * lettersAndSymbols.length)];
   };
 
@@ -117,8 +123,8 @@ const LetterGlitch = ({
   const initializeLetters = (columns: number, rows: number) => {
     grid.current = { columns, rows };
     const totalLetters = columns * rows;
-    letters.current = Array.from({ length: totalLetters }, () => ({
-      char: getRandomChar(),
+    letters.current = Array.from({ length: totalLetters }, (el, index) => ({
+      char: getRandomChar(index),
       color: getRandomColor(),
       targetColor: getRandomColor(),
       colorProgress: 1,
@@ -178,7 +184,7 @@ const LetterGlitch = ({
       const index = Math.floor(Math.random() * letters.current.length);
       if (!letters.current[index]) continue;
 
-      letters.current[index].char = getRandomChar();
+      letters.current[index].char = getRandomChar(index);
       letters.current[index].targetColor = getRandomColor();
 
       if (!smooth) {
