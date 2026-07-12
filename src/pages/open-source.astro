@@ -4,6 +4,8 @@ import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import Card from '@/components/ui/data-display/Card/Card.astro';
 import Badge from '@/components/ui/data-display/Badge/Badge.astro';
 import Button from '@/components/ui/form/Button/Button.astro';
+import { Hero } from '@/components/hero';
+import LetterGlitchBand from '@/components/patterns/LetterGlitchBand.astro';
 ---
 
 <PageLayout
@@ -12,20 +14,23 @@ import Button from '@/components/ui/form/Button/Button.astro';
   includePersonSchema={true}
   footerBackground="secondary"
 >
-  <section class="py-[var(--space-section-md)] bg-background">
-    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
-      <div class="flex flex-col items-center gap-6 text-center" data-reveal>
-        <Badge variant="brand" pill>Open Source</Badge>
-        <h1 class="font-display text-4xl md:text-5xl font-bold text-foreground">Tools I've built</h1>
-        <p class="text-lg text-foreground-muted max-w-2xl mx-auto">
-          Developer tooling has been a recurring part of my career\u2014from early generators and internal frameworks
-          to Vue File Agent and Rockplate. These projects reflect how I approach engineering: remove friction,
-          create reusable systems and make complex work easier to understand.
-        </p>
-      </div>
+  <Hero layout="centered" size="sm" class="isolate" showHeroHalo>
+    <Badge slot="badge" variant="brand" pill>
+      <Icon name="code-2" size="sm" />
+      Open Source
+    </Badge>
+    <h1 slot="title">Tools I've built</h1>
+    <p slot="description">
+      Developer tooling has been a recurring part of my career\u2014from early generators and internal frameworks
+      to Vue File Agent and Rockplate. These projects reflect how I approach engineering: remove friction,
+      create reusable systems and make complex work easier to understand.
+    </p>
+  </Hero>
 
-      <div class="grid gap-6 md:grid-cols-2 mt-8" data-reveal-children>
-        <Card variant="elevated" padding="lg" hover={true} href="https://github.com/safrazik/vue-file-agent" target="_blank" rel="noopener noreferrer" class="flex flex-col gap-4">
+  <section class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
+    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
+      <div class="grid gap-6 md:grid-cols-2">
+        <Card variant="elevated" padding="lg" hover={true} href="https://github.com/safrazik/vue-file-agent" target="_blank" rel="noopener noreferrer" class="flex flex-col gap-4" data-reveal>
           <div class="flex items-center gap-3">
             <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-500/10 text-brand-500">
               <Icon name="upload" size="lg" />
@@ -47,7 +52,7 @@ import Button from '@/components/ui/form/Button/Button.astro';
           </div>
         </Card>
 
-        <Card variant="elevated" padding="lg" hover={true} href="https://github.com/rockplate/rockplate" target="_blank" rel="noopener noreferrer" class="flex flex-col gap-4">
+        <Card variant="elevated" padding="lg" hover={true} href="https://github.com/rockplate/rockplate" target="_blank" rel="noopener noreferrer" class="flex flex-col gap-4" data-reveal>
           <div class="flex items-center gap-3">
             <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-500/10 text-brand-500">
               <Icon name="code" size="lg" />
@@ -69,13 +74,18 @@ import Button from '@/components/ui/form/Button/Button.astro';
           </div>
         </Card>
       </div>
+    </div>
+  </section>
 
-      <div class="flex flex-col items-center gap-6 text-center mt-8" data-reveal>
-        <h2 class="font-display text-2xl md:text-3xl font-bold text-foreground">More on GitHub</h2>
-        <p class="text-lg text-foreground-muted max-w-2xl mx-auto">
-          Browse my GitHub profile for additional projects, contributions and experiments spanning developer tools,
-          frameworks, build utilities and more.
-        </p>
+  <section class="relative z-10 py-[var(--space-section-md)] bg-background">
+    <div class="glitch:hidden mx-auto max-w-2xl px-6 text-center" data-reveal>
+      <Badge variant="brand" pill class="mb-6">More projects</Badge>
+      <h2 class="font-display text-4xl font-bold text-foreground mb-4 text-balance">More on GitHub</h2>
+      <p class="text-lg text-foreground-muted mb-8 text-balance">
+        Browse my GitHub profile for additional projects, contributions and experiments spanning developer tools,
+        frameworks, build utilities and more.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <Button size="lg" href="https://github.com/safrazik" target="_blank" rel="noopener noreferrer">
           <Icon name="github" size="sm" />
           View GitHub Profile
@@ -83,5 +93,19 @@ import Button from '@/components/ui/form/Button/Button.astro';
         </Button>
       </div>
     </div>
+
+    <LetterGlitchBand>
+      <h2 class="font-display text-4xl font-bold text-foreground mb-4 text-balance">More on GitHub</h2>
+      <p class="text-lg text-foreground-muted mb-8 text-balance">
+        Browse my GitHub profile for additional projects, contributions and experiments.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <Button size="lg" href="https://github.com/safrazik" target="_blank" rel="noopener noreferrer">
+          <Icon name="github" size="sm" />
+          View GitHub Profile
+          <Icon name="external-link" size="sm" />
+        </Button>
+      </div>
+    </LetterGlitchBand>
   </section>
 </PageLayout>
