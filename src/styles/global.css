@@ -367,10 +367,10 @@
 
   /* H1 spans: one colour for every span, matching dark mode's uniform
      treatment. */
-  html:not(.dark) .hero-dark-gradient h1 > span {
+  /* html:not(.dark) .hero-dark-gradient h1 > span {
     color: var(--color-foreground);
     -webkit-text-fill-color: currentColor;
-  }
+  } */
 
   /* Primary CTA — near-white gradient pill. Targets .btn-primary, which is
      the homepage primary CTA marker (added by the primary button variant). */
