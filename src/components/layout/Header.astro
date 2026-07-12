@@ -101,7 +101,7 @@ const {
   actions = [],
   showSearch = true,
   showThemeToggle = true,
-  showThemeSelector = true,
+  showThemeSelector = false,
   showMobileMenu = true,
   showSocialLinks = siteConfig.header?.showSocialLinks ?? false,
   showLanguageSwitcher = i18nIsEnabled(),
@@ -403,13 +403,13 @@ const buttonId = `${menuId}-button`;
       >
         <div
           id="scroll-progress-bar"
-          class="absolute left-0 top-0 h-full w-0 bg-brand-500 transition-none"
+          class="haha1 absolute left-0 top-0 h-full w-0 bg-brand-500 transition-none"
         />
       </div>
     ) : (
       <div
         id="scroll-progress-bar"
-        class={`absolute left-0 h-[2px] w-0 bg-brand-500 transition-none ${scrollProgressPosition === 'top' ? 'top-0' : 'bottom-0'}`}
+        class={`haha2 absolute left-0 h-[2px] w-0 bg-brand-500 transition-none ${scrollProgressPosition === 'top' ? 'top-0' : 'bottom-0'}`}
         aria-hidden="true"
       />
     )
