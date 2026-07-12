@@ -174,8 +174,8 @@ function getSocialIcon(platform: string): string {
               <slot name="logo" />
             ) : (
               <a href={logoHref} class="flex items-center gap-2">
-                <Logo size="md" class="bg-brand-600" />
-                <span class="font-display text-base font-bold text-brand-600 dark:text-foreground">
+                <Logo size="md" class="bg-brand-600 zetmel-logo-img" />
+                <span class="font-display text-base font-bold text-brand-600 dark:text-foreground zetmel-brand-text">
                   {siteConfig.name}
                 </span>
               </a>
@@ -241,8 +241,8 @@ function getSocialIcon(platform: string): string {
                 <slot name="logo" />
               ) : (
                 <a href={logoHref} class="flex items-center gap-2">
-                  <Logo size="md" class="bg-brand-600" />
-                  <span class="font-display text-base font-bold text-brand-600 dark:text-foreground">
+                  <Logo size="md" class="bg-brand-600 zetmel-logo-img" />
+                  <span class="font-display text-base font-bold text-brand-600 dark:text-foreground zetmel-brand-text">
                     {siteConfig.name}
                   </span>
                 </a>
@@ -344,8 +344,8 @@ function getSocialIcon(platform: string): string {
             <slot name="logo" />
           ) : (
             <a href={logoHref} class="flex items-center gap-2">
-              <Logo size="md" class="bg-brand-600" />
-              <span class="font-display text-xl font-bold text-brand-600 dark:text-foreground">
+              <Logo size="md" class="bg-brand-600 zetmel-logo-img" />
+              <span class="font-display text-xl font-bold text-brand-600 dark:text-foreground zetmel-brand-text">
                 {siteConfig.name}
               </span>
             </a>
@@ -417,3 +417,5 @@ function getSocialIcon(platform: string): string {
   {/* Default slot for additional content */}
   <slot />
 </footer>
+
+

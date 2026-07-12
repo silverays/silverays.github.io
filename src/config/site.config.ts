@@ -297,11 +297,12 @@ const siteConfig: SiteConfig = {
   i18n: i18nConfig,
   branding: {
     logo: {
-      alt: 'Safraz Razik',
-      imageUrl: '/favicon.svg',
+      alt: 'Zetmel',
+      image: '/zetmel-logo.png',
+      imageUrl: '/zetmel-logo.png',
     },
     favicon: {
-      svg: '/favicon.svg',
+      svg: '/favicon.png',
     },
     colors: {
       themeColor: '#2e73bb',

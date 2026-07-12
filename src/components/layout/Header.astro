@@ -234,10 +234,10 @@ const buttonId = `${menuId}-button`;
           <slot name="logo" />
         ) : (
           <a href={logoHref} class="flex items-center gap-2">
-            <Logo size={size === 'sm' ? 'md' : 'lg'} forceDark={isInvert} class="bg-brand-600" />
+            <Logo size={size === 'sm' ? 'md' : 'lg'} forceDark={isInvert} class="bg-brand-600 zetmel-logo-img" />
             <span
               class={cn(
-                'font-display text-xl font-bold tracking-tight',
+                'font-display text-xl font-bold tracking-tight zetmel-brand-text',
                 isFloating ? 'hdr-logo-text' : (isInvert ? 'text-brand-600 dark:text-foreground lg:text-on-invert' : 'text-brand-600 dark:text-foreground')
               )}
             >
@@ -1250,4 +1250,5 @@ const buttonId = `${menuId}-button`;
     position: relative;
     z-index: 60;
   }
+
 </style>
