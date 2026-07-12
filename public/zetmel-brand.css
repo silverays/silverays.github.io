@@ -2,8 +2,95 @@
 .zetmel-brand-text { color: #888 !important; font-size: 16px !important; margin-left: -90px !important; margin-top: 34px !important; }
 footer .zetmel-brand-text { margin-left: -93px !important; }
 
+header.landing-header:not([data-scrolled]) {
+    background: transparent;
+    border-color: transparent;
+}
 
 .hero-dark-gradient {
     background-color: #000;
     background-image: linear-gradient(348deg, transparent 0%, transparent 76%,rgba(194, 194, 194,0.04) 76%, rgba(194, 194, 194,0.04) 93%,transparent 93%, transparent 100%),linear-gradient(150deg, transparent 0%, transparent 10%,rgba(194, 194, 194,0.04) 10%, rgba(194, 194, 194,0.04) 74%,transparent 74%, transparent 100%),linear-gradient(68deg, transparent 0%, transparent 36%,rgba(194, 194, 194,0.04) 36%, rgba(194, 194, 194,0.04) 47%,transparent 47%, transparent 100%),linear-gradient(199deg, transparent 0%, transparent 37%,rgba(194, 194, 194,0.04) 37%, rgba(194, 194, 194,0.04) 47%,transparent 47%, transparent 100%),linear-gradient(90deg, rgb(0,0,0),rgb(0,0,0));
+
+
+background-image:
+    /* Primary blue geometric plane */
+    linear-gradient(
+      348deg,
+      transparent 0%,
+      transparent 76%,
+      rgb(0 158 229 / 0.065) 76%,
+      rgb(0 158 229 / 0.065) 93%,
+      transparent 93%,
+      transparent 100%
+    ),
+
+    /* Very subtle neutral plane */
+    linear-gradient(
+      150deg,
+      transparent 0%,
+      transparent 10%,
+      rgb(255 255 255 / 0.022) 10%,
+      rgb(255 255 255 / 0.022) 74%,
+      transparent 74%,
+      transparent 100%
+    ),
+
+    /* Secondary blue geometric plane */
+    linear-gradient(
+      68deg,
+      transparent 0%,
+      transparent 36%,
+      rgb(0 158 229 / 0.045) 36%,
+      rgb(0 158 229 / 0.045) 47%,
+      transparent 47%,
+      transparent 100%
+    ),
+
+    /* Faint blue accent plane */
+    linear-gradient(
+      199deg,
+      transparent 0%,
+      transparent 37%,
+      rgb(0 158 229 / 0.03) 37%,
+      rgb(0 158 229 / 0.03) 47%,
+      transparent 47%,
+      transparent 100%
+    ),
+
+    /* Focused atmospheric glow */
+    radial-gradient(
+      ellipse 56% 38% at 48% 47%,
+      rgb(0 158 229 / 0.11) 0%,
+      rgb(0 158 229 / 0.045) 38%,
+      transparent 72%
+    ),
+
+    /* Secondary off-centre glow */
+    radial-gradient(
+      ellipse 28% 32% at 78% 58%,
+      rgb(0 158 229 / 0.035) 0%,
+      rgb(0 158 229 / 0.014) 42%,
+      transparent 74%
+    ),
+
+    /* Dark top and bottom for text readability */
+    linear-gradient(
+      to bottom,
+      rgb(0 0 0 / 0.96) 0%,
+      rgb(0 0 0 / 0.78) 18%,
+      rgb(0 0 0 / 0.35) 46%,
+      rgb(0 0 0 / 0.44) 68%,
+      rgb(0 0 0 / 0.9) 90%,
+      #000 100%
+    ),
+
+    /* Dark base */
+    linear-gradient(
+      90deg,
+      #000,
+      #020406,
+      #000
+    );
+
 }
+

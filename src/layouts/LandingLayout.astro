@@ -47,18 +47,22 @@ const {
   includePersonSchema={includePersonSchema}
   includeProfessionalServiceSchema={includeProfessionalServiceSchema}
 >
+
   <Header
     slot="header"
     position="fixed"
     shape="bar"
-    variant="transparent"
-    colorScheme="invert"
+    variant="solid"
+    colorScheme="default"
     size="lg"
     showCta={false}
     cta={{ label: 'Astro Rocket', href: 'https://github.com/hansmartensdev/Astro-Rocket', icon: 'rocket', trailingIcon: 'download' }}
     autoHide={false}
-    scrollProgressPosition="top"
+    showScrollProgress
+    showActiveState
+    scrollProgressPosition="bottom"
     invertOnReturn={false}
+    class="landing-header"
   />
 
   <slot />
