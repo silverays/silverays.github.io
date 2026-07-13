@@ -1,26 +1,113 @@
 ---
 title: "Rockplate"
-description: A lightweight JavaScript template engine for Node.js and the browser, focused on simplicity and performance.
+description: A next-generation programming language for templates — with a built-in linter, VSCode extension, zero-dependency parser, 5KB footprint and 100% code coverage.
 locale: en
-tags: ["JavaScript", "Node.js", "Open Source"]
+url: "https://rockplate.github.io/"
+repo: "https://github.com/rockplate/rockplate"
+tags: ["TypeScript", "JavaScript", "Node.js", "Open Source", "Language Design", "Developer Tools"]
 featured: false
 order: 2
-year: 2018
-role: "Creator"
-url: "https://github.com/rockplate/rockplate"
-repo: "https://github.com/rockplate/rockplate"
-services: ["Open Source", "Tool Development"]
-meta: ["Zero dependencies", "Under 5KB"]
+year: 2020
+role: "Creator & Language Designer"
+services: ["Open Source", "Language Design", "Developer Tools"]
+meta: ["Zero dependencies", "5KB minified + gzipped", "100% code coverage", "VSCode extension"]
+draft: false
+placeholder: false
+toc: true
 ---
 
-A minimal, fast template engine with an intuitive syntax that worked in both Node.js and browser environments without dependencies.
+**TypeScript · JavaScript · Zero dependencies · 5KB minified + gzipped · 100% code coverage**
 
-## Architecture
+## Overview
 
-Rockplate compiled templates into JavaScript functions at runtime. The parser tokenised the template string, the compiler generated a function body, and the runtime executed it with the provided data context.
+Rockplate is a next-generation programming language for templates that I designed and built from the ground up. It was created to solve a practical problem — generating receipt, invoice and email templates for client work — before being extracted, polished and released as an open-source language with its own documentation site, CLI tools, linter, CodeMirror mode and Visual Studio Code extension.
 
-Key technical decisions:
+The language uses a clean, readable syntax that non-developers can understand while supporting features — lexical scoping, schema validation, type-safe parsing, array iteration and conditional logic — that make it suitable for production use.
 
-- **Compile-to-function** — templates compiled once and cached
-- **Simple syntax** — readable by non-developers
-- **Sandboxed execution** — compiled functions without `eval`
+**Key facts:**
+
+- Written entirely in TypeScript, compiled to JavaScript for browser and Node.js
+- Zero external dependencies
+- Approximately 5KB minified and gzipped
+- 100% code coverage with automated CI
+- Zero-RegEx lexer and AST builder for performance and security
+- Official VSCode extension with IntelliSense and linting
+- Dedicated documentation site at [rockplate.github.io](https://rockplate.github.io/)
+- MIT licensed
+
+## The problem it solved
+
+Template languages are everywhere, but most fall into one of two camps. They are either too simple — basic string interpolation with no logic — or too permissive — full embedded programming languages that encourage putting business logic in templates.
+
+Rockplate was designed for a specific niche: structured documents where the data model is known ahead of time and the template should only control presentation, not computation. Receipts, invoices, order confirmations, emails and SMS messages all follow predictable data structures. The template should be able to conditionally display sections, iterate over line items and reference nested properties — but it should not be able to execute arbitrary code, query databases or perform complex calculations.
+
+The "data-first" approach was central to this design. Every Rockplate template is paired with a schema that defines the expected data structure. The parser uses this schema to validate the template at parse time and provide type hints to the developer at edit time.
+
+## Language design
+
+Rockplate's syntax is deliberately minimal. All expressions are enclosed in square brackets and use natural-language keywords:
+
+- **Identifiers** — `[order ref]` prints a value from the data context
+- **Conditionals** — `[if order is paid] ... [else] ... [end if]`
+- **Iteration** — `[repeat items] ... [end repeat]`
+- **Comments** — `[-- this is a comment --]`
+
+The data model mirrors the schema structure, supporting booleans (for conditionals with `is` / `is not` / `are` / `are not` operators), identifiers (strings and numbers) and arrays (for repeat blocks). Nested properties are accessed using natural dot notation — `[order customer name]`.
+
+This syntax was designed to be readable by non-technical users who might need to edit templates, while being precise enough for automated generation.
+
+## Technical architecture
+
+Rockplate processes templates through a multi-stage pipeline:
+
+```
+Template string (source)
+        ↓
+Lexer — tokenises the source into a stream of tokens
+        ↓
+Parser — builds an abstract syntax tree (AST) from the tokens
+        ↓
+Compiler — transforms the AST into a render function
+        ↓
+Runtime — executes the render function with the provided data context
+        ↓
+Output string (result)
+```
+
+**Lexer.** The lexer uses a character-by-character scanner rather than regular expressions, which improves both performance and security. A Regex-based lexer can be vulnerable to catastrophic backtracking and is harder to audit. Rockplate's zero-RegEx approach means the lexer's behaviour is fully predictable.
+
+**Parser.** The parser consumes the token stream and produces an AST representing the template structure. It validates the template against the provided schema during this phase, catching mismatches between the template and its expected data model before any rendering occurs.
+
+**Compiler.** The AST is compiled into a JavaScript render function. Templates are compiled once and cached, so repeated renders of the same template avoid the parsing and compilation overhead.
+
+**Schema validation.** The schema defines the expected data structure — which properties exist, their types (identifier, boolean, array) and their nesting. During parsing, the schema is used to validate that the template only references properties that exist in the data model. During rendering, the schema provides type-safe access to the data context.
+
+## Developer experience
+
+Rockplate shipped with a full suite of developer tooling:
+
+- **Built-in linter** — validates Rockplate syntax and reports errors with line numbers and descriptive messages, integrated into the VSCode extension and available as a standalone API
+- **VSCode extension** — provides syntax highlighting, IntelliSense auto-completion based on the schema, linting and snippet support for `.rpl` and `.rphtml` files
+- **External schema support** — schemas can be embedded in the template file or loaded from an external JSON file, with synchronous and asynchronous schema resolver APIs
+- **API documentation** — generated API docs hosted alongside the language documentation
+- **CLI tools** — command-line utilities for linting and processing Rockplate files
+
+## Quality and reliability
+
+The repository maintained 100% code coverage across its test suite, enforced through continuous integration. The zero-dependency constraint meant every line of the library was owned and tested — no transitive dependencies could introduce unexpected behaviour or security vulnerabilities.
+
+The language was used in production for receipt and invoice generation before being open-sourced, providing real-world validation of the design.
+
+## What I learned
+
+Rockplate was my most complete language-design project. Building a programming language — even a small domain-specific one — requires thinking through syntax, semantics, parsing strategy, error reporting, tooling and documentation in a way that application development does not.
+
+The zero-Regex lexer was a deliberate engineering decision that I remain proud of. It is faster and more auditable than a Regex-based alternative, and it demonstrates an approach to parsing that many developers never need to consider.
+
+The tooling — VSCode extension, linter, documentation site — was as important as the language itself. A language without good tooling is difficult to adopt, regardless of its technical merits.
+
+## Links
+
+- [Rockplate website](https://rockplate.github.io/) — documentation, examples and interactive demo
+- [GitHub repository](https://github.com/rockplate/rockplate) — source code, issues and releases
+- [VSCode extension](https://github.com/rockplate/rockplate-vscode) — language support for Visual Studio Code
