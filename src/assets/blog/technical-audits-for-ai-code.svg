@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" rx="16" fill="oklch(0.2 0.02 255)"/>
+  <rect x="60" y="60" width="680" height="60" rx="10" fill="oklch(0.28 0.04 255 / 0.3)"/>
+  <rect x="75" y="75" width="650" height="30" rx="6" fill="oklch(0.3 0.04 255 / 0.2)"/>
+  <rect x="85" y="80" width="620" height="6" rx="3" fill="oklch(0.55 0.15 255 / 0.08)"/>
+  <rect x="85" y="92" width="580" height="6" rx="3" fill="oklch(0.55 0.15 255 / 0.06)"/>
+  <rect x="85" y="104" width="610" height="4" rx="2" fill="oklch(0.55 0.15 255 / 0.04)"/>
+  <rect x="60" y="145" width="320" height="140" rx="10" fill="oklch(0.26 0.03 255 / 0.35)"/>
+  <circle cx="85" cy="170" r="5" fill="oklch(0.5 0.15 255 / 0.6)"/>
+  <text x="100" y="174" font-family="system-ui" font-size="13" font-weight="600" fill="oklch(0.7 0.08 255)">Correctness vs. Plausibility</text>
+  <rect x="75" y="190" width="290" height="4" rx="2" fill="oklch(0.5 0.15 255 / 0.12)"/>
+  <rect x="75" y="202" width="270" height="4" rx="2" fill="oklch(0.5 0.15 255 / 0.1)"/>
+  <rect x="75" y="214" width="280" height="4" rx="2" fill="oklch(0.5 0.15 255 / 0.08)"/>
+  <rect x="75" y="232" width="290" height="4" rx="2" fill="oklch(0.55 0.1 60 / 0.5)"/>
+  <rect x="75" y="244" width="280" height="4" rx="2" fill="oklch(0.55 0.1 60 / 0.5)"/>
+  <rect x="75" y="256" width="290" height="4" rx="2" fill="oklch(0.55 0.1 60 / 0.5)"/>
+  <rect x="75" y="268" width="270" height="4" rx="2" fill="oklch(0.55 0.1 60 / 0.5)"/>
+  <rect x="420" y="145" width="320" height="140" rx="10" fill="oklch(0.26 0.03 255 / 0.35)"/>
+  <circle cx="445" cy="170" r="5" fill="oklch(0.5 0.12 190 / 0.6)"/>
+  <text x="460" y="174" font-family="system-ui" font-size="13" font-weight="600" fill="oklch(0.65 0.08 190)">Hidden Dependencies</text>
+  <rect x="435" y="190" width="290" height="4" rx="2" fill="oklch(0.45 0.12 190 / 0.12)"/>
+  <rect x="435" y="202" width="270" height="4" rx="2" fill="oklch(0.45 0.12 190 / 0.1)"/>
+  <rect x="435" y="214" width="280" height="4" rx="2" fill="oklch(0.45 0.12 190 / 0.08)"/>
+  <rect x="435" y="232" width="290" height="4" rx="2" fill="oklch(0.45 0.12 190 / 0.08)"/>
+  <rect x="435" y="244" width="270" height="4" rx="2" fill="oklch(0.45 0.12 190 / 0.06)"/>
+  <rect x="60" y="310" width="320" height="120" rx="10" fill="oklch(0.26 0.03 255 / 0.35)"/>
+  <circle cx="85" cy="335" r="5" fill="oklch(0.55 0.1 60 / 0.6)"/>
+  <text x="100" y="339" font-family="system-ui" font-size="13" font-weight="600" fill="oklch(0.75 0.08 60)">Security Surface</text>
+  <rect x="75" y="355" width="290" height="4" rx="2" fill="oklch(0.5 0.1 60 / 0.12)"/>
+  <rect x="75" y="367" width="270" height="4" rx="2" fill="oklch(0.5 0.1 60 / 0.1)"/>
+  <rect x="75" y="379" width="280" height="4" rx="2" fill="oklch(0.5 0.1 60 / 0.08)"/>
+  <rect x="75" y="397" width="290" height="4" rx="2" fill="oklch(0.5 0.1 60 / 0.08)"/>
+  <rect x="75" y="409" width="270" height="4" rx="2" fill="oklch(0.5 0.1 60 / 0.06)"/>
+  <rect x="420" y="310" width="320" height="120" rx="10" fill="oklch(0.26 0.03 255 / 0.35)"/>
+  <circle cx="445" cy="335" r="5" fill="oklch(0.45 0.1 280 / 0.6)"/>
+  <text x="460" y="339" font-family="system-ui" font-size="13" font-weight="600" fill="oklch(0.65 0.08 280)">Maintainability</text>
+  <rect x="435" y="355" width="290" height="4" rx="2" fill="oklch(0.4 0.1 280 / 0.12)"/>
+  <rect x="435" y="367" width="270" height="4" rx="2" fill="oklch(0.4 0.1 280 / 0.1)"/>
+  <rect x="435" y="379" width="280" height="4" rx="2" fill="oklch(0.4 0.1 280 / 0.08)"/>
+  <rect x="435" y="397" width="290" height="4" rx="2" fill="oklch(0.4 0.1 280 / 0.06)"/>
+  <rect x="435" y="409" width="270" height="4" rx="2" fill="oklch(0.4 0.1 280 / 0.06)"/>
+</svg>
