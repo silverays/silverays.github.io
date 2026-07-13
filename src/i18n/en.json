@@ -196,7 +196,7 @@
         "badge": "About",
         "titleLead": "Senior engineering,",
         "typingWords": ["accelerated by AI.", "built with experience.", "reviewed with care.", "shipped with ownership."],
-        "description": "I'm Safraz Razik \u2014 a senior software engineer with 15+ years across startups, independent products and Motorola Solutions. Through Zetmel, I design, build, review and recover software using structured AI-assisted workflows and hands-on engineering ownership."
+        "description": "I'm Safraz Razik \u2014 a senior software engineer with 15+ years across startups, independent products and Fortune 500 environtments. Through Zetmel, I design, build, review and recover software using structured AI-assisted workflows and hands-on engineering ownership."
       },
       "intro": {
         "badge": "Background",
@@ -445,8 +445,8 @@
         "badge": "About me",
         "headingLine1": "From local products",
         "headingLine2": "to enterprise platforms.",
-        "para1WithLocation": "My career spans startup product suites, international client work, technical consulting, team leadership and a large-scale commerce modernization at Motorola Solutions. Based in {location}.",
-        "para1NoLocation": "My career spans startup product suites, international client work, technical consulting, team leadership and a large-scale commerce modernization at Motorola Solutions.",
+        "para1WithLocation": "My career spans startup product suites, international client work, technical consulting, team leadership and a large-scale commerce modernization at a Fortune 500 company. Based in {location}.",
+        "para1NoLocation": "My career spans startup product suites, international client work, technical consulting, team leadership and a large-scale commerce modernization at a Fortune 500 company.",
         "para2": "Today I'm rebuilding Zetmel around AI-accelerated product engineering. The tools are new, but the responsibility is the same.",
         "moreAboutMe": "More about me",
         "statsIntro": "A few things about me.",
