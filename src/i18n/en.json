@@ -212,7 +212,7 @@
           { "icon": "code-2", "title": "Open Source", "description": "Vue File Agent, Rockplate, and more." },
           { "icon": "rocket", "title": "AI Workflows", "description": "Local LLMs and structured prompting." },
           { "icon": "users", "title": "Founder", "description": "Co-founded Zetmel, Adsfly.lk, Adrotec." },
-          { "icon": "globe", "title": "Sri Lanka", "description": "Based in Colombo, working worldwide." }
+          { "icon": "globe", "title": "Sri Lanka", "description": "Based in Sri Lanka, working worldwide." }
         ]
       },
       "principles": {
@@ -438,8 +438,7 @@
         "lead": "",
         "items": [
           { "quote": "Absolutely perfect! Where others were intimidated, this guy tackled my task, saw through the noise and came up with a very elegant solution. Highest recommendation as a technologist and as a cooperative partner.", "name": "Ken", "role": "Client" },
-          { "quote": "It was a complete joy working with him, and I recommend him wholeheartedly. The best part is his attitude \u2014 'Consider it done'. His work exceeded my expectations.", "name": "Mike", "role": "Client" },
-          { "quote": "He is fast and his code quality is stellar.", "name": "Zaid", "role": "Client" }
+          { "quote": "It was a complete joy working with him, and I recommend him wholeheartedly. The best part is his attitude \u2014 'Consider it done'. His work exceeded my expectations.", "name": "Mike", "role": "Client" }
         ]
       },
       "aboutTeaser": {
