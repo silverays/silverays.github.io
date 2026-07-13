@@ -73,7 +73,7 @@ export const navItems: NavItem[] = [
   { label: 'Work', href: '/projects', order: 1, labelKey: 'nav.items.projects' },
   { label: 'Services', href: '/services', order: 2, labelKey: 'nav.items.services' },
   { label: 'Open Source', href: '/open-source', order: 3, labelKey: 'nav.items.openSource' },
-  { label: 'Writing', href: '/blog', order: 4, labelKey: 'nav.items.blog' },
+  { label: 'Blog', href: '/blog', order: 4, labelKey: 'nav.items.blog' },
   { label: 'About', href: '/about', order: 5, labelKey: 'nav.items.about' },
   { label: 'Contact', href: '/contact', order: 6, labelKey: 'nav.items.contact' },
 ];
@@ -83,7 +83,7 @@ export const footerNavItems: NavItem[] = [
   { label: 'Work', href: '/projects', order: 1, labelKey: 'nav.items.projects' },
   { label: 'Services', href: '/services', order: 2, labelKey: 'nav.items.services' },
   { label: 'Open Source', href: '/open-source', order: 3, labelKey: 'nav.items.openSource' },
-  { label: 'Writing', href: '/blog', order: 4, labelKey: 'nav.items.blog' },
+  { label: 'Blog', href: '/blog', order: 4, labelKey: 'nav.items.blog' },
   { label: 'About', href: '/about', order: 5, labelKey: 'nav.items.about' },
   { label: 'Contact', href: '/contact', order: 6, labelKey: 'nav.items.contact' },
 ];
