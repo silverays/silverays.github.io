@@ -1,0 +1,187 @@
+---
+title: How I Built a Low-Cost Arduino Driving Simulator
+description: Combining Arduino controls, custom mechanics, serial communication, PC integration, and a real-time dashboard to build a DIY driving simulator for under $50.
+publishedAt: 2026-07-13
+author: Safraz Razik
+image: "../../../assets/blog/diy-arduino-driving-simulator.svg"
+tags: ["Arduino", "IoT", "Hardware", "JavaScript", "C#", "WebSockets", "Prototyping", "Systems Engineering"]
+locale: en
+draft: false
+featured: false
+---
+
+A wooden steering wheel bolted to a threaded rod. Pedals cut from scrap board. An H-shifter built with push-buttons and a stick. A dashboard with real gauges driven by servo motors. And a web app on a mobile phone showing speed, RPM and indicator status in real time.
+
+It cost less than $50 to build. Every part was either recycled or bought cheap. The Arduino, the wiring, the C# feeder, the JavaScript dashboard — I wrote it all myself.
+
+Here is how it worked, what I learned, and why I still think about this project years later.
+
+## What I wanted to build
+
+I wanted a driving simulator that felt connected — physical steering, pedals you could press, a shifter you could move. Commercial simulators cost hundreds of dollars. I wanted to see how close I could get with spare parts, basic tools, and an Arduino.
+
+The plan was:
+
+- A steering wheel with realistic rotation
+- Accelerator and brake pedals
+- An H-pattern gear shifter
+- Turn indicators, wipers, lights and a horn
+- An ignition switch with a key
+- Gauges that actually move
+- A live dashboard visible on a phone
+
+And all of it had to talk to a PC game in real time.
+
+## The complete system
+
+The system had several layers, each with its own challenge:
+
+```
+Physical controls (steering, pedals, switches, shifter)
+        ↓  (wires)
+Arduino boards (UNO → Mega)
+        ↓  (USB serial)
+Serial feeder application (C# → vJoySerialFeeder)
+        ↓  (virtual joystick driver)
+Windows games (ETS2, MudRunner, Farming Simulator)
+        ↑
+Web dashboard (JavaScript, WebSockets) ← serial data
+```
+
+The Arduino read every sensor and switch. It sent the state over USB serial. A feeder application translated those serial values into virtual joystick inputs that games could recognise. Separately, the same serial data fed a live web dashboard.
+
+## Building the physical controls
+
+### Steering wheel
+
+The wheel started as the lid of a used paint bucket, cut to shape, padded with sponge, wrapped in scrap fabric, and reinforced with a wooden backing. A $1 BMW emblem from eBay went in the centre — behind it, two pushbuttons for the horn.
+
+The steering column was a threaded rod mounted on two ball bearings. At the base, a set of gears taken from a broken table fan connected the rod to a potentiometer, giving roughly 900 degrees of rotation. The gear ratio meant the potentiometer turned several full rotations for one turn of the wheel, which protected it from damage and improved resolution.
+
+Springs and elastic bands provided a light centering force — a crude approximation of force feedback, but effective for the budget.
+
+### Pedals
+
+The accelerator and brake pedals were cut from wood. Each pedal pivoted against a spring and connected to a linear potentiometer — the same kind used as volume faders on audio mixers. A rigid wire linked the pedal surface to the potentiometer slider, so pressing the pedal moved the potentiometer up and down linearly.
+
+Calibration was handled in software: the Arduino read the raw analog values and the feeder application mapped them to the range the game expected.
+
+### H-shifter and controls
+
+The gear shifter was also built from wood, with push-buttons arranged in an H pattern. The Arduino detected which position was engaged and transmitted the gear state through the serial protocol.
+
+On the steering column, I mounted stalks for turn indicators and wipers. A classic three-position ignition switch with a key handled on/off/start. A rotary switch controlled the lights. All of these were digital inputs read by the Arduino.
+
+## Arduino and firmware
+
+I started with an Arduino UNO. As the project grew — more switches, more controls — I moved to an Arduino Mega to get enough digital and analog pins.
+
+The firmware ran in a continuous loop:
+
+1. Read every analog input (steering angle, pedal positions)
+2. Read every digital input (switches, buttons, shifter contacts)
+3. Package all the values into a serial message
+4. Transmit over USB at regular intervals
+
+The analog inputs returned values from 0 to 1023. These were mapped to the ranges that the feeder application expected. The update frequency settled at roughly 10 milliseconds between transmissions — fast enough for responsive driving in games like Euro Truck Simulator 2.
+
+```cpp
+// Conceptual illustration — not the original code
+void loop() {
+  int steering = analogRead(STEERING_PIN);
+  int brake     = analogRead(BRAKE_PIN);
+  int throttle = analogRead(THROTTLE_PIN);
+
+  // Map raw 0-1023 to values the feeder expects
+  Serial.print(map(steering, 0, 1023, 0, 255));
+  Serial.print(",");
+  Serial.print(map(brake, 0, 1023, 0, 255));
+  Serial.print(",");
+  Serial.print(map(throttle, 0, 1023, 0, 255));
+  Serial.print(",");
+  Serial.println(digitalRead(SHIFTER_1));
+  // ... more channels
+  delay(10);
+}
+```
+
+## Connecting the simulator to the PC
+
+The Arduino sent serial data, but games do not understand raw serial input. They expect a joystick or game controller.
+
+I initially wrote a C# Windows Forms application that read the serial port and fed the values into [vJoy](https://github.com/shauleiz/vJoy), a virtual joystick driver that makes Windows think a physical controller is attached. The C# app parsed each serial message and updated the corresponding vJoy axis or button.
+
+Before long I discovered [vJoySerialFeeder](https://github.com/Cleric-K/vJoySerialFeeder), an open-source tool by Cleric-K that did exactly this — and did it better. I abandoned my own feeder and adopted it. The Arduino code was compatible with minimal changes.
+
+This pattern — physical hardware → serial → virtual joystick — is common in DIY sim racing. The critical engineering challenge was getting the timing right: the serial protocol, the feeder's polling rate and the game's input sampling all had to stay in sync to avoid lag or jitter.
+
+## The real-time dashboard
+
+One of the most satisfying parts of the project was the dashboard. I wanted live feedback visible while driving, without looking at a PC monitor.
+
+I built a web application using JavaScript that connected to the serial data stream via WebSockets. It displayed:
+
+- **Speed and RPM** — computed from game telemetry where available
+- **Turn indicator status** — left and right indicators with visual feedback
+- **Gear position** — which gear was engaged
+- **Light status** — headlights on or off
+
+The dashboard was designed for a mobile phone. I mounted it on the simulator frame so it acted as a virtual instrument cluster. The data path was:
+
+```
+Arduino → USB serial → PC feeder → WebSocket server → browser dashboard
+```
+
+This is where my web development background met the hardware project directly. Building a real-time UI that consumed serial data and updated at a smooth framerate was the same kind of problem I solved daily, just with a different input source.
+
+On the hardware side, I added physical gauges driven by servo motors — the needle angle updated based on incoming values. Green LEDs flashed for the turn indicators. High-power LEDs simulated sunlight inside the cab, dimmed via PWM to match the game's time of day.
+
+## What made the project difficult
+
+**Mechanical accuracy.** Building moving parts from wood and recycled materials means nothing is perfectly straight, smooth or balanced. Every imperfection in the mechanics translated into noise in the analog readings.
+
+**Calibration.** Potentiometers drift. Springs weaken. Wood flexes. The software had to account for physical changes that a commercial product would handle through precision manufacturing.
+
+**Latency.** The round trip — physical input → Arduino → serial → feeder → vJoy → game → visual feedback — had to stay under the threshold where a driver would notice delay. Ten milliseconds per update was achievable, but only after tuning the serial baud rate and the feeder configuration.
+
+**Keeping it under $50.** Every component choice was a trade-off between cost and reliability. Using recycled parts meant more time spent adapting and reinforcing than building from a kit.
+
+**Mapping physical to digital.** A 900-degree steering rotation had to map precisely to what the game expected. The gear ratio between the wheel and the potentiometer determined the effective resolution, and getting that ratio right took trial and error.
+
+## Teaching and experimentation
+
+I built this simulator to teach Arduino and programming. A project that sits on a table and blinks an LED is fine for the first session. A project you can sit in and drive gives students an immediate, visceral connection between the code they write and the physical result.
+
+When students pressed the brake pedal in the game and saw the truck slow down, they understood what the analog-to-digital converter did. When they flipped the turn signal and saw the green LED flash on the dashboard, the link between a digital output pin and a real-world action became concrete.
+
+That teaching context also drove the design decisions. I kept materials simple, reused what I could, and documented the process transparently — so anyone with basic tools and a $10 Arduino could follow along.
+
+## What I learned
+
+Software behaves differently when it is connected to something physical. A race condition in a web app refreshes a page. A race condition in firmware makes a braking pedal intermittently unresponsive. You learn to test differently.
+
+Hardware imperfections must be handled in code. No potentiometer returns a perfectly stable value. No switch contacts close cleanly every time. The Arduino firmware needed debouncing, filtering and dead zones that a purely digital project never requires.
+
+Prototypes reveal requirements that planning alone cannot. I did not know I needed a dashboard until I tried to play a game without one. I did not know I wanted a keyed ignition until I reached for a key.
+
+Low-cost materials still support meaningful experimentation. The paint-bucket-lid steering wheel did not look like a commercial product. It worked well enough to drive a truck across virtual Europe.
+
+Cross-disciplinary projects improve systems thinking. This project touched electronics, mechanics, firmware, serial protocols, Windows driver architecture, WebSockets and real-time UI design. Each layer informed the others.
+
+A working prototype does not need to begin as a polished commercial product. The simulator was ugly, held together with zip ties and reused parts, and it worked. It taught students, it taught me, and it led to ideas I am still exploring today.
+
+## How this connects to my work today
+
+The tools I use today have changed, but the underlying approach remains familiar: understand the complete system, build a working version, observe where it fails, and improve it deliberately.
+
+At Zetmel, I apply the same mindset to product development — whether I am architecting a React application, integrating a payment workflow, or auditing an AI-generated codebase. The technologies are different. The engineering discipline is the same.
+
+I also continue to explore connected devices, IoT dashboards, and the space where software meets physical controls. The driving simulator was one data point in a longer pattern of building things that cross traditional boundaries.
+
+## Closing
+
+If you are a software engineer who has never built anything with moving parts, I recommend trying it. Writing code that controls a physical mechanism — and responding to the unpredictable behaviour of the real world — changes how you think about reliability, feedback loops and system design.
+
+The project cost less than $50. It used a paint bucket lid, table fan gears, scrap wood and an Arduino. And it worked.
+
+*You can find more of my engineering projects on the [Work](/work/) page. If you are working on something that blends hardware and software, or just want to discuss an idea, [get in touch](/contact/).*

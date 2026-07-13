@@ -1,0 +1,231 @@
+---
+title: "Breeze Server for PHP"
+description: A framework-agnostic PHP library that connected BreezeJS clients to Doctrine ORM backends, supporting metadata generation, relational queries, validation, serialisation and transactional entity saves.
+locale: en
+url: "https://breeze.github.io/doc-samples/php-employee-directory.html"
+repo: "https://github.com/safrazik/breeze.server.php"
+tags: ["PHP", "Doctrine ORM", "BreezeJS", "Open Source", "Developer Tools", "Framework Engineering"]
+featured: false
+order: 10
+year: 2014
+role: "Creator & Architect"
+services: ["Open Source", "Framework Engineering", "Developer Tools"]
+image: "../../../assets/projects/breeze-server-php.svg"
+meta: ["Featured by BreezeJS", "Framework-agnostic", "Archived"]
+draft: false
+placeholder: false
+toc: true
+---
+
+## Overview
+
+BreezeJS was a sophisticated JavaScript library for client-side data management — entities, change tracking, query caching, offline support, and transactional save bundles. It was far beyond a simple REST client. Applications using Breeze on the frontend needed a matching backend that understood metadata, relationships, query semantics, and save-graph processing.
+
+At the time, official Breeze server support existed for .NET (Entity Framework and NHibernate), Node (Sequelize and MongoDB), and Java (Hibernate). PHP had no equivalent.
+
+I built `breeze.server.php` to bridge that gap. It was a framework-agnostic PHP library that connected BreezeJS clients to Doctrine ORM — generating structural metadata, translating Breeze queries into Doctrine queries, processing save bundles through the Unit of Work, validating entities, and serialising results.
+
+The library was later featured in the official BreezeJS documentation through the PHP Employee Directory reference application, which demonstrated the same sample across standalone PHP, Symfony and Laravel implementations.
+
+## The problem
+
+Supporting BreezeJS from a PHP backend was not about exposing a few REST endpoints. The client expected its server to provide several distinct capabilities, each with its own engineering challenges.
+
+**Metadata.** Breeze clients need structural metadata about the entity model — which entity types exist, what properties each has, which are keys, which are nullable, what relationships exist, and so on. This metadata had to be generated dynamically from Doctrine's mapping information, not written by hand.
+
+**Query translation.** Breeze clients send queries with filter, sort, pagination, expand and projection clauses. These had to be parsed from the request and translated into Doctrine query builder operations — safely, without exposing the backend to injection or unintended data access.
+
+**Save bundles.** Unlike a simple POST of a single record, Breeze sends save bundles — a graph of added, modified and deleted entities in a single request. The server had to deserialise the graph, apply each change in the correct order (respecting foreign-key dependencies), coordinate Doctrine's Unit of Work, and return the updated entities with any server-generated values.
+
+**Validation.** The client could display validation errors from the server. The library needed to run Symfony Validator constraints against entities and return structured error metadata that Breeze could interpret, all while keeping the validation rules synchronised between client and server.
+
+**Serialisation.** Doctrine entities are graph-oriented, with lazy-loaded proxies and cyclic references. Naive serialisation produces circular structures, extra database queries, or missing data. The library used JMS Serializer to control output — including only the intended properties, handling related entities, and excluding server-internal fields.
+
+**Framework independence.** PHP applications use different frameworks. The library had to work as a standalone component, inside a Symfony application, and inside a Laravel application — without forcing a framework choice on its users.
+
+## Architecture
+
+The library was organised into several service layers, each responsible for one phase of the Breeze server protocol.
+
+```
+BreezeJS Client
+      ↓
+Metadata Request ──→ Metadata Builder ──→ Doctrine Mapping Inspection
+      ↓
+Query Request    ──→ Query Service    ──→ Doctrine Query Builder → DB
+      ↓
+Save Bundle      ──→ Save Service     ──→ Doctrine Unit of Work  → DB
+      ↓
+Validation       ──→ Symfony Validator
+      ↓
+Serialisation    ──→ JMS Serializer   ──→ JSON Response
+```
+
+The `Application` class tied these services together and handled the routing of incoming Breeze requests to the correct service. A `StandaloneApplication` subclass provided a self-contained setup with its own Doctrine entity manager, serializer and validator configuration — useful for projects that were not using Symfony.
+
+## Metadata generation
+
+Breeze clients need a metadata endpoint that describes the entire entity model. This is not documentation — it is a structured data structure that the client uses to create entity constructors, map property types, set up validators, and navigate relationships.
+
+`breeze.server.php` inspected Doctrine's `ClassMetadata` objects for each registered entity and built a Breeze-compatible metadata structure. This included:
+
+- **Entity types** — class name and namespace mapping
+- **Data properties** — each field, its data type (mapped from Doctrine types to Breeze types), nullable flag, default value
+- **Navigation properties** — associations to other entities, including the type of association (many-to-one, one-to-many, many-to-many), the foreign key property, and the inverse side
+- **Keys** — primary key identification, including composite keys
+- **Validation metadata** — Symfony Validator constraints converted to Breeze validator definitions
+- **Inheritance** — single-table and class-table inheritance, with discriminator information
+
+This was technically difficult because Doctrine's mapping model and Breeze's entity model do not align naturally. Doctrine thinks in terms of database mappings, PHP class hierarchies and proxy objects. Breeze thinks in terms of client-side entity graphs, navigation properties and immutable change-tracking. Translating between the two required understanding both systems deeply and deciding how to represent each Doctrine feature in Breeze terms.
+
+## Query translation
+
+When a Breeze client needs data, it sends a query with optional filter, sort, skip, take, expand and select parameters. The library parsed these parameters from the request and constructed a Doctrine query builder chain.
+
+**Filtering.** OData-style filter expressions were parsed and converted into Doctrine query builder `where` clauses. Operators such as `eq`, `ne`, `gt`, `lt`, `ge`, `le`, `contains`, `startsWith`, `endsWith` and logical combinators (`and`, `or`, `not`) were supported, mapped to the equivalent Doctrine `Expr` methods.
+
+**Sorting.** Order-by clauses were parsed and applied to the query builder, with multiple sort criteria supported.
+
+**Pagination.** The `skip` and `take` parameters from the client were translated to `setFirstResult` and `setMaxResults` on the Doctrine query.
+
+**Expansion.** When a client requested related entities to be included (`$expand`), the library used Doctrine's join capabilities to eager-load the specified associations in the same query, avoiding the N+1 problem.
+
+**Projection.** Clients could request only specific properties (`$select`). The library limited the query result to those columns.
+
+The query service had to translate client semantics into Doctrine semantics without compromising safety. A malformed filter expression could not be allowed to produce invalid SQL or expose data the client should not access.
+
+## Save processing
+
+This was the most complex part of the library. A Breeze save bundle is a JSON object containing arrays of added, modified and deleted entities. The server must:
+
+1. Deserialise each entity from JSON into a Doctrine entity object
+2. Determine the correct entity type and identifier for each
+3. Apply changes to the entity manager in the correct order
+4. Handle related entities that are also part of the same save bundle
+5. Resolve foreign keys and associations between new and existing entities
+6. Run validation on every changed entity
+7. Execute the Unit of Work in a single transaction
+8. Return the updated entities — including server-generated IDs, computed properties and concurrency tokens
+
+The library deserialised each entity using JMS Serializer, attached it to Doctrine's Unit of Work through the appropriate `persist`, `merge` or `remove` call, and resolved inter-entity dependencies by tracking which entities had been added and what keys they would receive. After execution, the results were serialised and returned to the client with the original change-tracking metadata intact.
+
+## Validation and serialisation
+
+**Validation.** When the Symfony Validator component was available, the library ran validation constraints on every entity during a save. Constraint violations were converted into Breeze-compatible `EntityError` structures, including the property name, error message and the specific validation constraint that failed. The client could display these errors inline on the appropriate form fields.
+
+The library mapped several Symfony validation constraints to equivalent Breeze validators in the generated metadata — `NotBlank` to `required`, `Length` (max) to `maxLength`, `Email` to `emailAddress`, `Regex` to `regularExpression`, and `Luhn` to `creditCard`. This meant client-side validation could mirror server-side rules without duplication.
+
+**Serialisation.** JMS Serializer controlled how Doctrine entities were converted to JSON. The serializer handled lazy-loading proxies, excluded server-internal properties through `@Exclude` annotations, and controlled which related entities were included. Circular references between related entities were managed through serialisation depth limits and explicit inclusion rules.
+
+## Framework-agnostic design
+
+The library deliberately avoided coupling to any specific PHP framework. The core integration logic lived in the `Adrotec\BreezeJs` namespace, behind the `Application` class. Framework-specific wiring was provided separately.
+
+- **Standalone** — the `StandaloneApplication` class included its own Doctrine, serializer and validator configuration, making it usable in any PHP project without a framework.
+- **Symfony** — a dedicated bundle wired the library into Symfony's service container, leveraging the existing `doctrine.orm.entity_manager`, `jms_serializer` and `validator` services.
+- **Laravel** — a separate integration demonstrated how the library could be used with Laravel's database configuration and routing.
+
+This separation meant the core library received improvements independently of the framework integrations, and adopters could contribute support for additional frameworks without modifying the core.
+
+## Employee Directory reference application
+
+To demonstrate the library in practice, I built the [Employee Directory](https://github.com/safrazik/emp-directory) reference application — a complete BreezeJS-powered PHP application for managing employee records.
+
+The application featured:
+
+- Employee records with manager relationships and organisational hierarchy
+- Department and job-title lookups cached on the client
+- Navigation property handling — employees loaded their department, job and manager through Breeze's entity graph, not separate API calls
+- Lazy loading of direct reports from the employee's cache or the server
+- Full CRUD for employees, departments and job titles
+- Client-side and server-side validation — custom server errors returned meaningful messages
+- Profile picture upload with base64 encoding and Doctrine lifecycle callbacks
+- Computed properties (full name from first and last name) registered through Breeze's `registerEntityTypeCtor`
+- Three server implementations — standalone, Symfony and Laravel — proving the library's framework independence
+
+The reference application was listed on the official BreezeJS documentation as the PHP Employee Directory sample, alongside samples for other server platforms.
+
+## Recognition by BreezeJS
+
+The official BreezeJS documentation featured `breeze.server.php` through the PHP Employee Directory reference application. The sample page on the Breeze website stated:
+
+> *Adrotec, the developers of breeze.server.php, created this Employee Directory app to demonstrate the features of Breeze with a PHP backend.*
+
+This recognition was significant. Breeze was a mature, widely-used SPA framework, and its official documentation only carried server implementations that met its quality and compatibility standards. Being included alongside the .NET and Node samples placed the PHP implementation in a category few open-source PHP libraries reached.
+
+## Open-source issue history
+
+The repository received issues covering a range of real-world integration scenarios:
+
+- **Laravel integration** — developers asked about combining the library with Laravel's routing and database configuration
+- **Many-to-many relationships** — handling junction tables and collection navigation properties
+- **Save interception** — modifying entities before they were persisted, and reacting to post-save events
+- **Authorisation** — restricting query access and save operations per user
+- **Projection queries** — selecting specific properties rather than full entities
+- **Embeddable value objects** — handling Doctrine embeddables in metadata generation and serialisation
+- **UUID primary keys** — custom key generation strategies
+- **Non-mapped properties** — including computed or transient properties in the Breeze entity model
+- **Custom service endpoints** — extending the library with application-specific routes
+- **PHP version compatibility** — keeping the library working across PHP 5.x and early 7.x
+
+These issues demonstrate that developers were integrating the library into production applications with complex requirements, not just experimenting with sample code.
+
+## Technical challenges
+
+Several aspects of this project were genuinely difficult.
+
+**Translating between two data-model ecosystems.** Doctrine and BreezeJS have fundamentally different views of what an entity is. Doctrine entities are PHP objects mapped to database rows, managed through proxy objects and identity maps. Breeze entities are JavaScript objects tracked by a change-tracking system with immutable state and navigation properties. Making these two models communicate without losing semantics required a detailed mapping layer.
+
+**Save-graph processing.** A single save bundle could contain multiple interrelated entities, some new (without assigned keys) and some existing. The library had to order operations correctly — inserting parent entities before children that reference them, recognising that two entities in the same bundle reference each other, and returning the server-generated keys so the client could update its cache.
+
+**Metadata generation from ORM metadata.** Doctrine mapping information is optimised for the ORM's internal use. Extracting the information Breeze needed — structural type metadata, navigable relationships, validation constraints — required walking Doctrine's metadata objects and translating each concept into Breeze's schema format.
+
+**Framework independence while still providing framework integration.** The core library could not assume Symfony or Laravel, but developers using those frameworks expected a natural integration. This dual requirement meant careful separation of concerns in the codebase, with the core remaining dependency-free and integrations living in separate packages.
+
+**Doctrine proxy handling.** When JMS Serializer encountered a Doctrine proxy object, it could trigger an unintended database query. Managing the serialisation lifecycle to avoid this required configuring the serializer's exclusion strategy and handling proxy initialisation explicitly.
+
+## What I would change today
+
+The project reflects the PHP and JavaScript ecosystems of its time. If I were designing it today, I would preserve the core separation of concerns while strengthening a few areas.
+
+**Comprehensive test coverage.** The library worked and was used in real applications, but it lacked an automated test suite. This made refactoring risky and required manual verification for each change. Modern PHP tooling — PHPUnit, Pest, integration tests with Doctrine's schema tools — would make the library more maintainable.
+
+**Modern PHP typing.** PHP 5.x type hints gave way to PHP 7.x scalar types and return types. Today I would use typed properties, strict types and generics through static analysis. The codebase would be more self-documenting and toolable.
+
+**Smaller adapter packages.** Rather than bundling Symfony Validator and JMS Serializer support in the same package, I would publish separate composer packages for each integration, with the core library depending on interfaces rather than implementations. This would let adopters choose only the components they need.
+
+**Explicit authorisation hooks.** Authorisation was left to the application layer. I would design a contract for query-level and save-level authorisation that applications could implement, making access-control logic more testable and independent of the library's internals.
+
+**Better error modelling.** The library used PHP exceptions and nullable returns. A typed result type — success or failure with structured error information — would give callers clearer paths for handling failure cases without inspecting exception types.
+
+**Stronger separation between query parsing and ORM execution.** The query parser and the Doctrine query builder were coupled. Separating them would make the parser testable independently and allow alternative backends beyond Doctrine ORM — such as the Doctrine MongoDB ODM that was mentioned in the original README but never implemented.
+
+## Why this project still matters
+
+This project demonstrates abilities that remain directly relevant to the work I do today.
+
+**Understanding unfamiliar systems.** BreezeJS and Doctrine are both complex, opinionated systems. Learning both deeply enough to build a reliable integration layer between them required the same kind of system analysis that I apply to every new codebase I encounter.
+
+**Designing integration layers.** The core challenge of this project was translating between two different data models — not building something from scratch, but making two existing systems work together without compromising either. That is what integration engineering is.
+
+**Cross-boundary thinking.** This project touched the JavaScript client, the serialisation format, the PHP application layer, the ORM, and the database schema. Understanding how data moves through all of these layers is not common. It is the kind of full-stack thinking that separates product engineers from ticket implementers.
+
+**Architectural decision-making.** Choosing to keep the library framework-agnostic, choosing which Breeze features to support first, choosing JMS Serializer over other approaches — each of these decisions required understanding the trade-offs and the audience.
+
+**Legacy modernisation.** This project is old in technology terms. It uses PHP conventions that have since evolved. The ability to read, understand and learn from older code — and to connect its concepts to modern equivalents — is a large part of legacy modernisation work.
+
+## Current project status
+
+The repository is archived. It is no longer actively maintained. No pull requests, issues or releases are being accepted.
+
+The library reflects an earlier generation of PHP, Doctrine and BreezeJS. BreezeJS itself has been superseded by newer data-management patterns, and the PHP ecosystem has moved on to later versions of Doctrine, Symfony components and PHP itself.
+
+I do not recommend adding `breeze.server.php` as a dependency to new applications. It should be viewed as a historical open-source project and a case study in framework-level PHP engineering.
+
+## Closing
+
+The most valuable part of this project was not connecting one JavaScript library to one PHP ORM. It was learning how to translate assumptions, data models and lifecycle behaviour between two complex systems without losing consistency.
+
+That skill — understanding what a system expects, designing a layer that meets those expectations, and keeping both sides stable while data moves through the middle — has been useful in every architecture, integration and modernisation project I have worked on since.
+
+*You can find more of my open-source and engineering projects on the [Work](/work/) page. If you are working on a framework integration, legacy modernisation or cross-system architecture and want an experienced review, [get in touch](/contact/).*
