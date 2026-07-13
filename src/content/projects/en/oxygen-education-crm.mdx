@@ -1,140 +1,213 @@
 ---
 title: "Oxygen — Architecting an Education CRM Before the Modern JavaScript Stack"
-description: A full-stack CRM and institutional operations platform for colleges, training providers, universities and multi-branch education businesses. Co-founded and architected across client, server, infrastructure and team.
+description: A full-stack education CRM and institutional operations platform architected during the early JavaScript SPA era — with a custom frontend platform, reusable widgets, metadata-driven administration and a modular Symfony backend.
 locale: en
+url: "https://web.archive.org/web/20190226152808/http://oxygen.adrotec.com/"
+repo: "https://github.com/safrazik/oxygen-server"
 tags: ["Durandal", "Knockout", "BreezeJS", "Symfony", "Doctrine", "Education", "CRM", "Enterprise"]
 featured: false
 order: 11
 year: 2014
 role: "Co-founder, CTO & Principal Architect"
 services: ["Product Architecture", "Frontend Platform", "Server Architecture", "Technical Leadership"]
-meta: ["Education CRM", "Custom frontend platform", "International deployment"]
 image: "../../../assets/projects/oxygen-education-crm.svg"
+meta: ["Historical project", "Full-stack architecture", "Custom frontend platform"]
 draft: false
 placeholder: false
 toc: true
 ---
 
-**Role:** Co-founder, CTO and Principal Architect
+A full-stack education CRM and institutional operations platform architected during the early JavaScript SPA era. As Co-founder and CTO, I designed the client and server architecture, created a custom frontend platform, reusable business widgets, metadata-driven administration tools and modular Symfony server bundles.
 
-**Scope:** Product architecture, frontend platform, server architecture, reusable widgets, backend bundles and technical leadership
+**Role:** Co-founder, CTO & Principal Architect
 
-**Project era:** 2013–2015
+**Client repo:** [oxygen-client](https://github.com/safrazik/oxygen-client)
 
-## Overview
+**Server repo:** [oxygen-server](https://github.com/safrazik/oxygen-server)
 
-Oxygen was a full-stack CRM and institutional operations platform created for colleges, training providers, universities and multi-branch education businesses.
+**Archived website:** [oxygen.adrotec.com](https://web.archive.org/web/20190226152808/http://oxygen.adrotec.com/)
 
-The platform connected the complete student journey — from initial enquiry and marketing engagement through application, enrolment, payments, communication and ongoing student management. It also provided dashboards, reporting and operational tools for marketers, administrators, cashiers, finance teams and institutional leadership.
+**Durandal · Knockout · BreezeJS · Symfony · Doctrine · RequireJS · D3 · Cylinder**
 
-I served as Co-founder and CTO of Adrotec, architecting Oxygen across both the client and server. My work included defining the technical direction, designing the application structure, building core frontend infrastructure, creating reusable widgets and server bundles, and guiding the engineering team through the implementation of a large and highly interconnected business platform.
+## At a glance
 
-## The challenge
+- **Full-stack platform** — modular SPA client and domain-oriented Symfony server
+- **Custom frontend platform** — Cylinder, a framework built above Durandal providing authentication, routing, data services, translation, widgets and more
+- **Metadata-driven administration** — Magic CRUD generated grid and form experiences from server entity metadata
+- **Reusable widget library** — dozens of platform and domain-specific widgets shared across business modules
+- **Business domains** — enquiries, marketing, enrolments, courses, payments, messaging, staff, reporting and business intelligence
+- **International footprint** — documented deployments across Sri Lanka, India, Qatar, Australia and Papua New Guinea (per archived product website)
+- **Repository scale** — over 1,500 combined commits across client and server repositories
 
-Oxygen was developed during an early and fragmented period of large-scale JavaScript application development.
+## The product challenge
 
-Modern frontend platforms now provide integrated solutions for components, routing, data fetching, authentication, compilation, build optimisation and developer tooling. At the time, each of these concerns had to be evaluated, integrated and maintained separately.
+Oxygen was designed for colleges, training institutes, universities and multi-branch education businesses. It connected the complete student lifecycle — from initial enquiry and marketing engagement through application, enrolment, payments, communication, ongoing student management, reporting and executive business intelligence.
 
-The product also had considerable domain complexity. It needed to support:
+### Business complexity
 
-- Enquiries and follow-ups
+The platform needed to support:
+
+- Student enquiries and automated follow-ups
 - Marketing campaigns and conversion tracking
-- Applications and enrolments
-- Students, courses, programmes and batches
-- Branch and institutional management
-- Payments, discounts, revenue and recovery
-- Staff and permissions
+- Applications, enrolments, courses, programmes, batches and subjects
+- Branch and multi-institutional management
+- Payments, discounts, revenue monitoring and payment recovery
+- Cashier operations and financial reconciliation
+- Staff management, roles and granular permissions
 - Email, SMS and broadcast messaging
-- Operational and executive reporting
+- Operational dashboards and executive business intelligence
+- PDF and spreadsheet reporting
 
-The architectural challenge was not simply to build individual screens. It was to create a platform through which a team could continue delivering a growing collection of connected business capabilities.
+Each of these areas had distinct workflows, data models and user roles. They also shared data — an enquiry became an application, an application became an enrolment, an enrolment generated payment obligations. The platform had to support each stage independently while preserving continuity across the whole lifecycle.
 
-## The architecture
+### Technical complexity
 
-Oxygen used a separated client-server architecture.
+Oxygen was developed during a fragmented period of large-scale JavaScript application development. Modern frontend frameworks now provide integrated solutions for components, routing, data fetching, state management, authentication, build tooling and developer experience. At the time, each of these concerns had to be evaluated, integrated and maintained separately.
 
-The client was a modular single-page application built around Durandal, Knockout, BreezeJS and RequireJS. The server was a Symfony and Doctrine application organised into reusable infrastructure and business-domain bundles.
+The client stack included Durandal, Knockout, BreezeJS, RequireJS, AMD modules, Gulp, Babel, Traceur, Bower, npm, Bootstrap, Sass, D3, C3, Moment.js and Knockout Validation — all assembled manually into a coherent application.
 
-A custom API and metadata integration connected the Doctrine domain model to BreezeJS on the client. This allowed the frontend to work with rich entities, relationships, validation and server metadata rather than treating every operation as an isolated HTTP request.
+The architectural challenge was not simply to build individual screens. It was to create a platform through which a team could continue delivering a growing collection of connected business capabilities without rebuilding infrastructure for every feature.
 
-## Cylinder — a custom frontend platform
+## Architecture
 
-To provide consistency across the application, I developed Cylinder, a higher-level frontend platform built over Durandal.
+The system was organised into several clear layers:
 
-Cylinder provided shared capabilities for:
+```
+Users and role-based dashboards
+            ↓
+Oxygen modular single-page application
+            ↓
+Cylinder frontend platform
+            ↓
+BreezeJS metadata and entity layer
+            ↓
+Custom Web API integration
+            ↓
+Symfony domain bundles
+            ↓
+Doctrine domain model
+            ↓
+Relational database
+```
 
-- Application and module bootstrapping
-- Routing and module loading
+### Client side
+
+The single-page application was built with Durandal and Knockout, organised into AMD modules loaded by RequireJS. BreezeJS managed client-side entities, change tracking, query caching and metadata synchronisation with the server.
+
+Above this stack I built **Cylinder** — a custom frontend platform that provided shared application infrastructure:
+
+- Application bootstrap and module loading
+- Routing and navigation
 - Authentication and authorisation
-- HTTP communication
-- Data services and entities
-- Validation and storage
-- Translation
-- Dialogs and notifications
-- Pagination
-- Charts and visualisation
-- Reusable widgets
+- HTTP communication and request encoding
+- Data services and entity management
+- Client-side validation and local storage
+- Translation and internationalisation
+- Dialogs, toast notifications and progress indicators
+- Pagination, charts and reusable widgets
 
-Cylinder enabled the product team to build business modules on top of shared architectural conventions instead of reimplementing infrastructure for every feature.
+Cylinder enabled the product team to build business modules on top of shared architectural conventions rather than reimplementing application infrastructure for every feature.
 
-## Reusable widget system
+### Server side
 
-Oxygen contained an extensive library of reusable platform and domain widgets.
+The server was a Symfony and Doctrine application organised into domain-oriented bundles. Business areas such as institutes, enquiries, staff and messaging were separated from shared infrastructure such as users, security, profiles, contacts, file management, configuration, email, SMS and API support.
 
-General components included entity grids, entity selectors, date pickers, file uploads, search controls, pagination, lookup controls, charts and loading indicators.
+A custom Breeze server integration (predating my later `breeze.server.php` library) connected the Doctrine domain model to the BreezeJS client, providing metadata generation, query translation and transactional save processing.
 
-Domain widgets supported dashboards and workflows across marketing, accounting, enquiries, student engagement, branches, payments, courses, reports and executive summaries.
+## My role
 
-The separation between generic platform components and business-specific widgets helped maintain consistency while allowing complex workflows to evolve independently.
+I served as Co-founder and CTO of Adrotec, the company behind Oxygen. My technical contributions included:
 
-## Metadata-driven administration
+- **Full-stack architecture** — defining the overall system structure, technology selection and client-server integration strategy
+- **Frontend platform design** — architecting the modular SPA and building the Cylinder frontend platform
+- **Reusable component infrastructure** — creating the widget system, shared data services and application shell
+- **Server architecture** — designing the Symfony bundle structure, domain boundaries and shared infrastructure
+- **Client-server integration** — establishing the BreezeJS metadata bridge between the frontend entities and the Doctrine domain model
+- **Metadata-driven tooling** — designing Magic CRUD to generate administration interfaces from server metadata
+- **Reporting infrastructure** — building the charting widget system, PDF and spreadsheet generation services
+- **Technical leadership** — guiding the engineering team, establishing conventions and reviewing architecture
 
-One of the platform's more experimental capabilities was Magic CRUD.
+I did not write every line of code in the product. I architected the platform, built the core infrastructure, created the reusable components and provided technical direction to the team.
 
-Magic CRUD examined the client's Breeze metadata store, discovered available server entities and generated routes, models, grids and form behaviour from the entity definitions.
+## Engineering highlights
 
-The objective was to reduce repetitive administration development and maintain greater consistency between the server domain model and its management interfaces.
+### Cylinder Frontend Platform
 
-This was an early form of metadata-driven and low-code application development implemented inside the product platform.
+Cylinder was a custom frontend application platform built above Durandal. It combined what we would now recognise as an application shell, a shared component runtime, a data-access abstraction layer, an authentication framework, a module system and a developer productivity toolkit.
 
-## Modular server architecture
+Capabilities included application bootstrap, module loading, routing, authentication, authorisation, HTTP communication, data services, entity management, validation, local storage, translation, dialogs, toast notifications, progress indicators, pagination, charts and a library of reusable widgets.
 
-The server was designed as a domain-oriented modular monolith using Symfony bundles.
+In modern terminology, Cylinder functioned as the platform layer that sat between the framework (Durandal) and the business modules, providing consistent infrastructure that every feature could rely on.
 
-Business areas such as institutes, enquiries, staff and messaging were separated from shared concerns such as users, security, profiles, contacts, files, configuration, email, SMS and API infrastructure.
+### Metadata-Driven Magic CRUD
 
-The server also supported reporting, spreadsheet generation, PDF output, authentication, serialisation and client-side entity metadata.
+Magic CRUD examined the client's Breeze metadata store at runtime, discovered available server entity types, and generated administrative routes, models, grid columns, form fields and validation behaviour from the entity definitions.
 
-This structure allowed Oxygen to maintain a single operational platform while preserving meaningful boundaries between its major business domains.
+The objective was to reduce repetitive CRUD development and maintain consistency between the server domain model and its management interfaces — an early form of metadata-driven administration implemented inside a product platform rather than as a standalone tool.
 
-## Reporting and business intelligence
+### Modular Symfony Server
 
-Oxygen treated reporting as a core product capability.
+The server followed a domain-oriented modular-monolith architecture using Symfony bundles. Business capabilities — institutes, enquiries, staff, messaging — were separated from shared infrastructure — users, security, profiles, contacts, files, configuration, email, SMS and API services.
 
-The platform included marketing, accounting, enquiry, branch, revenue, engagement and executive dashboards. Reusable charting widgets transformed operational data into visual information for different roles across an institution.
+A modular monolith was the right choice because the business domains were deeply interconnected, many workflows crossed institutional areas, a single deployment simplified operations for clients, and Symfony bundles provided meaningful internal boundaries without distributed-system complexity.
 
-Server-side reporting services and PDF and spreadsheet generation complemented the interactive dashboards.
+### Business Intelligence Widgets
 
-## Outcome
+Oxygen treated reporting as a first-class product capability rather than an afterthought. The platform included marketing dashboards, accounting summaries, enquiry reports, branch revenue monitoring, student engagement panels, executive dashboards, status gauges, tabular reports and interactive D3 and C3 visualisations.
 
-Oxygen evolved into a broad education CRM and institutional operations platform with editions designed for organisations ranging from smaller institutes to larger multi-branch education providers.
+Server-side reporting services and PDF and spreadsheet generation complemented the interactive dashboards, serving marketers, administrators, cashiers, finance teams, managers and executives from the same platform.
 
-The historical product website documented a footprint across Sri Lanka, India, Qatar, Australia and Papua New Guinea.
+## Building before the modern JavaScript stack
 
-More importantly for my engineering journey, Oxygen established the architectural principles that still influence my work:
+The technology choices reflect the constraints and ecosystem of the early-to-mid 2010s.
 
-- Design platforms rather than disconnected features
-- Create strong domain boundaries
-- Automate repetitive development
-- Treat reusable components as product infrastructure
-- Connect frontend and backend architecture deliberately
-- Build systems around real operational workflows
-- Use technology to improve both user and developer productivity
+### Frontend foundation
 
-## Looking back
+**Durandal, Knockout, BreezeJS, RequireJS** — a modular SPA with client-side entities, change tracking and AMD module loading, all assembled manually before integrated frameworks existed.
 
-The technologies used by Oxygen are now part of an earlier generation of web development. The architectural problems, however, remain highly relevant.
+### Build and tooling
 
-Modern frameworks make many implementation tasks easier, but they do not replace the need for domain modelling, modularity, platform thinking, technical leadership and sound architectural decisions.
+**Gulp, Babel, Traceur, Bower, npm, Sass** — transpilation, package management and build orchestration wired together by hand instead of provided by a single tool.
 
-Oxygen represents an important stage in my journey — from building applications to designing the platforms on which applications are built.
+### Visualisation
+
+**D3, C3** — custom charting and dashboard visualisations rendered from operational data.
+
+### Backend
+
+**Symfony, Doctrine, PHP** — a modular server with domain-oriented bundles and a rich ORM layer.
+
+### Infrastructure
+
+**Custom Web API, Breeze integration, PDF and spreadsheet generation** — the integration, serialisation and reporting layers that connected the frontend and backend.
+
+Many responsibilities now handled by a single framework — routing, data fetching, state management, build optimisation and developer tooling — had to be designed, integrated and maintained independently.
+
+## Architectural trade-offs
+
+Cylinder provided real productivity benefits for the team. Business modules could rely on shared infrastructure for authentication, data access, validation, translation and common UI patterns. New features were built faster because the platform handled the repetitive concerns.
+
+The trade-off was maintenance. A custom platform layer required ongoing investment to keep pace with changes in the underlying frameworks, browser APIs and developer tooling. The Breeze metadata integration created strong coupling between the client entity model and the Doctrine schema — valuable for productivity but costly to change.
+
+The build pipeline — Gulp, Babel, Traceur, Bower, npm — reflected the transitional state of frontend tooling at the time. Each tool solved a real problem, but the combination required active maintenance.
+
+These trade-offs were appropriate for the product's stage and era. The platform accelerated feature development across a large domain, and the tight integration between client and server was a deliberate choice that prioritised team productivity over architectural flexibility. The repositories should be treated as historical references, not modern starter templates.
+
+## Lasting lessons
+
+Oxygen established architectural principles that still influence my work today.
+
+- **Build platforms, not isolated features.** The most durable contribution was Cylinder — not any single business module, but the infrastructure that made building modules consistent.
+- **Create meaningful domain boundaries.** The Symfony bundle structure kept the codebase navigable as the product grew across many business areas.
+- **Automate repetitive engineering work.** Magic CRUD was an early recognition that generating code from metadata is often more reliable than writing it by hand.
+- **Treat reusable UI as product infrastructure.** Widgets are not an afterthought — they are the mechanism through which a product maintains consistency at scale.
+- **Align client and server architecture deliberately.** The BreezeJS metadata integration was expensive to build and maintain. It was worth the cost because it gave the team a unified data model across the full stack.
+- **Modern AI accelerates architecture experience; it does not replace it.** The problems Oxygen solved — domain modelling, platform design, integration strategy, team leadership — are the same problems that senior engineers solve today, regardless of the tools.
+
+## Source and archive links
+
+These repositories are historical archives. They reflect the technology and conventions of their era and are not maintained or recommended for production use.
+
+- [Oxygen client repository](https://github.com/safrazik/oxygen-client) — Durandal, Knockout, BreezeJS SPA with Cylinder platform
+- [Oxygen server repository](https://github.com/safrazik/oxygen-server) — Symfony, Doctrine, domain-oriented modular backend
+- [Archived product website](https://web.archive.org/web/20190226152808/http://oxygen.adrotec.com/) — historical product page and screenshots
