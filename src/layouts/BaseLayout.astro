@@ -87,7 +87,7 @@ if (commentsConfig?.enabled) {
 ---
 
 <!doctype html>
-<html lang={locale} class="scroll-smooth dark" data-theme="sky" data-theme-mode="system">
+<html lang={locale} class="scroll-smooth" data-theme="sky" data-theme-mode="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -158,7 +158,7 @@ if (commentsConfig?.enabled) {
             const stored = localStorage.getItem('theme');
             if (VALID_MODES.indexOf(stored) !== -1) return stored;
           } catch { /* private mode / disabled storage */ }
-          return 'system';
+          return 'light';
         }
 
         function applyMode(el) {
