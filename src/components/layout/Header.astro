@@ -596,6 +596,7 @@ const buttonId = `${menuId}-button`;
           header.classList.add('rounded-t-2xl');
         } else {
           header.classList.add('!bg-background');
+          header.classList.add('nav-expanded');
         }
 
         const mainContent = document.querySelector('main');
@@ -659,6 +660,7 @@ const buttonId = `${menuId}-button`;
             }
           } else {
             header.classList.remove('!bg-background');
+            header.classList.remove('nav-expanded');
           }
 
           isOpen = false;

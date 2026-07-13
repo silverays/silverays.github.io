@@ -405,9 +405,7 @@
       "proofStrip": [
         { "text": "15+ years in software engineering" },
         { "text": "Fortune 500 experience" },
-        { "text": "Founder & CTO background" },
-        { "text": "Open-source creator" },
-        { "text": "Products used by real businesses" }
+        { "text": "Founder & CTO background" }
       ],
       "services": {
         "badge": "Capabilities",

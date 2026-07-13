@@ -4,8 +4,67 @@ footer .zetmel-brand-text { margin-left: -93px !important; }
 
 header.landing-header:not([data-scrolled]) {
     background: transparent;
+    /* background: oklch(9.5% 0.012 222); */
     border-color: transparent;
 }
+
+:root:not(.dark) header.landing-header:not([data-scrolled]) {
+    /* background: transparent;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: transparent;
+    border-bottom-color: rgba(0, 0, 0, 0);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none; */
+}
+
+/* :root:not(.dark) header.landing-header:not([data-scrolled]) .hdr-inner {
+    background: transparent;
+} */
+
+:root:not(.dark) header.landing-header:not([data-scrolled]) .hdr-inner nav a {
+    background: rgba(0, 0, 0, 0);
+    /* color: oklch(0.91 0.008 222); */
+    /* color: var(--nav-link-color); */
+    color: #9d9698;
+}
+
+:root:not(.dark) header.landing-header:not([data-scrolled]) .hdr-inner nav a.nav-link-active {
+  color: var(--color-foreground);
+  color: #e6dfe1;
+  background-color: var(--color-secondary);
+  /* background: #191516; */
+  background-color: oklch(0.2 0.008 222);
+}
+
+:root:not(.dark) header.landing-header:not([data-scrolled]) .hdr-inner nav a:hover {
+    background: oklch(0.2 0.008 222);
+    color: oklch(0.91 0.008 222);
+}
+
+
+:root:not(.dark) header.landing-header:not([data-scrolled]):not(.nav-expanded) .hdr-inner .search-wrapper > button,
+:root:not(.dark) header.landing-header:not([data-scrolled]):not(.nav-expanded) .hdr-inner .ttg-wrapper > button {
+    background: transparent;
+    color: #9d9698;
+    border-color: oklch(0.27 0.008 222);
+}
+
+:root:not(.dark) header.landing-header:not([data-scrolled]):not(.nav-expanded) .hdr-inner .search-wrapper > button:hover,
+:root:not(.dark) header.landing-header:not([data-scrolled]):not(.nav-expanded) .hdr-inner .search-wrapper > button[aria-expanded="true"],
+:root:not(.dark) header.landing-header:not([data-scrolled]):not(.nav-expanded) .hdr-inner .ttg-wrapper > button:hover,
+:root:not(.dark) header.landing-header:not([data-scrolled]):not(.nav-expanded) .hdr-inner .ttg-wrapper > button[aria-expanded="true"] {
+    /* background: oklch(0.2 0.008 222); */
+    color: #e6dfe1;
+}
+
+:root:not(.dark) header.landing-header:not([data-scrolled]):not(.nav-expanded) .hdr-inner button.hdr-hamburger {
+  color: #e6dfe1;
+  background-color: oklch(0.2 0.008 222);
+}
+
+
+
 
 .hero-dark-gradient {
     background-color: #000;
