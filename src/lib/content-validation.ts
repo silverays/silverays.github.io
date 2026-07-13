@@ -75,7 +75,7 @@ export function collectSlugRecords(
     records.push({
       source: `projects: ${project.id}`,
       locale,
-      path: `/projects/${localeStrippedSlug(project.id, locale)}`,
+      path: `/work/${localeStrippedSlug(project.id, locale)}`,
     });
   }
 

@@ -70,20 +70,18 @@ export interface ResolvedNavItem {
 
 export const navItems: NavItem[] = [
   { label: 'Home', href: '/', order: 0, labelKey: 'nav.items.home' },
-  { label: 'Work', href: '/projects', order: 1, labelKey: 'nav.items.projects' },
+  { label: 'Work', href: '/work', order: 1, labelKey: 'nav.items.projects' },
   { label: 'Services', href: '/services', order: 2, labelKey: 'nav.items.services' },
-  { label: 'Open Source', href: '/open-source', order: 3, labelKey: 'nav.items.openSource' },
-  { label: 'Blog', href: '/blog', order: 4, labelKey: 'nav.items.blog' },
-  { label: 'About', href: '/about', order: 5, labelKey: 'nav.items.about' },
-  { label: 'Contact', href: '/contact', order: 6, labelKey: 'nav.items.contact' },
+  { label: 'Blog', href: '/blog', order: 3, labelKey: 'nav.items.blog' },
+  { label: 'About', href: '/about', order: 4, labelKey: 'nav.items.about' },
+  { label: 'Contact', href: '/contact', order: 5, labelKey: 'nav.items.contact' },
 ];
 
 export const footerNavItems: NavItem[] = [
   { label: 'Home', href: '/', order: 0, labelKey: 'nav.items.home' },
-  { label: 'Work', href: '/projects', order: 1, labelKey: 'nav.items.projects' },
+  { label: 'Work', href: '/work', order: 1, labelKey: 'nav.items.projects' },
   { label: 'Services', href: '/services', order: 2, labelKey: 'nav.items.services' },
-  { label: 'Open Source', href: '/open-source', order: 3, labelKey: 'nav.items.openSource' },
-  { label: 'Blog', href: '/blog', order: 4, labelKey: 'nav.items.blog' },
+  { label: 'Blog', href: '/blog', order: 3, labelKey: 'nav.items.blog' },
   { label: 'About', href: '/about', order: 5, labelKey: 'nav.items.about' },
   { label: 'Contact', href: '/contact', order: 6, labelKey: 'nav.items.contact' },
 ];
