@@ -24,7 +24,7 @@ Vue File Agent is a file upload component for Vue.js that I designed and built f
 
 The component grew into a full-featured library with over 700 GitHub stars, 88 forks, 15 published releases and contributions from the community. It includes two official themes, a plugin-based architecture, an event-driven state machine, drag-and-drop with folder support, resumable uploads via the tus.io protocol, server-side validation handling and official upload-server examples for PHP and Node.js.
 
-A second generation — File Agent v2 — is in development, rewritten as a framework-agnostic library supporting React, Vue and vanilla JavaScript.
+A second generation — File Agent v2 — was started as a framework-agnostic rewrite supporting React, Vue and vanilla JavaScript, but development was set aside before completion. The v1 library remains the stable, published version.
 
 **Key facts:**
 
@@ -33,7 +33,6 @@ A second generation — File Agent v2 — is in development, rewritten as a fram
 - Written in TypeScript with SCSS styling
 - Zero external dependencies — 17KB minified and gzipped
 - 48 issues and 32 pull requests handled
-- V2 in development with React, Vue and vanilla JS support
 
 ## The problem it solved
 
@@ -86,12 +85,6 @@ The repository received 48 issues and 32 pull requests over its active life. Com
 
 Maintaining an open-source component at this level taught me that API design is the most important skill — every prop, event and slot must be justified because someone else will depend on its stability. Writing clear documentation and migration guides between releases was as important as writing the code itself.
 
-## File Agent v2
-
-A second generation of the library — [File Agent v2](https://github.com/safrazik/file-agent-v2) — is in development. It has been rewritten as a framework-agnostic upload library built with TypeScript, using a Lerna monorepo structure and supporting React, Vue and vanilla JavaScript from a single codebase.
-
-The v2 design reflects lessons learned from the Vue-only version: a cleaner separation between the upload engine and UI adapters, improved TypeScript types, better extensibility and a smaller core footprint.
-
 ## What I learned
 
 Building Vue File Agent taught me more about component API design than any client project. Every prop, event and slot had to be justified — not just for current use cases, but for future ones I could not yet predict.
@@ -102,5 +95,4 @@ The project also demonstrated the value of developer tooling. Providing upload-s
 
 - [Vue File Agent website](https://safrazik.github.io/vue-file-agent/) — documentation, examples and live demo
 - [GitHub repository](https://github.com/safrazik/vue-file-agent) — source code, issues and releases
-- [File Agent v2](https://github.com/safrazik/file-agent-v2) — next-generation framework-agnostic upload library
 - [CodePen playground](https://codepen.io/) — interactive demo (see website for direct link)
