@@ -101,8 +101,8 @@ const faqs = defineCollection({
 });
 
 // Projects collection — one MDX file per project
-const projects = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/projects' }),
+const work = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/work' }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -175,5 +175,5 @@ export const collections = {
   authors,
   faqs,
   stack,
-  projects,
+  work,
 };

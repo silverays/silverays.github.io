@@ -81,8 +81,8 @@ export function getSecondaryLocales(): string[] {
  */
 export async function getVisibleProjects(
   locale: string = defaultLocale,
-): Promise<CollectionEntry<'projects'>[]> {
-  const all = await getCollection('projects', ({ data }) => {
+): Promise<CollectionEntry<'work'>[]> {
+  const all = await getCollection('work', ({ data }) => {
     return data.locale === locale && (import.meta.env.PROD ? data.draft !== true : true);
   });
   return all.sort((a, b) => a.data.order - b.data.order);
@@ -109,7 +109,7 @@ export async function getProjectTranslations(
   _currentLocale: string = defaultLocale,
 ): Promise<{ locale: string; url: string }[]> {
   if (!isEnabled()) return [];
-  const all = await getCollection('projects', ({ data }) => {
+  const all = await getCollection('work', ({ data }) => {
     return import.meta.env.PROD ? data.draft !== true : true;
   });
   const results: { locale: string; url: string }[] = [];
@@ -123,13 +123,13 @@ export async function getProjectTranslations(
 }
 
 /** All unique tags across the given projects, alphabetically sorted. */
-export function collectProjectTags(projects: CollectionEntry<'projects'>[]): string[] {
+export function collectProjectTags(projects: CollectionEntry<'work'>[]): string[] {
   return [...new Set(projects.flatMap((p) => p.data.tags))].sort();
 }
 
 /** Tag occurrence counts across the given projects, sorted by count desc then alpha. */
 export function collectProjectTagsWithCounts(
-  projects: CollectionEntry<'projects'>[]
+  projects: CollectionEntry<'work'>[]
 ): { tag: string; count: number }[] {
   const counts = new Map<string, number>();
   for (const p of projects) {
@@ -144,7 +144,7 @@ export function collectProjectTagsWithCounts(
 
 /** The most-used tags across the given projects, capped at `limit`. */
 export function collectTopProjectTags(
-  projects: CollectionEntry<'projects'>[],
+  projects: CollectionEntry<'work'>[],
   limit: number
 ): string[] {
   return collectProjectTagsWithCounts(projects)

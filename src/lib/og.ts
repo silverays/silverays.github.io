@@ -144,7 +144,7 @@ export function getBlogOgPath(slug: string): string {
 
 /** Path (relative to site root) for a project's dynamic OG image. */
 export function getProjectOgPath(slug: string): string {
-  return `/og/projects/${slug}.svg`;
+  return `/og/work/${slug}.svg`;
 }
 
 /** Path for a generic dynamic OG image (used for tag/page archives). */

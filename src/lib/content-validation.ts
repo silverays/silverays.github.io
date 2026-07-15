@@ -145,7 +145,7 @@ export async function assertNoSlugCollisions(): Promise<void> {
   const [posts, pages, projects] = await Promise.all([
     getCollection('blog'),
     getCollection('pages'),
-    getCollection('projects'),
+    getCollection('work'),
   ]);
 
   const publishablePosts = posts.filter((post) => post.data.draft !== true);

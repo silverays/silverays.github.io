@@ -5,7 +5,7 @@ import { getProjectSlug } from '@/lib/projects';
 import { defaultLocale } from '@/i18n';
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const projects = await getCollection('projects', ({ data }) => {
+  const projects = await getCollection('work', ({ data }) => {
     return data.locale === defaultLocale && (import.meta.env.PROD ? data.draft !== true : true);
   });
   return projects.map((project) => ({
