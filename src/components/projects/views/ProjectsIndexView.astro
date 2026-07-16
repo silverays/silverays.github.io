@@ -90,71 +90,9 @@ const aboutUrl = localizedPath('/about', locale);
     </section>
   )}
 
-  <!-- Open Source -->
-  <section class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
-    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
-      <div class="flex flex-col items-center gap-6 text-center" data-reveal>
-        <Badge variant="brand" pill>
-          <Icon name="code-2" size="sm" />
-          Open Source
-        </Badge>
-        <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">Tools I've built</h2>
-        <p class="text-lg text-foreground-muted max-w-2xl mx-auto">
-          Developer tooling has been a recurring part of my career\u2014from early generators and internal frameworks
-          to Vue File Agent and Rockplate. These projects reflect how I approach engineering: remove friction,
-          create reusable systems and make complex work easier to understand.
-        </p>
-      </div>
-
-      <div class="grid gap-6 md:grid-cols-2" data-reveal-children>
-        <Card variant="elevated" padding="lg" hover={true} href="https://github.com/safrazik/vue-file-agent" target="_blank" rel="noopener noreferrer" class="flex flex-col gap-4">
-          <div class="flex items-center gap-3">
-            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-500/10 text-brand-500">
-              <Icon name="upload" size="lg" />
-            </div>
-            <div>
-              <h3 class="font-display text-xl font-bold text-foreground">Vue File Agent</h3>
-              <p class="text-sm text-foreground-muted">700+ stars on GitHub</p>
-            </div>
-          </div>
-          <p class="text-foreground-muted leading-relaxed">
-            A high-performance Vue file-upload component with drag-and-drop, validation, previews, upload progress,
-            server-side error handling, sorting and resumable-upload support.
-          </p>
-          <div class="flex flex-wrap gap-2 mt-auto">
-            <span class="rounded-md bg-brand-500/10 px-2.5 py-1 text-xs font-medium text-brand-600">Vue.js</span>
-            <span class="rounded-md bg-brand-500/10 px-2.5 py-1 text-xs font-medium text-brand-600">JavaScript</span>
-            <span class="rounded-md bg-brand-500/10 px-2.5 py-1 text-xs font-medium text-brand-600">Open Source</span>
-          </div>
-        </Card>
-
-        <Card variant="elevated" padding="lg" hover={true} href="https://github.com/rockplate/rockplate" target="_blank" rel="noopener noreferrer" class="flex flex-col gap-4">
-          <div class="flex items-center gap-3">
-            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-500/10 text-brand-500">
-              <Icon name="code" size="lg" />
-            </div>
-            <div>
-              <h3 class="font-display text-xl font-bold text-foreground">Rockplate</h3>
-              <p class="text-sm text-foreground-muted">Template engine + VS Code extension</p>
-            </div>
-          </div>
-          <p class="text-foreground-muted leading-relaxed">
-            A next-generation programming language for templates with a dedicated VS Code extension providing
-            syntax highlighting and linting. Demonstrates lexer/AST, language-design and developer-experience
-            interests beyond ordinary application development.
-          </p>
-          <div class="flex flex-wrap gap-2 mt-auto">
-            <span class="rounded-md bg-brand-500/10 px-2.5 py-1 text-xs font-medium text-brand-600">JavaScript</span>
-            <span class="rounded-md bg-brand-500/10 px-2.5 py-1 text-xs font-medium text-brand-600">Node.js</span>
-            <span class="rounded-md bg-brand-500/10 px-2.5 py-1 text-xs font-medium text-brand-600">VS Code</span>
-          </div>
-        </Card>
-      </div>
-    </div>
-  </section>
 
   <!-- CTA -->
-  <section class="relative z-10 py-[var(--space-section-md)] bg-background">
+  <section class="relative z-10 py-[var(--space-section-md)] bg-background border-t">
     <!-- Mobile: flat section, no card -->
     <div class="glitch:hidden mx-auto max-w-2xl px-6 text-center" data-reveal>
       <Badge variant="brand" pill class="mb-6">{t('projects.ctaBadge', locale)}</Badge>
