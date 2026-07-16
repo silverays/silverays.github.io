@@ -46,7 +46,7 @@ const {
   includePersonSchema = false,
   includeProfessionalServiceSchema = false,
   extraSchemas = [],
-  eagerReveal = false,
+  eagerReveal = true,
   localeAlternates,
 } = Astro.props;
 
@@ -211,7 +211,7 @@ if (commentsConfig?.enabled) {
     </script>
   </head>
 
-  <body class="min-h-screen bg-background text-foreground antialiased" data-eager-reveal={eagerReveal ? '' : undefined}>
+  <body class="min-h-screen bg-background text-foreground antialiased" data-eager-reveal={true ? '' : undefined}>
     <!-- Skip to content link -->
     <a
       href="#main-content"
