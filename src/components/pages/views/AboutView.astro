@@ -164,50 +164,50 @@ const cta = tData<{ badge: string; heading: string; description: string; button:
   />
 
   <!-- Beyond Software -->
-  <section class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
+  <section class="relative z-10 py-[var(--space-section-md)] bg-background border-t border-border">
     <div class="mx-auto max-w-6xl px-6">
-      <div class="grid gap-10 glitch:grid-cols-2 glitch:gap-12 items-center">
-        <div class="flex flex-col justify-center gap-4 sm:items-center sm:text-center glitch:items-start glitch:text-left" data-reveal>
-          <div class="flex flex-col gap-6 sm:items-center glitch:items-start">
+      <div class="grid gap-10 glitch:grid-cols-2 glitch:gap-12">
+        <div class="flex flex-col justify-center sm:items-center sm:text-center glitch:items-start glitch:text-left" data-reveal data-reveal-ease="smooth">
+          <div class="flex flex-col gap-6 mb-6 sm:items-center glitch:items-start">
             <Badge variant="brand" pill class="self-start sm:self-center glitch:self-start">Beyond Software</Badge>
-            <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground text-balance">
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
               Engineering curiosity <br class="sm:hidden" /><span class="text-brand-500">beyond the screen</span>
             </h2>
           </div>
-          <p class="text-lg text-foreground-muted leading-relaxed sm:max-w-xl sm:mx-auto glitch:max-w-none glitch:mx-0">
+          <p class="text-lg text-foreground-muted leading-relaxed mb-4 sm:mb-0 sm:max-w-xl glitch:mb-4 glitch:max-w-none">
             My engineering interests extend into electronics, IoT and smart devices.
             I enjoy connecting software with physical controls, sensors and automation\u2014from
             custom Arduino systems to smart-home experiments.
           </p>
         </div>
-        <div class="flex justify-center" data-reveal data-reveal-delay="1">
-          <div class="grid grid-cols-2 gap-4">
-            <div class="bg-surface rounded-xl p-6 flex flex-col items-center text-center gap-3 border-t-2 border-brand-500/40 shadow-sm">
+        <Card variant="elevated" padding="lg" class="h-full flex flex-col" data-reveal data-reveal-delay="1" data-reveal-ease="smooth">
+          <div class="grid grid-cols-2 gap-3 flex-1 auto-rows-fr">
+            <div class="bg-background-tertiary rounded-xl p-5 flex flex-col items-center justify-center text-center gap-2 border-t-2 border-brand-500/40 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-brand-500 cursor-default h-full">
               <svg class="w-8 h-8 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 3.75H6.912a2.25 2.25 0 00-2.15 1.588L2.35 13.177a2.25 2.25 0 00-.1.661V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 00-2.15-1.588H15M2.25 13.5h3.86a2.25 2.25 0 012.012 1.244l.256.512a2.25 2.25 0 002.013 1.244h3.218a2.25 2.25 0 002.013-1.244l.256-.512a2.25 2.25 0 012.013-1.244h3.859" />
               </svg>
               <span class="text-sm font-semibold text-foreground">Electronics</span>
             </div>
-            <div class="bg-surface rounded-xl p-6 flex flex-col items-center text-center gap-3 border-t-2 border-brand-500/40 shadow-sm">
+            <div class="bg-background-tertiary rounded-xl p-5 flex flex-col items-center justify-center text-center gap-2 border-t-2 border-brand-500/40 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-brand-500 cursor-default h-full">
               <svg class="w-8 h-8 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h9m-4.5 9L12 21m0 0L7.5 12m4.5 9h9M3 12l4.5 4.5M12 3l4.5 4.5M21 12l-4.5-4.5M12 3v18m4.5-4.5L12 21" />
               </svg>
               <span class="text-sm font-semibold text-foreground">IoT</span>
             </div>
-            <div class="bg-surface rounded-xl p-6 flex flex-col items-center text-center gap-3 border-t-2 border-brand-500/40 shadow-sm">
+            <div class="bg-background-tertiary rounded-xl p-5 flex flex-col items-center justify-center text-center gap-2 border-t-2 border-brand-500/40 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-brand-500 cursor-default h-full">
               <svg class="w-8 h-8 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
               </svg>
               <span class="text-sm font-semibold text-foreground">Arduino</span>
             </div>
-            <div class="bg-surface rounded-xl p-6 flex flex-col items-center text-center gap-3 border-t-2 border-brand-500/40 shadow-sm">
+            <div class="bg-background-tertiary rounded-xl p-5 flex flex-col items-center justify-center text-center gap-2 border-t-2 border-brand-500/40 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-brand-500 cursor-default h-full">
               <svg class="w-8 h-8 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z" />
               </svg>
               <span class="text-sm font-semibold text-foreground">Smart Devices</span>
             </div>
           </div>
-        </div>
+        </Card>
       </div>
     </div>
   </section>
