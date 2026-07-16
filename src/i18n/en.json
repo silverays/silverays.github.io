@@ -230,6 +230,13 @@
         "title": "Technology Stack",
         "description": "Technologies I work with regularly."
       },
+      "beyondSoftware": {
+        "badge": "Beyond Software",
+        "headingLine1": "Engineering curiosity",
+        "headingLine2": "beyond the screen",
+        "description": "My engineering interests extend into electronics, IoT and smart devices. I enjoy connecting software with physical controls, sensors and automation\u2014from custom Arduino systems to smart-home experiments.",
+        "tiles": ["Electronics", "IoT", "Arduino", "Smart Devices"]
+      },
       "faq": {
         "badge": "Good to know",
         "heading": "Frequently asked questions",
