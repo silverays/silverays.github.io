@@ -370,31 +370,15 @@
         "titleHighlight": "the codebase or the unfinished product.",
         "description": "Share what you are trying to build or improve. I'll help identify the clearest engineering path forward."
       },
-      "formTitle": "Project details",
-      "channelsTitle": "Other channels",
-      "channelsSubtitle": "Prefer a direct channel? Pick whichever works best.",
+      "introHeading": "Let's work together",
+      "introBody": "I'm always open to discussing new projects, ideas, or opportunities to help improve your software. Whether you need a product built, a codebase reviewed, an unfinished application recovered, or senior engineering guidance \u2014 send me an email and I'll get back to you within a working day.",
+      "introCta": "Prefer a direct message? Pick whichever channel works best.",
+      "channelsTitle": "Reach out directly",
+      "channelsSubtitle": "",
       "emailLabel": "Email",
       "emailNote": "safrazik@zetmel.com",
       "socialNote": "Connect on",
-      "basedIn": "Based in {country}",
-      "formFields": {
-        "name": "Name",
-        "email": "Email",
-        "company": "Company",
-        "projectDescription": "What are you building or improving?",
-        "currentStage": "Current stage",
-        "stageOptions": ["Idea / Concept", "In development", "Unfinished MVP", "Live product"],
-        "engagementType": "Preferred engagement",
-        "engagementOptions": ["Product development", "Product audit & recovery", "Technical review", "Consulting / advising", "Full-time role"],
-        "budget": "Budget range (optional)",
-        "budgetOptions": ["Under $5K", "$5K\u2013$15K", "$15K\u2013$50K", "$50K+", "Not sure yet"],
-        "timeline": "Timeline (optional)",
-        "timelineOptions": ["ASAP", "1\u20133 months", "3\u20136 months", "Flexible"],
-        "send": "Send message",
-        "sending": "Sending\u2026",
-        "success": "Message sent successfully!",
-        "error": "Failed to send message. Please try again."
-      }
+      "basedIn": "Based in {country}"
     },
     "home": {
       "meta": {

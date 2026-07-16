@@ -13,7 +13,6 @@ import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import Badge from '@/components/ui/data-display/Badge/Badge.astro';
 import Card from '@/components/ui/data-display/Card/Card.astro';
 import { Hero } from '@/components/hero';
-import ContactForm from '@/components/patterns/ContactForm.astro';
 import siteConfig from '@/config/site.config';
 import { resolveSocialLinks } from '@/lib/utils';
 import { t, tData, defaultLocale } from '@/i18n';
@@ -78,12 +77,27 @@ const channels = [
     <div class="relative z-10 mx-auto max-w-5xl px-6">
       <div class="grid grid-cols-1 glitch:grid-cols-5 gap-10 glitch:gap-16 items-stretch">
 
-        <!-- Left column: contact form -->
-        <div class="glitch:col-span-3 h-full sm:max-w-xl sm:mx-auto glitch:max-w-none glitch:mx-0" data-reveal data-reveal-ease="smooth">
-          <Card padding="lg" class="h-full flex flex-col justify-center">
-            <h2 class="font-display text-xl font-bold text-foreground mb-6 sm:text-center glitch:text-left">{t('pages.contact.formTitle', locale)}</h2>
-            <ContactForm />
-          </Card>
+        <!-- Left column: personal message -->
+        <div class="glitch:col-span-3 h-full sm:max-w-xl sm:mx-auto glitch:max-w-none glitch:mx-0 flex flex-col justify-center" data-reveal data-reveal-ease="smooth">
+          <div class="flex flex-col gap-6 sm:text-center glitch:text-left">
+            <div>
+              <Badge variant="brand" pill class="mb-4 self-start sm:mx-auto glitch:mx-0">
+                <Icon name="sparkles" size="sm" />
+                {t('pages.contact.introHeading', locale)}
+              </Badge>
+              <p class="text-lg text-foreground-muted leading-relaxed max-w-xl">
+                {t('pages.contact.introBody', locale)}
+              </p>
+            </div>
+            <a
+              href={`mailto:${siteConfig.email}`}
+              class="inline-flex items-center gap-3 rounded-xl bg-brand-500 px-6 py-4 text-white font-semibold text-base hover:bg-brand-600 transition-colors self-start sm:self-center glitch:self-start w-auto"
+            >
+              <Icon name="mail" size="md" />
+              {siteConfig.email}
+              <Icon name="arrow-right" size="sm" />
+            </a>
+          </div>
         </div>
 
         <!-- Right column: contact channels -->
