@@ -23,7 +23,7 @@ body:
     attributes:
       label: Live URL
       description: The site must be publicly reachable.
-      placeholder: https://example.com
+      placeholder: https://zetmel.com
     validations:
       required: true
   - type: textarea
