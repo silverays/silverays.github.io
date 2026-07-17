@@ -36,6 +36,3 @@ Built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.c
 | `npm run build` | Build site + Pagefind search index |
 | `npm run preview` | Preview production build |
 
-## License
-
-MIT
