@@ -6,6 +6,7 @@ export type { I18nConfig };
 
 export interface SiteConfig {
   name: string;
+  jobTitle: string;
   description: string;
   url: string;
   ogImage: string;
@@ -241,6 +242,7 @@ export interface SiteConfig {
 
 const siteConfig: SiteConfig = {
   name: 'Safraz Razik',
+  jobTitle: 'Founder & Senior Software Engineer',
   description:
     'Safraz Razik is a founder and senior software engineer with 15+ years of experience. Zetmel provides AI-accelerated product development, modernization, technical review and product recovery.',
   url: SITE_URL || 'https://zetmel.com',
@@ -257,6 +259,7 @@ const siteConfig: SiteConfig = {
   socialLinks: [
     'https://github.com/safrazik',
     'https://linkedin.com/in/safrazik',
+    'https://x.com/safrazik',
   ],
   header: {
     showSocialLinks: false,
