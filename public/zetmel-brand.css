@@ -44,7 +44,9 @@ header.landing-header:not([data-scrolled]) {
 
 
 :root:not(.dark) header.landing-header:not([data-scrolled]):not(.nav-expanded) .hdr-inner .search-wrapper > button,
-:root:not(.dark) header.landing-header:not([data-scrolled]):not(.nav-expanded) .hdr-inner .ttg-wrapper > button {
+:root:not(.dark) header.landing-header:not([data-scrolled]):not(.nav-expanded) .hdr-inner .ttg-wrapper > button,
+:root:not(.dark) header.landing-header:not([data-scrolled]):not(.nav-expanded) .hdr-inner .social-links-wrapper > a
+{
     background: transparent;
     color: #9d9698;
     border-color: oklch(0.27 0.008 222);
@@ -53,7 +55,9 @@ header.landing-header:not([data-scrolled]) {
 :root:not(.dark) header.landing-header:not([data-scrolled]):not(.nav-expanded) .hdr-inner .search-wrapper > button:hover,
 :root:not(.dark) header.landing-header:not([data-scrolled]):not(.nav-expanded) .hdr-inner .search-wrapper > button[aria-expanded="true"],
 :root:not(.dark) header.landing-header:not([data-scrolled]):not(.nav-expanded) .hdr-inner .ttg-wrapper > button:hover,
-:root:not(.dark) header.landing-header:not([data-scrolled]):not(.nav-expanded) .hdr-inner .ttg-wrapper > button[aria-expanded="true"] {
+:root:not(.dark) header.landing-header:not([data-scrolled]):not(.nav-expanded) .hdr-inner .ttg-wrapper > button[aria-expanded="true"],
+:root:not(.dark) header.landing-header:not([data-scrolled]):not(.nav-expanded) .hdr-inner .social-links-wrapper a:hover
+{
     /* background: oklch(0.2 0.008 222); */
     color: #e6dfe1;
 }

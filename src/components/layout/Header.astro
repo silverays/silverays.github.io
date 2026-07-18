@@ -310,7 +310,7 @@ const buttonId = `${menuId}-button`;
             )}
 
             {showSocialLinks && siteConfig.socialLinks.length > 0 && (
-              <div class="hidden lg:flex items-center gap-0.5">
+              <div class="hidden lg:flex items-center gap-0.5 social-links-wrapper">
                 {siteConfig.socialLinks.map((url) => {
                   const { icon, label } = getSocialIconData(url);
                   return (
