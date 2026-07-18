@@ -88,8 +88,12 @@ export default defineConfig({
   // rendering — significant whitespace between inline tags is preserved.
   compressHTML: true,
 
+  outDir: './dist',
+
   build: {
     inlineStylesheets: 'always',
+    format: 'directory',
+    client: '.',
   },
 
   env: {
