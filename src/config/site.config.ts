@@ -248,7 +248,7 @@ const siteConfig: SiteConfig = {
   url: SITE_URL || 'https://zetmel.com',
   ogImage: '/og-default.svg',
   author: 'Safraz Razik',
-  email: 'safrazik@zetmel.com',
+  email: 'safrazik@gmail.com',
   address: {
     street: '',
     city: 'Puttalam',
@@ -258,15 +258,10 @@ const siteConfig: SiteConfig = {
   },
   socialLinks: [
     'https://github.com/safrazik',
-    'https://linkedin.com/in/safrazik',
-    'https://x.com/safrazik',
+    'https://linkedin.com/in/safrazik'
   ],
   header: {
     showSocialLinks: false,
-  },
-  twitter: {
-    site: 'https://zetmel.com',
-    creator: '@safrazik',
   },
   verification: {
     google: GOOGLE_SITE_VERIFICATION,
