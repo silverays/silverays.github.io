@@ -89,14 +89,20 @@ const channels = [
                 {t('pages.contact.introBody', locale)}
               </p>
             </div>
-            <a
-              href={`mailto:${siteConfig.email}`}
-              class="inline-flex items-center gap-3 rounded-xl bg-brand-500 px-6 py-4 text-white font-semibold text-base hover:bg-brand-600 transition-colors self-start sm:self-center glitch:self-start w-auto"
-            >
-              <Icon name="mail" size="md" />
-              {siteConfig.email}
-              <Icon name="arrow-right" size="sm" />
-            </a>
+            <div class="flex flex-wrap items-center gap-3 self-start sm:self-center glitch:self-start">
+              <a
+                href={`mailto:${siteConfig.email}`}
+                class="inline-flex items-center gap-3 rounded-xl bg-brand-500 px-4 py-3 text-white font-semibold text-base hover:bg-brand-600 transition-colors"
+              >
+                <Icon name="mail" size="sm" />
+                {t('pages.contact.emailLabel', locale)}
+                <Icon name="arrow-right" size="sm" />
+              </a>
+              <div class="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-3 py-3">
+                <!-- <Icon name="mail" size="sm" class="text-foreground-muted shrink-0" /> -->
+                <code class="text-foreground font-mono select-all">{siteConfig.email}</code>
+              </div>
+            </div>
           </div>
         </div>
 
