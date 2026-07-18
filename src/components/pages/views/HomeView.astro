@@ -135,7 +135,7 @@ const location = city ? (country ? `${city}, ${country}` : city) : '';
 const aboutPara1 = location
   ? t('pages.home.aboutTeaser.para1WithLocation', locale, { location })
   : t('pages.home.aboutTeaser.para1NoLocation', locale);
-const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
+const basedInDisplay = `${city ? city + ', ' : ''} ${country ? `${country}` : ''}`;
 ---
 
 <LandingLayout

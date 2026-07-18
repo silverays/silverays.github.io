@@ -251,7 +251,7 @@ const siteConfig: SiteConfig = {
   email: 'safrazik@zetmel.com',
   address: {
     street: '',
-    city: 'Colombo',
+    city: 'Puttalam',
     state: '',
     zip: '',
     country: 'Sri Lanka',

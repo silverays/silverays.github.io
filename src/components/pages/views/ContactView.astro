@@ -138,8 +138,8 @@ const channels = [
                 <Icon name="map-pin" size="sm" />
               </div>
               <div>
-                <p class="font-semibold text-sm text-foreground">{siteConfig.address?.city ?? 'Your City'}</p>
-                <p class="text-xs text-foreground-muted mt-0.5">{t('pages.contact.basedIn', locale, { country: siteConfig.address?.country ?? 'Your Country' })}</p>
+                <p class="text-xs text-foreground-muted mt-0.5">{t('pages.contact.basedIn', locale, { country: '' })}</p>
+                <p class="font-semibold text-sm text-foreground">{siteConfig.address?.country ?? 'Your Country'}</p>
               </div>
             </div>
           </Card>
